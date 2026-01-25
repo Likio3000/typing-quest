@@ -1107,7 +1107,7 @@ struct ProblemKeyBar: View {
                     Capsule()
                         .fill(Color(.sRGB, red: 0.93, green: 0.94, blue: 0.96, opacity: 1))
                     Capsule()
-                        .fill(KeyCapView.problemColor(weight: 0.9))
+                        .fill(KeyCapView.nextKeyColor)
                         .frame(width: geometry.size.width * ratio)
                 }
             }

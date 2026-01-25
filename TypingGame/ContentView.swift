@@ -275,8 +275,7 @@ struct ContentView: View {
         return Panel(title: "Keyboard") {
             KeyboardView(
                 highlightedKey: highlightedKey,
-                highlightedShiftKeys: highlightedShiftKeys,
-                problemWeights: [:]
+                highlightedShiftKeys: highlightedShiftKeys
             )
         }
     }
@@ -380,22 +379,6 @@ struct ContentView: View {
         }
     }
 
-    private func keyboardProblemWeights() -> [String: Double] {
-        var totals: [String: Int] = [:]
-
-        for (character, count) in session.errorCounts {
-            guard let descriptor = KeyMapping.keyDescriptor(for: character) else { continue }
-            totals[descriptor.baseKey, default: 0] += count
-        }
-
-        var weights: [String: Double] = [:]
-        for (key, count) in totals {
-            let clamped = min(10, max(0, count))
-            weights[key] = Double(clamped) / 10.0
-        }
-        return weights
-    }
-
     private func activeFingerIdentifiers() -> Set<FingerIdentifier> {
         guard let nextCharacter = session.nextExpectedCharacter(),
               let info = KeyMapping.coachInfo(for: nextCharacter) else {
@@ -496,7 +479,7 @@ enum Theme {
     static let panelShadow = Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.35)
     static let surface = Color(.sRGB, red: 0.13, green: 0.16, blue: 0.24, opacity: 1)
     static let border = Color(.sRGB, red: 0.24, green: 0.28, blue: 0.38, opacity: 1)
-    static let metricBackground = Color(.sRGB, red: 0.18, green: 0.22, blue: 0.32, opacity: 1)
+    static let metricBackground = Theme.accent.opacity(0.2)
     static let keyBase = Color(.sRGB, red: 0.15, green: 0.19, blue: 0.28, opacity: 1)
     static let keyBorder = Color(.sRGB, red: 0.27, green: 0.32, blue: 0.44, opacity: 1)
     static let accent = Color(.sRGB, red: 0.88, green: 0.5, blue: 0.2, opacity: 1)
@@ -1132,7 +1115,6 @@ struct ProblemKeyBar: View {
 struct KeyboardView: View {
     let highlightedKey: String?
     let highlightedShiftKeys: Set<String>
-    let problemWeights: [String: Double]
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -1154,8 +1136,7 @@ struct KeyboardView: View {
     private func highlight(for keyID: String) -> KeyHighlight {
         KeyHighlight(
             isNext: keyID == highlightedKey,
-            isShift: highlightedShiftKeys.contains(keyID),
-            problemWeight: problemWeights[keyID] ?? 0
+            isShift: highlightedShiftKeys.contains(keyID)
         )
     }
 
@@ -1298,17 +1279,11 @@ struct KeyCapView: View {
         if highlight.isShift {
             return Self.shiftKeyColor
         }
-        if highlight.problemWeight > 0 {
-            return Self.problemColor(weight: highlight.problemWeight)
-        }
         return nil
     }
 
     private var textColor: Color {
         if highlight.isNext || highlight.isShift {
-            return Color.white
-        }
-        if highlight.problemWeight > 0.7 {
             return Color.white
         }
         return Theme.primaryText
@@ -1326,15 +1301,6 @@ struct KeyCapView: View {
     static let nextKeyColor = Color(.sRGB, red: 0.88, green: 0.5, blue: 0.2, opacity: 1)
     static let shiftKeyColor = Color(.sRGB, red: 0.31, green: 0.44, blue: 0.62, opacity: 1)
 
-    static func problemColor(weight: Double) -> Color {
-        let clamped = min(1, max(0, weight))
-        let base = (0.72, 0.88, 0.9)
-        let target = (0.32, 0.6, 0.95)
-        let red = base.0 + (target.0 - base.0) * clamped
-        let green = base.1 + (target.1 - base.1) * clamped
-        let blue = base.2 + (target.2 - base.2) * clamped
-        return Color(.sRGB, red: red, green: green, blue: blue, opacity: 1)
-    }
 }
 
 struct KeyboardLegendItem: View {
@@ -1354,7 +1320,6 @@ struct KeyboardLegendItem: View {
 struct KeyHighlight {
     let isNext: Bool
     let isShift: Bool
-    let problemWeight: Double
 }
 
 struct KeyCap: Hashable {

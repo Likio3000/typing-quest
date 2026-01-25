@@ -67,7 +67,7 @@ final class TypingSession: ObservableObject {
             return TypingMetrics(elapsed: elapsed, grossWPM: 0, netWPM: 0, accuracy: 0, kpm: 0)
         }
 
-        let grossWPM = (Double(stats.typedCount) / 5.0) / minutes
+        let grossWPM = (Double(totalKeystrokes) / 5.0) / minutes
         let netWPM = max(0, grossWPM - (Double(stats.uncorrectedErrors) / minutes))
         let accuracy = stats.typedCount > 0 ? Double(stats.correct) / Double(stats.typedCount) : 0
         let kpm = Double(totalKeystrokes) / minutes

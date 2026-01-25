@@ -5,6 +5,10 @@ struct TargetTextScrollView: NSViewRepresentable {
     var attributedText: NSAttributedString
     var scrollIndex: Int
 
+    func makeCoordinator() -> Coordinator {
+        Coordinator()
+    }
+
     func makeNSView(context: Context) -> NSScrollView {
         let textView = TargetTextView()
         textView.isEditable = false
@@ -27,16 +31,16 @@ struct TargetTextScrollView: NSViewRepresentable {
         scrollView.hasVerticalScroller = true
         scrollView.autohidesScrollers = true
 
-        update(textView: textView)
+        update(textView: textView, context: context)
         return scrollView
     }
 
     func updateNSView(_ nsView: NSScrollView, context: Context) {
         guard let textView = nsView.documentView as? NSTextView else { return }
-        update(textView: textView)
+        update(textView: textView, context: context)
     }
 
-    private func update(textView: NSTextView) {
+    private func update(textView: NSTextView, context: Context) {
         textView.textStorage?.setAttributedString(attributedText)
 
         let length = attributedText.length
@@ -44,6 +48,10 @@ struct TargetTextScrollView: NSViewRepresentable {
 
         let caretIndex = max(0, min(scrollIndex, length))
         let previousIndex = max(0, min(caretIndex - 1, length - 1))
+        let lastIndex = context.coordinator.lastScrollIndex
+        context.coordinator.lastScrollIndex = caretIndex
+
+        guard let lastIndex, caretIndex > lastIndex else { return }
 
         if let container = textView.textContainer,
            let layoutManager = textView.layoutManager {
@@ -63,7 +71,7 @@ struct TargetTextScrollView: NSViewRepresentable {
                 withoutAdditionalLayout: true
             )
 
-            // If the caret moved to a new line, scroll to the next line immediately.
+            // Only auto-scroll when typing moves to a new line.
             if abs(caretRect.minY - prevRect.minY) > 0.5,
                let scrollView = textView.enclosingScrollView {
                 let containerOrigin = textView.textContainerOrigin
@@ -74,15 +82,12 @@ struct TargetTextScrollView: NSViewRepresentable {
                 let clampedOriginY = min(max(0, targetOriginY), maxOriginY)
                 scrollView.contentView.setBoundsOrigin(NSPoint(x: 0, y: clampedOriginY))
                 scrollView.reflectScrolledClipView(scrollView.contentView)
-            } else {
-                let range = NSRange(location: previousIndex, length: 1)
-                textView.scrollRangeToVisible(range)
             }
-        } else {
-            let targetIndex = max(0, min(caretIndex - 1, length - 1))
-            let range = NSRange(location: targetIndex, length: 1)
-            textView.scrollRangeToVisible(range)
         }
+    }
+
+    final class Coordinator {
+        var lastScrollIndex: Int?
     }
 }
 

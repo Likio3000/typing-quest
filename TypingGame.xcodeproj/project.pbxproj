@@ -1,0 +1,433 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		23582534D49D4CE7B00895E4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BD687766BF44F62B90CEEE5 /* Preview Assets.xcassets */; };
+		29E0BDFCA46F46EAB72D5565 /* TargetTextScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD107907161C4F46A37FDEE7 /* TargetTextScrollView.swift */; };
+		3604E18255A645E3B64C9F21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2E9C2012DB2439FBA6EDCF7 /* Assets.xcassets */; };
+		883FC930875B44BCA59FA50E /* KeyCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E161FC5641434590E161DD /* KeyCaptureView.swift */; };
+		988C047AF7794AE881EFABC1 /* TypingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386D135C48EF48298EDCBA8B /* TypingSession.swift */; };
+		B2C3D4E5F6074899AABBCCDD /* SmokeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F0C4E3B6D0456789ABCDEF /* SmokeTest.swift */; };
+		E4C0B1A2D3E4F5061728394A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E2D3C4B5A6978877665544 /* main.swift */; };
+		D352C673EC864BCE9AAA3EC1 /* TypingGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD554B33A45740B883AA4D8B /* TypingGameApp.swift */; };
+		D5C9DBA985464C678F213814 /* KeyMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F09179B551410295E4F98F /* KeyMapping.swift */; };
+		DDFD5EF0F34E45ACB83B2E4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860FEC0FB8EE464AB0877ADA /* ContentView.swift */; };
+		C2D3E4F5061728394A5B6C7D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1C2D3E4F5061728394A5B6C /* XCTest.framework */; };
+		C7A1E2B3D4F5061728394A5B /* TypingGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B2C3A4E5F60718293A4B5C /* TypingGameUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		26E161FC5641434590E161DD /* KeyCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCaptureView.swift; sourceTree = "<group>"; };
+		386D135C48EF48298EDCBA8B /* TypingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingSession.swift; sourceTree = "<group>"; };
+		860FEC0FB8EE464AB0877ADA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8B1459AE37A4433D8522508B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95F09179B551410295E4F98F /* KeyMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyMapping.swift; sourceTree = "<group>"; };
+		9BD687766BF44F62B90CEEE5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9F60C97FA4D14C3F997E2E4D /* TypingGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = TypingGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1C2D3E4F5061728394A5B6C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = System/Library/Frameworks/XCTest.framework; sourceTree = SDKROOT; };
+		D8B2C3A4E5F60718293A4B5C /* TypingGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingGameUITests.swift; sourceTree = "<group>"; };
+		E9C3D4A5B6F708192A3B4C5D /* TypingGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = TypingGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1F0C4E3B6D0456789ABCDEF /* SmokeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokeTest.swift; sourceTree = "<group>"; };
+		F1E2D3C4B5A6978877665544 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		CD107907161C4F46A37FDEE7 /* TargetTextScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetTextScrollView.swift; sourceTree = "<group>"; };
+		CD554B33A45740B883AA4D8B /* TypingGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingGameApp.swift; sourceTree = "<group>"; };
+		F2E9C2012DB2439FBA6EDCF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		18BCB4809B974648A58D8D8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3E4F5061728394A5B6C7D8E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2D3E4F5061728394A5B6C7D /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F8A70084B3B44998395E848 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				9BD687766BF44F62B90CEEE5 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5A8BB268485A4995BC696527 /* TypingGame */ = {
+			isa = PBXGroup;
+			children = (
+				F1E2D3C4B5A6978877665544 /* main.swift */,
+				CD554B33A45740B883AA4D8B /* TypingGameApp.swift */,
+				A1F0C4E3B6D0456789ABCDEF /* SmokeTest.swift */,
+				860FEC0FB8EE464AB0877ADA /* ContentView.swift */,
+				CD107907161C4F46A37FDEE7 /* TargetTextScrollView.swift */,
+				26E161FC5641434590E161DD /* KeyCaptureView.swift */,
+				386D135C48EF48298EDCBA8B /* TypingSession.swift */,
+				95F09179B551410295E4F98F /* KeyMapping.swift */,
+				F2E9C2012DB2439FBA6EDCF7 /* Assets.xcassets */,
+				1F8A70084B3B44998395E848 /* Preview Content */,
+				8B1459AE37A4433D8522508B /* Info.plist */,
+			);
+			path = TypingGame;
+			sourceTree = "<group>";
+		};
+		A1B2C3D4E5F60718293A4B5D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B1C2D3E4F5061728394A5B6C /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F0D4E5A6B7C8091A2B3C4D5E /* TypingGameUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D8B2C3A4E5F60718293A4B5C /* TypingGameUITests.swift */,
+			);
+			path = TypingGameUITests;
+			sourceTree = "<group>";
+		};
+		9D224E6F9FAC4239B51BF71E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9F60C97FA4D14C3F997E2E4D /* TypingGame.app */,
+				E9C3D4A5B6F708192A3B4C5D /* TypingGameUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CB7F9D90A48B40F4ABA48DD6 = {
+			isa = PBXGroup;
+			children = (
+				5A8BB268485A4995BC696527 /* TypingGame */,
+				F0D4E5A6B7C8091A2B3C4D5E /* TypingGameUITests */,
+				9D224E6F9FAC4239B51BF71E /* Products */,
+				A1B2C3D4E5F60718293A4B5D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		417CE416F3794DC981716D94 /* TypingGame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D0919BD922E4951A5AB0487 /* Build configuration list for PBXNativeTarget "TypingGame" */;
+			buildPhases = (
+				E66380B7021D43EDB10E6E2B /* Sources */,
+				1E228AD8D1D04F6F920B75FD /* Resources */,
+				18BCB4809B974648A58D8D8C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TypingGame;
+			productName = TypingGame;
+			productReference = 9F60C97FA4D14C3F997E2E4D /* TypingGame.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A61728394A5B6C7D8E9F0A1B /* TypingGameUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D94A5B6C7D8E9F0A1B2C3D4E /* Build configuration list for PBXNativeTarget "TypingGameUITests" */;
+			buildPhases = (
+				F5061728394A5B6C7D8E9F0A /* Sources */,
+				E4F5061728394A5B6C7D8E9F /* Resources */,
+				D3E4F5061728394A5B6C7D8E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TypingGameUITests;
+			productName = TypingGameUITests;
+			productReference = E9C3D4A5B6F708192A3B4C5D /* TypingGameUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		356892723BEB452EB3C136A3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2620;
+				TargetAttributes = {
+					417CE416F3794DC981716D94 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					A61728394A5B6C7D8E9F0A1B = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 513E195173344BAA968C7278 /* Build configuration list for PBXProject "TypingGame" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CB7F9D90A48B40F4ABA48DD6;
+			productRefGroup = 9D224E6F9FAC4239B51BF71E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				417CE416F3794DC981716D94 /* TypingGame */,
+				A61728394A5B6C7D8E9F0A1B /* TypingGameUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1E228AD8D1D04F6F920B75FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3604E18255A645E3B64C9F21 /* Assets.xcassets in Resources */,
+				23582534D49D4CE7B00895E4 /* Preview Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4F5061728394A5B6C7D8E9F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E66380B7021D43EDB10E6E2B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4C0B1A2D3E4F5061728394A /* main.swift in Sources */,
+				D352C673EC864BCE9AAA3EC1 /* TypingGameApp.swift in Sources */,
+				B2C3D4E5F6074899AABBCCDD /* SmokeTest.swift in Sources */,
+				DDFD5EF0F34E45ACB83B2E4B /* ContentView.swift in Sources */,
+				29E0BDFCA46F46EAB72D5565 /* TargetTextScrollView.swift in Sources */,
+				883FC930875B44BCA59FA50E /* KeyCaptureView.swift in Sources */,
+				988C047AF7794AE881EFABC1 /* TypingSession.swift in Sources */,
+				D5C9DBA985464C678F213814 /* KeyMapping.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5061728394A5B6C7D8E9F0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7A1E2B3D4F5061728394A5B /* TypingGameUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0A0048CBF1704B739D7488D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADERMAP_STYLE = separate;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		9456EB064E4E44169CE07881 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				HEADERMAP_STYLE = separate;
+				INFOPLIST_FILE = TypingGame/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.typinggame.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A64768EFE498401F8A5B0A7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADERMAP_STYLE = separate;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		EFC28D10724D462581061A56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				HEADERMAP_STYLE = separate;
+				INFOPLIST_FILE = TypingGame/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.typinggame.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B728394A5B6C7D8E9F0A1B2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.typinggame.appUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = TypingGame;
+			};
+			name = Debug;
+		};
+		C8394A5B6C7D8E9F0A1B2C3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.typinggame.appUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = TypingGame;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0D0919BD922E4951A5AB0487 /* Build configuration list for PBXNativeTarget "TypingGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFC28D10724D462581061A56 /* Debug */,
+				9456EB064E4E44169CE07881 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		513E195173344BAA968C7278 /* Build configuration list for PBXProject "TypingGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A0048CBF1704B739D7488D3 /* Debug */,
+				A64768EFE498401F8A5B0A7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D94A5B6C7D8E9F0A1B2C3D4E /* Build configuration list for PBXNativeTarget "TypingGameUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B728394A5B6C7D8E9F0A1B2C /* Debug */,
+				C8394A5B6C7D8E9F0A1B2C3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 356892723BEB452EB3C136A3 /* Project object */;
+}

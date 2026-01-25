@@ -264,13 +264,12 @@ struct ContentView: View {
         let descriptor = session.nextExpectedCharacter().flatMap { KeyMapping.keyDescriptor(for: $0) }
         let highlightedKey = descriptor?.baseKey
         let highlightedShiftKeys = highlightedShiftKeys(for: descriptor)
-        let weights = keyboardProblemWeights()
 
         return Panel(title: "Keyboard") {
             KeyboardView(
                 highlightedKey: highlightedKey,
                 highlightedShiftKeys: highlightedShiftKeys,
-                problemWeights: weights
+                problemWeights: [:]
             )
         }
     }
@@ -382,10 +381,10 @@ struct ContentView: View {
             totals[descriptor.baseKey, default: 0] += count
         }
 
-        let maxCount = totals.values.max() ?? 0
         var weights: [String: Double] = [:]
         for (key, count) in totals {
-            weights[key] = maxCount > 0 ? Double(count) / Double(maxCount) : 0
+            let clamped = min(10, max(0, count))
+            weights[key] = Double(clamped) / 10.0
         }
         return weights
     }
@@ -1132,7 +1131,6 @@ struct KeyboardView: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(spacing: 12) {
                 KeyboardLegendItem(color: KeyCapView.nextKeyColor, label: "Next key")
-                KeyboardLegendItem(color: KeyCapView.problemColor(weight: 0.85), label: "Problem key")
                 KeyboardLegendItem(color: KeyCapView.shiftKeyColor, label: "Shift")
                 Spacer()
             }
@@ -1318,13 +1316,13 @@ struct KeyCapView: View {
     }
 
     static let baseColor = Theme.keyBase
-    static let nextKeyColor = Color(.sRGB, red: 0.32, green: 0.6, blue: 0.95, opacity: 1)
+    static let nextKeyColor = Color(.sRGB, red: 0.88, green: 0.5, blue: 0.2, opacity: 1)
     static let shiftKeyColor = Color(.sRGB, red: 0.31, green: 0.44, blue: 0.62, opacity: 1)
 
     static func problemColor(weight: Double) -> Color {
         let clamped = min(1, max(0, weight))
-        let base = (0.18, 0.22, 0.3)
-        let target = (0.88, 0.5, 0.2)
+        let base = (0.72, 0.88, 0.9)
+        let target = (0.32, 0.6, 0.95)
         let red = base.0 + (target.0 - base.0) * clamped
         let green = base.1 + (target.1 - base.1) * clamped
         let blue = base.2 + (target.2 - base.2) * clamped

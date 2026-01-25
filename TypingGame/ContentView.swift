@@ -82,11 +82,15 @@ struct ContentView: View {
                 .frame(maxWidth: .infinity, minHeight: 260, alignment: .leading)
                 .contentShape(Rectangle())
 
-                Button("Regenerate level") {
-                    applyLevel(selectedLevel)
+                HStack {
+                    Spacer()
+                    Button("Regenerate level") {
+                        applyLevel(selectedLevel)
+                    }
+                    .buttonStyle(.bordered)
+                    .accessibilityIdentifier("level-regenerate")
+                    Spacer()
                 }
-                .buttonStyle(.bordered)
-                .accessibilityIdentifier("level-regenerate")
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         }
@@ -168,8 +172,8 @@ struct ContentView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .padding(.horizontal, -40)
 
-                HStack {
-                    if isCalibratingHands {
+                if isCalibratingHands {
+                    HStack {
                         HStack(spacing: 8) {
                             Text("Image Zoom")
                                 .font(.system(size: 11, weight: .semibold))
@@ -192,9 +196,7 @@ struct ContentView: View {
                             .buttonStyle(.bordered)
                             .accessibilityIdentifier("hand-zoom-plus")
                         }
-                    }
-                    Spacer()
-                    if isCalibratingHands {
+                        Spacer()
                         Button("Reset") {
                             handPoints = HandCalibration.defaultPoints
                         }
@@ -204,11 +206,16 @@ struct ContentView: View {
                         }
                         .buttonStyle(.bordered)
                     }
+                }
+
+                HStack {
+                    Spacer()
                     Button(isCalibratingHands ? "Done" : "Calibrate") {
                         isCalibratingHands.toggle()
                     }
                     .buttonStyle(.bordered)
                     .accessibilityIdentifier("hand-calibrate")
+                    Spacer()
                 }
             }
         }

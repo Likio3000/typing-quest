@@ -1,4 +1,4 @@
-# TypingGame
+# Typing Quest
 
 A focused macOS typing trainer with per-level practice, live coaching, and performance scoring.
 
@@ -21,4 +21,4 @@ Scores never go below zero; faster can push the score above 100.
 - Smoke test after changes: `make smoke`
   - Runs the app smoke launch and `xcodebuild test` (UI + unit tests).
   - Direct script usage (after `make build`):
-    `scripts/smoke_run.sh build/Build/Products/Debug/TypingGame.app/Contents/MacOS/TypingGame`
+    `scripts/smoke_run.sh "build/Build/Products/Debug/Typing Quest.app/Contents/MacOS/Typing Quest"`

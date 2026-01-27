@@ -44,17 +44,21 @@ final class TypingGameUITests: XCTestCase {
 
         let correctValue = app.staticTexts["summary-correct-value"]
         let wrongValue = app.staticTexts["summary-wrong-value"]
+        let pendingValue = app.staticTexts["summary-pending-value"]
         XCTAssertTrue(correctValue.waitForExistence(timeout: 2))
         XCTAssertTrue(wrongValue.waitForExistence(timeout: 2))
+        XCTAssertTrue(pendingValue.waitForExistence(timeout: 2))
 
         guard let initialCorrect = intValue(correctValue),
-              let initialWrong = intValue(wrongValue) else {
+              let initialWrong = intValue(wrongValue),
+              let initialPending = intValue(pendingValue) else {
             XCTFail("Unable to parse summary values")
             return
         }
 
         app.typeText("a")
-        let updatedCorrect = waitForValueChange(correctValue, from: initialCorrect)
+        _ = waitForValueChange(pendingValue, from: initialPending)
+        let updatedCorrect = intValue(correctValue) ?? initialCorrect
         let updatedWrong = intValue(wrongValue) ?? initialWrong
 
         XCTAssertEqual(
@@ -108,16 +112,16 @@ final class TypingGameUITests: XCTestCase {
         }
 
         app.typeText("a")
-        let updatedCorrect = waitForValueChange(correctValue, from: initialCorrect)
-        XCTAssertNotEqual(initialCorrect, updatedCorrect)
+        let updatedPending = waitForValueChange(pendingValue, from: initialPending)
+        XCTAssertNotEqual(initialPending, updatedPending)
 
         let restartButton = app.buttons["restart-level"]
         XCTAssertTrue(restartButton.waitForExistence(timeout: 2))
         restartButton.click()
 
-        let resetCorrect = waitForValueChange(correctValue, from: updatedCorrect)
+        let resetPending = waitForValueChange(pendingValue, from: updatedPending)
+        let resetCorrect = intValue(correctValue) ?? initialCorrect
         let resetWrong = intValue(wrongValue) ?? initialWrong
-        let resetPending = intValue(pendingValue) ?? initialPending
         XCTAssertEqual(initialCorrect, resetCorrect)
         XCTAssertEqual(initialWrong, resetWrong)
         XCTAssertEqual(initialPending, resetPending)
@@ -136,6 +140,10 @@ final class TypingGameUITests: XCTestCase {
         XCTAssertTrue(calibrateButton.waitForExistence(timeout: 2))
         calibrateButton.click()
 
+        let resetPoints = app.buttons["hand-reset-points"]
+        XCTAssertTrue(resetPoints.waitForExistence(timeout: 2))
+        resetPoints.click()
+
         let zoomMinus = app.buttons["hand-zoom-minus"]
         XCTAssertTrue(zoomMinus.waitForExistence(timeout: 2))
 
@@ -149,6 +157,8 @@ final class TypingGameUITests: XCTestCase {
 
         let movedFrame = waitForFrameChange(point, from: startFrame)
         XCTAssertGreaterThan(abs(movedFrame.midX - startFrame.midX), 1)
+
+        resetPoints.click()
     }
 
     private func elementText(_ element: XCUIElement) -> String {
@@ -178,6 +188,20 @@ final class TypingGameUITests: XCTestCase {
         let expectation = XCTNSPredicateExpectation(predicate: predicate, object: element)
         _ = XCTWaiter().wait(for: [expectation], timeout: timeout)
         return intValue(element) ?? initial
+    }
+
+    private func waitForTextChange(
+        _ element: XCUIElement,
+        from initial: String,
+        timeout: TimeInterval = 2
+    ) -> String {
+        let predicate = NSPredicate { _, _ in
+            let text = self.elementText(element)
+            return !text.isEmpty && text != initial
+        }
+        let expectation = XCTNSPredicateExpectation(predicate: predicate, object: element)
+        _ = XCTWaiter().wait(for: [expectation], timeout: timeout)
+        return elementText(element)
     }
 
     private func waitForFrameChange(

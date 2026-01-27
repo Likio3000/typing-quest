@@ -221,6 +221,7 @@ struct ContentView: View {
                             handPoints = HandCalibration.defaultPoints
                         }
                         .buttonStyle(.bordered)
+                        .accessibilityIdentifier("hand-reset-points")
                         Button("Reset Zoom") {
                             handImageZoom = HandImageZoom.defaultZoom
                         }
@@ -273,7 +274,6 @@ struct ContentView: View {
                     summaryPill(label: "Pending", value: "\(stats.pending)", valueID: "summary-pending-value")
                     Spacer(minLength: 0)
                 }
-                .accessibilityIdentifier("summary-stats")
 
                 HStack(spacing: 8) {
                     summaryPill(label: "Correct", value: "\(stats.correct)", valueID: "summary-correct-value")

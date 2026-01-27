@@ -2,7 +2,9 @@ PROJECT := TypingGame.xcodeproj
 SCHEME := TypingGame
 CONFIG ?= Debug
 DERIVED_DATA := build
-APP := $(DERIVED_DATA)/Build/Products/$(CONFIG)/TypingGame.app/Contents/MacOS/TypingGame
+APP_NAME := Typing Quest
+APP_BUNDLE := $(DERIVED_DATA)/Build/Products/$(CONFIG)/$(APP_NAME).app
+APP := $(APP_BUNDLE)/Contents/MacOS/$(APP_NAME)
 
 .PHONY: build run smoke clean
 

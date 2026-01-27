@@ -42,25 +42,24 @@ final class TypingGameUITests: XCTestCase {
             XCTAssertTrue(app.wait(for: .notRunning, timeout: 5))
         }
 
-        let summary = app.staticTexts["summary-stats"]
-        XCTAssertTrue(summary.waitForExistence(timeout: 2))
+        let correctValue = app.staticTexts["summary-correct-value"]
+        let wrongValue = app.staticTexts["summary-wrong-value"]
+        XCTAssertTrue(correctValue.waitForExistence(timeout: 2))
+        XCTAssertTrue(wrongValue.waitForExistence(timeout: 2))
 
-        let initialText = elementText(summary)
-        guard let initialCounts = summaryCounts(from: initialText) else {
-            XCTFail("Unable to parse summary counts: \(initialText)")
+        guard let initialCorrect = intValue(correctValue),
+              let initialWrong = intValue(wrongValue) else {
+            XCTFail("Unable to parse summary values")
             return
         }
 
         app.typeText("a")
-        let updatedText = waitForTextChange(summary, from: initialText)
-        guard let updatedCounts = summaryCounts(from: updatedText) else {
-            XCTFail("Unable to parse summary counts: \(updatedText)")
-            return
-        }
+        let updatedCorrect = waitForValueChange(correctValue, from: initialCorrect)
+        let updatedWrong = intValue(wrongValue) ?? initialWrong
 
         XCTAssertEqual(
-            updatedCounts.correct + updatedCounts.wrong,
-            initialCounts.correct + initialCounts.wrong + 1
+            updatedCorrect + updatedWrong,
+            initialCorrect + initialWrong + 1
         )
     }
 
@@ -94,24 +93,34 @@ final class TypingGameUITests: XCTestCase {
             XCTAssertTrue(app.wait(for: .notRunning, timeout: 5))
         }
 
-        let summary = app.staticTexts["summary-stats"]
-        XCTAssertTrue(summary.waitForExistence(timeout: 2))
-        let initialText = elementText(summary)
-        guard summaryCounts(from: initialText) != nil else {
-            XCTFail("Unable to parse summary counts: \(initialText)")
+        let correctValue = app.staticTexts["summary-correct-value"]
+        let wrongValue = app.staticTexts["summary-wrong-value"]
+        let pendingValue = app.staticTexts["summary-pending-value"]
+        XCTAssertTrue(correctValue.waitForExistence(timeout: 2))
+        XCTAssertTrue(wrongValue.waitForExistence(timeout: 2))
+        XCTAssertTrue(pendingValue.waitForExistence(timeout: 2))
+
+        guard let initialCorrect = intValue(correctValue),
+              let initialWrong = intValue(wrongValue),
+              let initialPending = intValue(pendingValue) else {
+            XCTFail("Unable to parse summary values")
             return
         }
 
         app.typeText("a")
-        let updatedText = waitForTextChange(summary, from: initialText)
-        XCTAssertNotEqual(initialText, updatedText)
+        let updatedCorrect = waitForValueChange(correctValue, from: initialCorrect)
+        XCTAssertNotEqual(initialCorrect, updatedCorrect)
 
         let restartButton = app.buttons["restart-level"]
         XCTAssertTrue(restartButton.waitForExistence(timeout: 2))
         restartButton.click()
 
-        let resetText = waitForTextChange(summary, from: updatedText)
-        XCTAssertEqual(initialText, resetText)
+        let resetCorrect = waitForValueChange(correctValue, from: updatedCorrect)
+        let resetWrong = intValue(wrongValue) ?? initialWrong
+        let resetPending = intValue(pendingValue) ?? initialPending
+        XCTAssertEqual(initialCorrect, resetCorrect)
+        XCTAssertEqual(initialWrong, resetWrong)
+        XCTAssertEqual(initialPending, resetPending)
     }
 
     func testCalibrateDragMovesPoint() {
@@ -152,38 +161,23 @@ final class TypingGameUITests: XCTestCase {
         return ""
     }
 
-    private func summaryCounts(from text: String) -> (correct: Int, wrong: Int, pending: Int)? {
-        let pattern = #"Correct:\s*(\d+)\s+Wrong:\s*(\d+)\s+Pending:\s*(\d+)"#
-        guard let regex = try? NSRegularExpression(pattern: pattern) else { return nil }
-        let range = NSRange(text.startIndex..<text.endIndex, in: text)
-        guard let match = regex.firstMatch(in: text, range: range) else { return nil }
-
-        func intValue(_ index: Int) -> Int? {
-            guard let range = Range(match.range(at: index), in: text) else { return nil }
-            return Int(text[range])
-        }
-
-        guard let correct = intValue(1),
-              let wrong = intValue(2),
-              let pending = intValue(3) else {
-            return nil
-        }
-
-        return (correct, wrong, pending)
+    private func intValue(_ element: XCUIElement) -> Int? {
+        let text = elementText(element)
+        return Int(text)
     }
 
-    private func waitForTextChange(
+    private func waitForValueChange(
         _ element: XCUIElement,
-        from initial: String,
+        from initial: Int,
         timeout: TimeInterval = 2
-    ) -> String {
+    ) -> Int {
         let predicate = NSPredicate { _, _ in
-            let text = self.elementText(element)
-            return !text.isEmpty && text != initial
+            guard let value = self.intValue(element) else { return false }
+            return value != initial
         }
         let expectation = XCTNSPredicateExpectation(predicate: predicate, object: element)
         _ = XCTWaiter().wait(for: [expectation], timeout: timeout)
-        return elementText(element)
+        return intValue(element) ?? initial
     }
 
     private func waitForFrameChange(

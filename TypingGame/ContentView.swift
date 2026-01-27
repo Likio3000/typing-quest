@@ -6,6 +6,8 @@ struct ContentView: View {
 
     @StateObject private var session: TypingSession
     @State private var selectedLevelID: String
+    @State private var activeLevelID: String
+    @State private var bestScores: [String: Double]
     @State private var targetFontSize: Double = 22
     @State private var now = Date()
     @State private var handPoints: [FingerIdentifier: CGPoint]
@@ -16,11 +18,17 @@ struct ContentView: View {
     private let targetFontRange: ClosedRange<Double> = 14...42
     private let leftPanelWidth: CGFloat = 320
     private let rightPanelWidth: CGFloat = 260
+    private let scoreTargetWPM: Double = 60
+    private let scoreSpeedBonusFactor: Double = 15
+    private let scoreUncorrectedPenalty: Double = 3
+    private let scoreCorrectedPenalty: Double = 0.5
 
     init() {
         let initialLevel = ContentView.levels.first ?? LevelCatalog.fallbackLevel
         _session = StateObject(wrappedValue: TypingSession(targetText: ContentView.generateLevelText(for: initialLevel)))
         _selectedLevelID = State(initialValue: initialLevel.id)
+        _activeLevelID = State(initialValue: initialLevel.id)
+        _bestScores = State(initialValue: LevelScoreStore.loadAll(levels: ContentView.levels))
         _handPoints = State(initialValue: HandCalibration.loadPoints())
         _handImageZoom = State(initialValue: HandImageZoom.load())
     }
@@ -48,6 +56,18 @@ struct ContentView: View {
         .foregroundColor(Theme.primaryText)
         .overlay(keyCaptureView)
         .onReceive(timer) { now = $0 }
+        .onChange(of: session.endTime) { newValue in
+            guard let completionTime = newValue else { return }
+            let metrics = session.metrics(now: completionTime)
+            let stats = session.stats
+            let score = calculateScore(metrics: metrics, stats: stats, targetLength: session.targetText.count)
+            let levelID = activeLevelID
+            let currentBest = bestScores[levelID] ?? 0
+            if score > currentBest {
+                bestScores[levelID] = score
+                LevelScoreStore.save(score, for: levelID)
+            }
+        }
         .onChange(of: handPoints) { newValue in
             HandCalibration.savePoints(newValue)
         }
@@ -71,7 +91,7 @@ struct ContentView: View {
                 ScrollView {
                     VStack(spacing: 10) {
                         ForEach(ContentView.levels) { level in
-                            LevelRow(level: level, isSelected: level.id == selectedLevelID) {
+                            LevelRow(level: level, isSelected: level.id == selectedLevelID, bestScore: bestScores[level.id]) {
                                 applyLevel(level)
                             }
                         }
@@ -249,13 +269,27 @@ struct ContentView: View {
     private func summaryPanel(stats: TypingStats, metrics: TypingMetrics) -> some View {
         return Panel(title: "Summary") {
             VStack(alignment: .leading, spacing: 8) {
-                Text("Correct: \(stats.correct)  Wrong: \(stats.wrong)  Pending: \(stats.pending)")
-                    .accessibilityIdentifier("summary-stats")
-                Text("Uncorrected errors: \(stats.uncorrectedErrors)  Corrected errors: \(session.correctedErrors)")
+                HStack(spacing: 8) {
+                    summaryPill(label: "Pending", value: "\(stats.pending)", valueID: "summary-pending-value")
+                    Spacer(minLength: 0)
+                }
+                .accessibilityIdentifier("summary-stats")
+
+                HStack(spacing: 8) {
+                    summaryPill(label: "Correct", value: "\(stats.correct)", valueID: "summary-correct-value")
+                    summaryPill(label: "Wrong", value: "\(stats.wrong)", valueID: "summary-wrong-value")
+                }
+
+                HStack(spacing: 8) {
+                    summaryPill(label: "Uncorrected", value: "\(stats.uncorrectedErrors)", valueID: "summary-uncorrected-value")
+                    summaryPill(label: "Corrected", value: "\(session.correctedErrors)", valueID: "summary-corrected-value")
+                }
 
                 if session.endTime != nil {
-                    Text("Completed in \(formatTime(metrics.elapsed)) with net WPM \(formatNumber(metrics.netWPM)).")
-                        .font(.system(size: 13, weight: .semibold))
+                    let score = calculateScore(metrics: metrics, stats: stats, targetLength: session.targetText.count)
+                    Text("Score \(formatScore(score))")
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundColor(Theme.accent)
                 }
             }
         }
@@ -327,10 +361,14 @@ struct ContentView: View {
 
     private func applyLevel(_ level: Level) {
         selectedLevelID = level.id
+        activeLevelID = level.id
         session.setTargetText(ContentView.generateLevelText(for: level))
     }
 
     private static func generateLevelText(for level: Level) -> String {
+        if let fixedText = level.fixedText, !fixedText.isEmpty {
+            return fixedText.trimmingCharacters(in: .whitespacesAndNewlines)
+        }
         guard !level.pool.isEmpty else { return "" }
         var result = ""
         var remaining = level.length
@@ -365,6 +403,55 @@ struct ContentView: View {
 
     private func formatPercent(_ value: Double) -> String {
         String(format: "%.0f%%", value * 100)
+    }
+
+    private func formatScore(_ value: Double) -> String {
+        String(format: "%.0f", value)
+    }
+
+    private func summaryPill(label: String, value: String, valueID: String) -> some View {
+        HStack(spacing: 6) {
+            Text(label)
+                .font(.system(size: 10, weight: .semibold))
+                .foregroundColor(Theme.accent)
+                .lineLimit(1)
+                .minimumScaleFactor(0.9)
+                .fixedSize(horizontal: true, vertical: false)
+            Text(value)
+                .font(.system(size: 12, weight: .semibold, design: .monospaced))
+                .foregroundColor(Theme.primaryText)
+                .lineLimit(1)
+                .minimumScaleFactor(0.9)
+                .fixedSize(horizontal: true, vertical: false)
+                .accessibilityIdentifier(valueID)
+        }
+        .padding(.vertical, 4)
+        .padding(.horizontal, 8)
+        .background(Theme.metricBackground)
+        .clipShape(Capsule())
+        .fixedSize(horizontal: true, vertical: false)
+    }
+
+    private func calculateScore(metrics: TypingMetrics, stats: TypingStats, targetLength: Int) -> Double {
+        let accuracyScore = metrics.accuracy * 100
+        let uncorrectedPenalty = Double(stats.uncorrectedErrors) * scoreUncorrectedPenalty
+        let correctedPenalty = Double(session.correctedErrors) * scoreCorrectedPenalty
+        let expectedSeconds = expectedTimeSeconds(for: targetLength)
+        let speedBonus: Double
+        if metrics.elapsed > 0, expectedSeconds > 0 {
+            speedBonus = scoreSpeedBonusFactor * log2(expectedSeconds / metrics.elapsed)
+        } else {
+            speedBonus = 0
+        }
+        let rawScore = accuracyScore - uncorrectedPenalty - correctedPenalty + speedBonus
+        return max(0, rawScore)
+    }
+
+    private func expectedTimeSeconds(for targetLength: Int) -> Double {
+        guard targetLength > 0 else { return 0 }
+        let words = Double(targetLength) / 5.0
+        let minutes = words / scoreTargetWPM
+        return minutes * 60.0
     }
 
     private func highlightedShiftKeys(for descriptor: KeyDescriptor?) -> Set<String> {
@@ -482,7 +569,7 @@ enum Theme {
     static let metricBackground = Theme.accent.opacity(0.2)
     static let keyBase = Color(.sRGB, red: 0.15, green: 0.19, blue: 0.28, opacity: 1)
     static let keyBorder = Color(.sRGB, red: 0.27, green: 0.32, blue: 0.44, opacity: 1)
-    static let accent = Color(.sRGB, red: 0.88, green: 0.5, blue: 0.2, opacity: 1)
+    static let accent = Color(.sRGB, red: 0.98, green: 0.62, blue: 0.18, opacity: 1)
     static let primaryText = Color(.sRGB, red: 0.94, green: 0.95, blue: 0.98, opacity: 1)
     static let mutedText = Color(.sRGB, red: 0.82, green: 0.85, blue: 0.92, opacity: 1)
     static let placeholderText = Color(.sRGB, red: 0.68, green: 0.73, blue: 0.84, opacity: 1)
@@ -496,6 +583,31 @@ struct Level: Identifiable {
     let length: Int
     let wordLengthRange: ClosedRange<Int>
     let includeSpaces: Bool
+    let fixedText: String?
+
+    init(
+        id: String,
+        name: String,
+        description: String,
+        pool: [Character],
+        length: Int,
+        wordLengthRange: ClosedRange<Int>,
+        includeSpaces: Bool,
+        fixedText: String? = nil
+    ) {
+        self.id = id
+        self.name = name
+        self.description = description
+        self.pool = pool
+        self.length = length
+        self.wordLengthRange = wordLengthRange
+        self.includeSpaces = includeSpaces
+        self.fixedText = fixedText
+    }
+
+    var displayLength: Int {
+        fixedText?.trimmingCharacters(in: .whitespacesAndNewlines).count ?? length
+    }
 }
 
 enum LevelCatalog {
@@ -508,10 +620,60 @@ enum LevelCatalog {
     static let topRow = Array("qwertyuiop")
     static let bottomRow = Array("zxcvbnm")
     static let vowels = Array("aeiou")
+    static let leftPinkyKeys = Array("`~1!qQaAzZ")
+    static let rightPinkyKeys = Array("pP;:/?0)-_=+[]{}\\|'\"")
     static let punctuation = Array(".,;'/")
     static let brackets = Array("[]{}()")
     static let operators = Array("-=+*/")
     static let shiftSymbols = Array("!@#$%^&*()")
+    static let storyNightMarket = """
+At 6:05 PM, the night market lit up, and Mina wrote "List #3" on her wrist. She bought 2 pies for $7.50, paid with a card, and got a receipt that read: TAX=8%. A small cat followed her, jumping over crates marked [A-12] and (B-4). "Stay close," she said; the bell chimed, and the vendor nodded.
+"""
+    static let storySignalLog = """
+The radio log started with: "Day 19, 04:17 @ Ridge Station." We tested a new antenna, toggled switch A/B, and the meter jumped from 0.9 to 1.3. The old map had notes like "north-3" and "west+2", but the signal only stabilized when we set gain=7 and the lamp blinked 3 times.
+"""
+    static let storyClockworkLetter = """
+In the attic, a folded letter said: "Meet me at Gate 5 - bring the brass key." Jae checked the clock (11:02) and scribbled 2+2=4 on the envelope. The note smelled of oil & smoke, and a tiny gear with 8 teeth fell onto the table.
+"""
+    static let storyWorkshopReport = """
+Report 07: The prototype "Vega" failed test #42. We saw a 3.14 cm crack, a 12% voltage drop, and a fuse marked 10A/250V. Still, the crew cheered when the reboot finished in 9.8s; the console flashed OK>READY and the room went quiet.
+"""
+    static let dataEntryInvoice = """
+Invoice #48371 | Date: 2026-01-27 | Vendor: Northwind Parts
+Item: Gear Set (GS-442) Qty: 3 Unit: $79.95 Line: $239.85
+Item: Belt Kit (BK-210) Qty: 1 Unit: $34.50 Line: $34.50
+Subtotal: $274.35  Tax 8.25%: $22.64  Total: $296.99  Paid: CC-4582
+"""
+    static let dataEntryContacts = """
+Contact Log: 3 entries
+1) Rivera, Ana | Dept: Ops | Ext: 224 | Email: ana.rivera@acme.co
+2) Chen, Li | Dept: IT | Ext: 318 | Email: li.chen@acme.co
+3) Patel, Omar | Dept: Sales | Ext: 105 | Email: omar.patel@acme.co
+"""
+    static let dataEntryShipment = """
+Shipment Record: ID SHP-90218
+Origin: 4501 W 3rd St, Austin, TX 78703
+Dest: 18 Harbor Way, Newark, NJ 07102
+Weight: 42.6 lb  Boxes: 4  Carrier: FDX-2Day  ETA: 01/30/26
+"""
+    static let dataEntryInventory = """
+Inventory Update (Cycle B): Aisle 7
+SKU: HN-1442 | Desc: Hand Nut 10mm | On Hand: 860 | Reorder: 500 | Bin: B-07-14
+SKU: BX-9901 | Desc: Box, 12x10x8 | On Hand: 120 | Reorder: 60 | Bin: C-02-03
+SKU: CL-5530 | Desc: Clamp 3/4in | On Hand: 48 | Reorder: 75 | Bin: A-01-09
+"""
+    static let dataEntryTimesheet = """
+Timesheet: Week 04 (Employee ID: 77102)
+Mon 01/20: 8.0  Tue 01/21: 7.5  Wed 01/22: 8.0
+Thu 01/23: 8.5  Fri 01/24: 6.5  OT: 1.5  Total: 38.0
+Notes: "Inventory count + customer follow-ups."
+"""
+    static let dataEntrySupportTicket = """
+Ticket #A-77530 | Priority: P2 | Status: OPEN
+User: Kim, Jordan | Asset: LTP-4471 | OS: macOS 14.2
+Issue: "Printer queue shows error 79" | Started: 09:14 | Attempts: 2
+Resolution: Clear spooler, reboot, re-add printer PRN-04.
+"""
 
     static let levels: [Level] = [
         Level(
@@ -521,6 +683,24 @@ enum LevelCatalog {
             pool: homeRow,
             length: 160,
             wordLengthRange: 4...6,
+            includeSpaces: true
+        ),
+        Level(
+            id: "left-pinky-keys",
+            name: "Letters: Left pinky",
+            description: "q a z 1 with ` and ~.",
+            pool: leftPinkyKeys,
+            length: 180,
+            wordLengthRange: 3...6,
+            includeSpaces: true
+        ),
+        Level(
+            id: "right-pinky-keys",
+            name: "Letters: Right pinky",
+            description: "p ; / 0 - = [ ] \\ ' and shifts.",
+            pool: rightPinkyKeys,
+            length: 200,
+            wordLengthRange: 2...6,
             includeSpaces: true
         ),
         Level(
@@ -657,6 +837,106 @@ enum LevelCatalog {
             length: 240,
             wordLengthRange: 4...9,
             includeSpaces: true
+        ),
+        Level(
+            id: "story-night-market",
+            name: "Story: Night Market",
+            description: "Full text with numbers and symbols.",
+            pool: lettersLower,
+            length: storyNightMarket.count,
+            wordLengthRange: 1...1,
+            includeSpaces: true,
+            fixedText: storyNightMarket
+        ),
+        Level(
+            id: "story-signal-log",
+            name: "Story: Signal Log",
+            description: "Full text with mixed case and operators.",
+            pool: lettersLower,
+            length: storySignalLog.count,
+            wordLengthRange: 1...1,
+            includeSpaces: true,
+            fixedText: storySignalLog
+        ),
+        Level(
+            id: "story-clockwork-letter",
+            name: "Story: Clockwork Letter",
+            description: "Full text with punctuation and math.",
+            pool: lettersLower,
+            length: storyClockworkLetter.count,
+            wordLengthRange: 1...1,
+            includeSpaces: true,
+            fixedText: storyClockworkLetter
+        ),
+        Level(
+            id: "story-workshop-report",
+            name: "Story: Workshop Report",
+            description: "Full text with symbols, units, and caps.",
+            pool: lettersLower,
+            length: storyWorkshopReport.count,
+            wordLengthRange: 1...1,
+            includeSpaces: true,
+            fixedText: storyWorkshopReport
+        ),
+        Level(
+            id: "data-entry-invoice",
+            name: "Data Entry: Invoice",
+            description: "Invoice lines with prices, IDs, and totals.",
+            pool: lettersLower,
+            length: dataEntryInvoice.count,
+            wordLengthRange: 1...1,
+            includeSpaces: true,
+            fixedText: dataEntryInvoice
+        ),
+        Level(
+            id: "data-entry-contacts",
+            name: "Data Entry: Contacts",
+            description: "Names, departments, extensions, and emails.",
+            pool: lettersLower,
+            length: dataEntryContacts.count,
+            wordLengthRange: 1...1,
+            includeSpaces: true,
+            fixedText: dataEntryContacts
+        ),
+        Level(
+            id: "data-entry-shipment",
+            name: "Data Entry: Shipment",
+            description: "Addresses, IDs, and ETA details.",
+            pool: lettersLower,
+            length: dataEntryShipment.count,
+            wordLengthRange: 1...1,
+            includeSpaces: true,
+            fixedText: dataEntryShipment
+        ),
+        Level(
+            id: "data-entry-inventory",
+            name: "Data Entry: Inventory",
+            description: "SKUs, counts, bins, and sizes.",
+            pool: lettersLower,
+            length: dataEntryInventory.count,
+            wordLengthRange: 1...1,
+            includeSpaces: true,
+            fixedText: dataEntryInventory
+        ),
+        Level(
+            id: "data-entry-timesheet",
+            name: "Data Entry: Timesheet",
+            description: "Dates, hours, totals, and notes.",
+            pool: lettersLower,
+            length: dataEntryTimesheet.count,
+            wordLengthRange: 1...1,
+            includeSpaces: true,
+            fixedText: dataEntryTimesheet
+        ),
+        Level(
+            id: "data-entry-support-ticket",
+            name: "Data Entry: Support Ticket",
+            description: "Ticket fields with assets and steps.",
+            pool: lettersLower,
+            length: dataEntrySupportTicket.count,
+            wordLengthRange: 1...1,
+            includeSpaces: true,
+            fixedText: dataEntrySupportTicket
         )
     ]
 
@@ -671,9 +951,41 @@ enum LevelCatalog {
     )
 }
 
+struct LevelScoreStore {
+    static let storageKey = "levels.bestScores.v1"
+
+    static func loadAll(levels: [Level]) -> [String: Double] {
+        let payload = loadRaw()
+        var result: [String: Double] = [:]
+        for level in levels {
+            if let score = payload[level.id] {
+                result[level.id] = score
+            }
+        }
+        return result
+    }
+
+    static func save(_ score: Double, for levelID: String) {
+        var payload = loadRaw()
+        payload[levelID] = score
+        if let data = try? JSONEncoder().encode(payload) {
+            UserDefaults.standard.set(data, forKey: storageKey)
+        }
+    }
+
+    private static func loadRaw() -> [String: Double] {
+        guard let data = UserDefaults.standard.data(forKey: storageKey),
+              let decoded = try? JSONDecoder().decode([String: Double].self, from: data) else {
+            return [:]
+        }
+        return decoded
+    }
+}
+
 struct LevelRow: View {
     let level: Level
     let isSelected: Bool
+    let bestScore: Double?
     let action: () -> Void
 
     var body: some View {
@@ -685,11 +997,12 @@ struct LevelRow: View {
                     Text(level.description)
                         .font(.system(size: 11))
                         .foregroundColor(Theme.mutedText)
-                    Text("Length \(level.length)")
+                    Text("Length \(level.displayLength)")
                         .font(.system(size: 10, weight: .medium, design: .monospaced))
                         .foregroundColor(Theme.mutedText)
                 }
                 Spacer(minLength: 0)
+                scoreBadge
             }
             .padding(8)
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -704,7 +1017,7 @@ struct LevelRow: View {
     }
 
     private var selectedBackground: Color {
-        Theme.accent.opacity(0.22)
+        Theme.metricBackground
     }
 
     private var selectedBorder: Color {
@@ -713,6 +1026,22 @@ struct LevelRow: View {
 
     private var idleBorder: Color {
         Color(.sRGB, red: 0.84, green: 0.86, blue: 0.9, opacity: 1)
+    }
+
+    private var scoreBadge: some View {
+        Text(bestScoreText)
+            .font(.system(size: 11, weight: .semibold, design: .rounded))
+            .foregroundColor(bestScore == nil ? Theme.placeholderText : Theme.primaryText)
+            .padding(.vertical, 4)
+            .padding(.horizontal, 8)
+            .background(Theme.metricBackground.opacity(bestScore == nil ? 0.25 : 0.55))
+            .clipShape(Capsule())
+            .accessibilityIdentifier("level-best-score-\(level.id)")
+    }
+
+    private var bestScoreText: String {
+        guard let bestScore else { return "—" }
+        return String(format: "%.0f", bestScore)
     }
 }
 

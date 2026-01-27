@@ -1,5 +1,19 @@
 # TypingGame
 
+A focused macOS typing trainer with per-level practice, live coaching, and performance scoring.
+
+## Features
+
+- Multiple curated levels (letters, numbers, symbols, stories, and data-entry style passages).
+- Real-time stats (WPM, accuracy, KPM) and error tracking.
+- Best score per level, weighted by accuracy, errors, and speed.
+- On-screen next-key coaching and finger guide with calibratable hand overlay.
+
+## Scoring (Best Score)
+
+Score is accuracy‑based (0–100) with penalties for errors and a speed bonus vs a 60 WPM target.
+Scores never go below zero; faster can push the score above 100.
+
 ## Development
 
 - Build: `make build`

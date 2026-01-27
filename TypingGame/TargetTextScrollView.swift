@@ -46,6 +46,16 @@ struct TargetTextScrollView: NSViewRepresentable {
         let length = attributedText.length
         guard length > 0 else { return }
 
+        let textHash = attributedText.string.hashValue
+        if context.coordinator.lastTextHash != textHash {
+            context.coordinator.lastTextHash = textHash
+            context.coordinator.lastScrollIndex = nil
+            if let scrollView = textView.enclosingScrollView {
+                scrollView.contentView.setBoundsOrigin(.zero)
+                scrollView.reflectScrolledClipView(scrollView.contentView)
+            }
+        }
+
         let caretIndex = max(0, min(scrollIndex, length))
         let previousIndex = max(0, min(caretIndex - 1, length - 1))
         let lastIndex = context.coordinator.lastScrollIndex
@@ -88,6 +98,7 @@ struct TargetTextScrollView: NSViewRepresentable {
 
     final class Coordinator {
         var lastScrollIndex: Int?
+        var lastTextHash: Int?
     }
 }
 

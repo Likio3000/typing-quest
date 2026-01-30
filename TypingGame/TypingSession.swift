@@ -24,6 +24,7 @@ final class TypingSession: ObservableObject {
     @Published var totalKeystrokes = 0
     @Published var correctedErrors = 0
     @Published var errorCounts: [Character: Int] = [:]
+    @Published var wrongKeyTimestamps: [String: Date] = [:]
     @Published var startTime: Date?
     @Published var endTime: Date?
 
@@ -100,6 +101,7 @@ final class TypingSession: ObservableObject {
         totalKeystrokes = 0
         correctedErrors = 0
         errorCounts = [:]
+        wrongKeyTimestamps = [:]
         startTime = nil
         endTime = nil
     }
@@ -140,6 +142,9 @@ final class TypingSession: ObservableObject {
 
         if character != expectedCharacter {
             errorCounts[expectedCharacter, default: 0] += 1
+            if let keyID = KeyMapping.keyDescriptor(for: character)?.baseKey {
+                wrongKeyTimestamps[keyID] = Date()
+            }
         }
 
         if typedText.count == targetCharacters.count {
@@ -151,5 +156,17 @@ final class TypingSession: ObservableObject {
         guard let startTime else { return 0 }
         let end = endTime ?? now
         return max(0, end.timeIntervalSince(startTime))
+    }
+
+    func wrongKeyOpacities(now: Date, fadeDuration: TimeInterval) -> [String: Double] {
+        guard fadeDuration > 0 else { return [:] }
+        var result: [String: Double] = [:]
+        for (keyID, timestamp) in wrongKeyTimestamps {
+            let elapsed = now.timeIntervalSince(timestamp)
+            if elapsed >= 0 && elapsed < fadeDuration {
+                result[keyID] = max(0, 1 - (elapsed / fadeDuration))
+            }
+        }
+        return result
     }
 }

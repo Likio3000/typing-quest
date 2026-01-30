@@ -14,7 +14,7 @@ struct ContentView: View {
     @State private var handImageZoom: Double
     @State private var isCalibratingHands = false
 
-    private let timer = Timer.publish(every: 0.25, on: .main, in: .common).autoconnect()
+    private let timer = Timer.publish(every: 0.05, on: .main, in: .common).autoconnect()
     private let targetFontRange: ClosedRange<Double> = 14...42
     private let leftPanelWidth: CGFloat = 320
     private let rightPanelWidth: CGFloat = 260
@@ -305,11 +305,13 @@ struct ContentView: View {
         let descriptor = session.nextExpectedCharacter().flatMap { KeyMapping.keyDescriptor(for: $0) }
         let highlightedKey = descriptor?.baseKey
         let highlightedShiftKeys = highlightedShiftKeys(for: descriptor)
+        let wrongKeyOpacities = session.wrongKeyOpacities(now: now, fadeDuration: 2)
 
         return Panel(title: "Keyboard") {
             KeyboardView(
                 highlightedKey: highlightedKey,
-                highlightedShiftKeys: highlightedShiftKeys
+                highlightedShiftKeys: highlightedShiftKeys,
+                wrongKeyOpacities: wrongKeyOpacities
             )
         }
     }
@@ -1444,12 +1446,14 @@ struct ProblemKeyBar: View {
 struct KeyboardView: View {
     let highlightedKey: String?
     let highlightedShiftKeys: Set<String>
+    let wrongKeyOpacities: [String: Double]
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(spacing: 12) {
                 KeyboardLegendItem(color: KeyCapView.nextKeyColor, label: "Next key")
                 KeyboardLegendItem(color: KeyCapView.shiftKeyColor, label: "Shift")
+                KeyboardLegendItem(color: KeyCapView.wrongKeyColor, label: "Wrong key")
                 Spacer()
             }
             .font(.system(size: 11, weight: .semibold))
@@ -1465,7 +1469,8 @@ struct KeyboardView: View {
     private func highlight(for keyID: String) -> KeyHighlight {
         KeyHighlight(
             isNext: keyID == highlightedKey,
-            isShift: highlightedShiftKeys.contains(keyID)
+            isShift: highlightedShiftKeys.contains(keyID),
+            wrongOpacity: wrongKeyOpacities[keyID] ?? 0
         )
     }
 
@@ -1596,6 +1601,7 @@ struct KeyCapView: View {
         .frame(width: width, height: 32)
         .overlay(RoundedRectangle(cornerRadius: 6).stroke(borderColor))
         .clipShape(RoundedRectangle(cornerRadius: 6))
+        .animation(.linear(duration: 0.05), value: highlight.wrongOpacity)
     }
 
     private var fullOverlayColor: Color? {
@@ -1605,6 +1611,9 @@ struct KeyCapView: View {
         if highlight.isNext {
             return Self.nextKeyColor
         }
+        if highlight.wrongOpacity > 0 {
+            return Self.wrongKeyColor.opacity(highlight.wrongOpacity)
+        }
         if highlight.isShift {
             return Self.shiftKeyColor
         }
@@ -1612,7 +1621,7 @@ struct KeyCapView: View {
     }
 
     private var textColor: Color {
-        if highlight.isNext || highlight.isShift {
+        if highlight.isNext || highlight.isShift || highlight.wrongOpacity > 0 {
             return Color.white
         }
         return Theme.primaryText
@@ -1629,6 +1638,7 @@ struct KeyCapView: View {
     static let baseColor = Theme.keyBase
     static let nextKeyColor = Color(.sRGB, red: 0.88, green: 0.5, blue: 0.2, opacity: 1)
     static let shiftKeyColor = Color(.sRGB, red: 0.31, green: 0.44, blue: 0.62, opacity: 1)
+    static let wrongKeyColor = Color(.sRGB, red: 0.86, green: 0.28, blue: 0.28, opacity: 1)
 
 }
 
@@ -1649,6 +1659,7 @@ struct KeyboardLegendItem: View {
 struct KeyHighlight {
     let isNext: Bool
     let isShift: Bool
+    let wrongOpacity: Double
 }
 
 struct KeyCap: Hashable {

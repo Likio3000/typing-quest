@@ -26,6 +26,10 @@ struct KeyCaptureView: NSViewRepresentable {
 final class KeyCaptureNSView: NSView {
     var onInput: ((KeyInput) -> Void)?
 
+    override func isAccessibilityElement() -> Bool {
+        false
+    }
+
     override var acceptsFirstResponder: Bool {
         true
     }

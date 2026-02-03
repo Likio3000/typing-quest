@@ -1,20 +1,5 @@
 import Foundation
-
-struct TypingStats {
-    let correct: Int
-    let wrong: Int
-    let pending: Int
-    let uncorrectedErrors: Int
-    let typedCount: Int
-}
-
-struct TypingMetrics {
-    let elapsed: TimeInterval
-    let grossWPM: Double
-    let netWPM: Double
-    let accuracy: Double
-    let kpm: Double
-}
+import TypingGameCore
 
 final class TypingSession: ObservableObject {
     @Published var targetText: String {

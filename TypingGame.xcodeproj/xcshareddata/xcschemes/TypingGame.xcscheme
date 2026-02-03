@@ -34,6 +34,20 @@
                ReferencedContainer = "container:TypingGame.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5CEC6C801D8E4BDAB6E909AE"
+               BuildableName = "TypingGameTests.xctest"
+               BlueprintName = "TypingGameTests"
+               ReferencedContainer = "container:TypingGame.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -58,6 +72,16 @@
                BlueprintIdentifier = "A61728394A5B6C7D8E9F0A1B"
                BuildableName = "TypingGameUITests.xctest"
                BlueprintName = "TypingGameUITests"
+               ReferencedContainer = "container:TypingGame.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5CEC6C801D8E4BDAB6E909AE"
+               BuildableName = "TypingGameTests.xctest"
+               BlueprintName = "TypingGameTests"
                ReferencedContainer = "container:TypingGame.xcodeproj">
             </BuildableReference>
          </TestableReference>

@@ -10,23 +10,102 @@
 		23582534D49D4CE7B00895E4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BD687766BF44F62B90CEEE5 /* Preview Assets.xcassets */; };
 		29E0BDFCA46F46EAB72D5565 /* TargetTextScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD107907161C4F46A37FDEE7 /* TargetTextScrollView.swift */; };
 		3604E18255A645E3B64C9F21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2E9C2012DB2439FBA6EDCF7 /* Assets.xcassets */; };
+		78996D688DD84A199F0C3957 /* levels.json in Resources */ = {isa = PBXBuildFile; fileRef = 77C7874D93FA4323A9E3D6D6 /* levels.json */; };
+		40AE6217E22B4B86867CFCA6 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7657876E04794D3EBD80391A /* KeyboardView.swift */; };
+		42C8B3A1A1524663BD37B3F1 /* ProblemKeyChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF57B1B84894A79A38E6709 /* ProblemKeyChartView.swift */; };
+		778B551EA0E74AEDA2C4DF98 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95982035CF0048BFBC9D9595 /* ContentViewModel.swift */; };
+		70F61A5F9E5C4ABF921B02EB /* ScoreCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A18DF457C74510A2951FB2 /* ScoreCalculator.swift */; };
+		9C8EE4B4F2824588AA51C185 /* LevelGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAEBC3A07ED4089836E3B7A /* LevelGenerator.swift */; };
+		1E514C74166D43C7A7774D1B /* TargetTextRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DB65AC2BB44D3E88636E36 /* TargetTextRenderer.swift */; };
+		5DF5F92CCF7B4251890887EA /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B4276885F3471698EE14D7 /* Levels.swift */; };
+		935159B110E34D23BAE3170F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113EFE49C1AB49398C1A9F23 /* Theme.swift */; };
+		A6F5841C034C4625B0EC205F /* Panel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334FC9380F6D4432B2740A55 /* Panel.swift */; };
+		D38B96FD24C1470FA97BB962 /* LevelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57134C500F104D779EBA8434 /* LevelRow.swift */; };
+		1909CCAD756C4454B82AFA40 /* HandGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EE81D6FB747EF954E4FCA /* HandGuideView.swift */; };
+		2D5631126A1D4919B2F6AC14 /* HandsPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0D1D0A3B4242D9A1DC73B0 /* HandsPanelView.swift */; };
 		883FC930875B44BCA59FA50E /* KeyCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E161FC5641434590E161DD /* KeyCaptureView.swift */; };
 		988C047AF7794AE881EFABC1 /* TypingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386D135C48EF48298EDCBA8B /* TypingSession.swift */; };
+		2F2DF786163A462AB5493CE7 /* TypingMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1E5E8F6F7E4C7E9B938C88 /* TypingMetrics.swift */; };
+		5004D1D0D2FA48AEBD76B004 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827B77F6A2E46609D05F4F6 /* TopBarView.swift */; };
+		66F5D45AD8B7442D8C3E23F9 /* NextKeyPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0B73F8F11E4A29A6412F13 /* NextKeyPanelView.swift */; };
 		B2C3D4E5F6074899AABBCCDD /* SmokeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F0C4E3B6D0456789ABCDEF /* SmokeTest.swift */; };
+		C2CD137506124589A4CB4F04 /* KeyboardPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A9C2C8D5D142A1B3F72863 /* KeyboardPanelView.swift */; };
 		E4C0B1A2D3E4F5061728394A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E2D3C4B5A6978877665544 /* main.swift */; };
+		E357E1C017E4467193C5BE70 /* UIIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3D4D5D107D437B90726094 /* UIIdentifiers.swift */; };
+		57F78F9762DC405EA6D8D531 /* UIIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3D4D5D107D437B90726094 /* UIIdentifiers.swift */; };
+		AE5ABBFEBEE54F5F85625858 /* SummaryPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E436F882E24562ADCB22C5 /* SummaryPanelView.swift */; };
+		C81DEE19AC2D4369B44A7D03 /* ProblemKeysPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD2168D0B54A4DBB47ECF8 /* ProblemKeysPanelView.swift */; };
+		D1ED1E085CF548309A73FC4E /* TargetPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830B0F1C1B7A4CF0A643A65E /* TargetPanelView.swift */; };
+		DEAE74DD865D42EFB3C54AE6 /* LevelsPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD7B0BD315B4D52BFD4602B /* LevelsPanelView.swift */; };
+		6201E9475F5C407EAC74EC02 /* TypingGameCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20576537AAD641899685A095 /* TypingGameCore.framework */; };
+		7620BB8C207E47838C7FBD94 /* TypingGameCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20576537AAD641899685A095 /* TypingGameCore.framework */; };
+		BCCA497FEE334312B9CEB299 /* TypingGameCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 20576537AAD641899685A095 /* TypingGameCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, );}; };
 		D352C673EC864BCE9AAA3EC1 /* TypingGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD554B33A45740B883AA4D8B /* TypingGameApp.swift */; };
 		D5C9DBA985464C678F213814 /* KeyMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F09179B551410295E4F98F /* KeyMapping.swift */; };
 		DDFD5EF0F34E45ACB83B2E4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860FEC0FB8EE464AB0877ADA /* ContentView.swift */; };
+		4B160ED3AEB4442A8CD38B46 /* AccessibilityMirrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345059E48F3E4C8FB5CE6AFB /* AccessibilityMirrorView.swift */; };
 		C2D3E4F5061728394A5B6C7D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1C2D3E4F5061728394A5B6C /* XCTest.framework */; };
 		C7A1E2B3D4F5061728394A5B /* TypingGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B2C3A4E5F60718293A4B5C /* TypingGameUITests.swift */; };
+		2C6CECB468464F0D917F6612 /* TypingGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1152067A044498895CCE80 /* TypingGameTests.swift */; };
+		C0C0E3B17EBB4AEC8F4EB676 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1C2D3E4F5061728394A5B6C /* XCTest.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3CD59AD11DF64D11BC49BAFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 356892723BEB452EB3C136A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 417CE416F3794DC981716D94;
+			remoteInfo = TypingGame;
+		};
+		443377E3BF7E412C95C829E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 356892723BEB452EB3C136A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B8D663EB6CC44ABAB3B29907;
+			remoteInfo = TypingGameCore;
+		};
+		1924BE379A37436783906A15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 356892723BEB452EB3C136A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B8D663EB6CC44ABAB3B29907;
+			remoteInfo = TypingGameCore;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		26E161FC5641434590E161DD /* KeyCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCaptureView.swift; sourceTree = "<group>"; };
+		345059E48F3E4C8FB5CE6AFB /* AccessibilityMirrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityMirrorView.swift; sourceTree = "<group>"; };
+		34DB65AC2BB44D3E88636E36 /* TargetTextRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetTextRenderer.swift; sourceTree = "<group>"; };
+		4DAEBC3A07ED4089836E3B7A /* LevelGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelGenerator.swift; sourceTree = "<group>"; };
+		67A18DF457C74510A2951FB2 /* ScoreCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCalculator.swift; sourceTree = "<group>"; };
+		77C7874D93FA4323A9E3D6D6 /* levels.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = levels.json; sourceTree = "<group>"; };
+		95982035CF0048BFBC9D9595 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		FA1152067A044498895CCE80 /* TypingGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingGameTests.swift; sourceTree = "<group>"; };
+		BDF1FD9250F94CA3A15DCAE1 /* TypingGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = TypingGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		113EFE49C1AB49398C1A9F23 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		1CF57B1B84894A79A38E6709 /* ProblemKeyChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemKeyChartView.swift; sourceTree = "<group>"; };
+		20576537AAD641899685A095 /* TypingGameCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TypingGameCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		26A9C2C8D5D142A1B3F72863 /* KeyboardPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardPanelView.swift; sourceTree = "<group>"; };
+		26B4276885F3471698EE14D7 /* Levels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
+		2DAD2168D0B54A4DBB47ECF8 /* ProblemKeysPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemKeysPanelView.swift; sourceTree = "<group>"; };
+		31E436F882E24562ADCB22C5 /* SummaryPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryPanelView.swift; sourceTree = "<group>"; };
+		334FC9380F6D4432B2740A55 /* Panel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Panel.swift; sourceTree = "<group>"; };
 		386D135C48EF48298EDCBA8B /* TypingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingSession.swift; sourceTree = "<group>"; };
+		3AD7B0BD315B4D52BFD4602B /* LevelsPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsPanelView.swift; sourceTree = "<group>"; };
+		57134C500F104D779EBA8434 /* LevelRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelRow.swift; sourceTree = "<group>"; };
+		5B0D1D0A3B4242D9A1DC73B0 /* HandsPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandsPanelView.swift; sourceTree = "<group>"; };
+		6D7EE81D6FB747EF954E4FCA /* HandGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandGuideView.swift; sourceTree = "<group>"; };
+		6F0B73F8F11E4A29A6412F13 /* NextKeyPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextKeyPanelView.swift; sourceTree = "<group>"; };
+		7657876E04794D3EBD80391A /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
+		7C3D4D5D107D437B90726094 /* UIIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIIdentifiers.swift; sourceTree = "<group>"; };
+		830B0F1C1B7A4CF0A643A65E /* TargetPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetPanelView.swift; sourceTree = "<group>"; };
 		860FEC0FB8EE464AB0877ADA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8827B77F6A2E46609D05F4F6 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		8B1459AE37A4433D8522508B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95F09179B551410295E4F98F /* KeyMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyMapping.swift; sourceTree = "<group>"; };
+		9A1E5E8F6F7E4C7E9B938C88 /* TypingMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingMetrics.swift; sourceTree = "<group>"; };
 		9BD687766BF44F62B90CEEE5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9F60C97FA4D14C3F997E2E4D /* TypingGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = TypingGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1C2D3E4F5061728394A5B6C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = System/Library/Frameworks/XCTest.framework; sourceTree = SDKROOT; };
@@ -44,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6201E9475F5C407EAC74EC02 /* TypingGameCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,7 +135,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F5D8DECEBDCE4C5E97009DF1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0C0E3B17EBB4AEC8F4EB676 /* XCTest.framework in Frameworks */,
+				7620BB8C207E47838C7FBD94 /* TypingGameCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB9040C8E29F4CA5B39AFA37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AF352337CA354A5DB30D6991 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BCCA497FEE334312B9CEB299 /* TypingGameCore.framework in Embed Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXGroup section */
 		1F8A70084B3B44998395E848 /* Preview Content */ = {
@@ -73,6 +182,25 @@
 				CD554B33A45740B883AA4D8B /* TypingGameApp.swift */,
 				A1F0C4E3B6D0456789ABCDEF /* SmokeTest.swift */,
 				860FEC0FB8EE464AB0877ADA /* ContentView.swift */,
+				8827B77F6A2E46609D05F4F6 /* TopBarView.swift */,
+				3AD7B0BD315B4D52BFD4602B /* LevelsPanelView.swift */,
+				830B0F1C1B7A4CF0A643A65E /* TargetPanelView.swift */,
+				5B0D1D0A3B4242D9A1DC73B0 /* HandsPanelView.swift */,
+				6F0B73F8F11E4A29A6412F13 /* NextKeyPanelView.swift */,
+				31E436F882E24562ADCB22C5 /* SummaryPanelView.swift */,
+				2DAD2168D0B54A4DBB47ECF8 /* ProblemKeysPanelView.swift */,
+				26A9C2C8D5D142A1B3F72863 /* KeyboardPanelView.swift */,
+				7C3D4D5D107D437B90726094 /* UIIdentifiers.swift */,
+				345059E48F3E4C8FB5CE6AFB /* AccessibilityMirrorView.swift */,
+				95982035CF0048BFBC9D9595 /* ContentViewModel.swift */,
+				34DB65AC2BB44D3E88636E36 /* TargetTextRenderer.swift */,
+				113EFE49C1AB49398C1A9F23 /* Theme.swift */,
+				77C7874D93FA4323A9E3D6D6 /* levels.json */,
+				57134C500F104D779EBA8434 /* LevelRow.swift */,
+				334FC9380F6D4432B2740A55 /* Panel.swift */,
+				6D7EE81D6FB747EF954E4FCA /* HandGuideView.swift */,
+				1CF57B1B84894A79A38E6709 /* ProblemKeyChartView.swift */,
+				7657876E04794D3EBD80391A /* KeyboardView.swift */,
 				CD107907161C4F46A37FDEE7 /* TargetTextScrollView.swift */,
 				26E161FC5641434590E161DD /* KeyCaptureView.swift */,
 				386D135C48EF48298EDCBA8B /* TypingSession.swift */,
@@ -82,6 +210,17 @@
 				8B1459AE37A4433D8522508B /* Info.plist */,
 			);
 			path = TypingGame;
+			sourceTree = "<group>";
+		};
+		D68D3660FBCD4646BF29613E /* TypingGameCore */ = {
+			isa = PBXGroup;
+			children = (
+				4DAEBC3A07ED4089836E3B7A /* LevelGenerator.swift */,
+				26B4276885F3471698EE14D7 /* Levels.swift */,
+				67A18DF457C74510A2951FB2 /* ScoreCalculator.swift */,
+				9A1E5E8F6F7E4C7E9B938C88 /* TypingMetrics.swift */,
+			);
+			path = TypingGameCore;
 			sourceTree = "<group>";
 		};
 		A1B2C3D4E5F60718293A4B5D /* Frameworks */ = {
@@ -100,10 +239,20 @@
 			path = TypingGameUITests;
 			sourceTree = "<group>";
 		};
+		B5F0548F71C949E597136DF4 /* TypingGameTests */ = {
+			isa = PBXGroup;
+			children = (
+				FA1152067A044498895CCE80 /* TypingGameTests.swift */,
+			);
+			path = TypingGameTests;
+			sourceTree = "<group>";
+		};
 		9D224E6F9FAC4239B51BF71E /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				9F60C97FA4D14C3F997E2E4D /* TypingGame.app */,
+				20576537AAD641899685A095 /* TypingGameCore.framework */,
+				BDF1FD9250F94CA3A15DCAE1 /* TypingGameTests.xctest */,
 				E9C3D4A5B6F708192A3B4C5D /* TypingGameUITests.xctest */,
 			);
 			name = Products;
@@ -113,6 +262,8 @@
 			isa = PBXGroup;
 			children = (
 				5A8BB268485A4995BC696527 /* TypingGame */,
+				D68D3660FBCD4646BF29613E /* TypingGameCore */,
+				B5F0548F71C949E597136DF4 /* TypingGameTests */,
 				F0D4E5A6B7C8091A2B3C4D5E /* TypingGameUITests */,
 				9D224E6F9FAC4239B51BF71E /* Products */,
 				A1B2C3D4E5F60718293A4B5D /* Frameworks */,
@@ -129,15 +280,52 @@
 				E66380B7021D43EDB10E6E2B /* Sources */,
 				1E228AD8D1D04F6F920B75FD /* Resources */,
 				18BCB4809B974648A58D8D8C /* Frameworks */,
+				AF352337CA354A5DB30D6991 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				20AC792825D3492FBD6B69C1 /* PBXTargetDependency */,
 			);
 			name = TypingGame;
 			productName = TypingGame;
 			productReference = 9F60C97FA4D14C3F997E2E4D /* TypingGame.app */;
 			productType = "com.apple.product-type.application";
+		};
+		B8D663EB6CC44ABAB3B29907 /* TypingGameCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B8AFE48FF37741C6944B669B /* Build configuration list for PBXNativeTarget "TypingGameCore" */;
+			buildPhases = (
+				F7A4B54031354701B37ECF94 /* Sources */,
+				BB9040C8E29F4CA5B39AFA37 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TypingGameCore;
+			productName = TypingGameCore;
+			productReference = 20576537AAD641899685A095 /* TypingGameCore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5CEC6C801D8E4BDAB6E909AE /* TypingGameTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 589445B7A05B43CCACEA95BE /* Build configuration list for PBXNativeTarget "TypingGameTests" */;
+			buildPhases = (
+				339C1CBFEFF0426EA273B6E2 /* Sources */,
+				9789986694CE459C81634577 /* Resources */,
+				F5D8DECEBDCE4C5E97009DF1 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9E79DE9C5C9E48AB97EAF246 /* PBXTargetDependency */,
+				A32F310E9A0D4E4A824B6DD9 /* PBXTargetDependency */,
+			);
+			name = TypingGameTests;
+			productName = TypingGameTests;
+			productReference = BDF1FD9250F94CA3A15DCAE1 /* TypingGameTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		A61728394A5B6C7D8E9F0A1B /* TypingGameUITests */ = {
 			isa = PBXNativeTarget;
@@ -150,6 +338,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				CF5E73EA5887429682EEF053 /* PBXTargetDependency */,
 			);
 			name = TypingGameUITests;
 			productName = TypingGameUITests;
@@ -166,6 +355,12 @@
 				LastUpgradeCheck = 2620;
 				TargetAttributes = {
 					417CE416F3794DC981716D94 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					B8D663EB6CC44ABAB3B29907 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					5CEC6C801D8E4BDAB6E909AE = {
 						CreatedOnToolsVersion = 15.0;
 					};
 					A61728394A5B6C7D8E9F0A1B = {
@@ -187,6 +382,8 @@
 			projectRoot = "";
 			targets = (
 				417CE416F3794DC981716D94 /* TypingGame */,
+				B8D663EB6CC44ABAB3B29907 /* TypingGameCore */,
+				5CEC6C801D8E4BDAB6E909AE /* TypingGameTests */,
 				A61728394A5B6C7D8E9F0A1B /* TypingGameUITests */,
 			);
 		};
@@ -197,8 +394,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78996D688DD84A199F0C3957 /* levels.json in Resources */,
 				3604E18255A645E3B64C9F21 /* Assets.xcassets in Resources */,
 				23582534D49D4CE7B00895E4 /* Preview Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9789986694CE459C81634577 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,10 +425,36 @@
 				D352C673EC864BCE9AAA3EC1 /* TypingGameApp.swift in Sources */,
 				B2C3D4E5F6074899AABBCCDD /* SmokeTest.swift in Sources */,
 				DDFD5EF0F34E45ACB83B2E4B /* ContentView.swift in Sources */,
+				5004D1D0D2FA48AEBD76B004 /* TopBarView.swift in Sources */,
+				DEAE74DD865D42EFB3C54AE6 /* LevelsPanelView.swift in Sources */,
+				D1ED1E085CF548309A73FC4E /* TargetPanelView.swift in Sources */,
+				2D5631126A1D4919B2F6AC14 /* HandsPanelView.swift in Sources */,
+				66F5D45AD8B7442D8C3E23F9 /* NextKeyPanelView.swift in Sources */,
+				AE5ABBFEBEE54F5F85625858 /* SummaryPanelView.swift in Sources */,
+				C81DEE19AC2D4369B44A7D03 /* ProblemKeysPanelView.swift in Sources */,
+				C2CD137506124589A4CB4F04 /* KeyboardPanelView.swift in Sources */,
+				E357E1C017E4467193C5BE70 /* UIIdentifiers.swift in Sources */,
+				4B160ED3AEB4442A8CD38B46 /* AccessibilityMirrorView.swift in Sources */,
+				778B551EA0E74AEDA2C4DF98 /* ContentViewModel.swift in Sources */,
+				1E514C74166D43C7A7774D1B /* TargetTextRenderer.swift in Sources */,
+				935159B110E34D23BAE3170F /* Theme.swift in Sources */,
+				D38B96FD24C1470FA97BB962 /* LevelRow.swift in Sources */,
+				A6F5841C034C4625B0EC205F /* Panel.swift in Sources */,
+				1909CCAD756C4454B82AFA40 /* HandGuideView.swift in Sources */,
+				42C8B3A1A1524663BD37B3F1 /* ProblemKeyChartView.swift in Sources */,
+				40AE6217E22B4B86867CFCA6 /* KeyboardView.swift in Sources */,
 				29E0BDFCA46F46EAB72D5565 /* TargetTextScrollView.swift in Sources */,
 				883FC930875B44BCA59FA50E /* KeyCaptureView.swift in Sources */,
 				988C047AF7794AE881EFABC1 /* TypingSession.swift in Sources */,
 				D5C9DBA985464C678F213814 /* KeyMapping.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		339C1CBFEFF0426EA273B6E2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C6CECB468464F0D917F6612 /* TypingGameTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,10 +463,45 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7A1E2B3D4F5061728394A5B /* TypingGameUITests.swift in Sources */,
+				57F78F9762DC405EA6D8D531 /* UIIdentifiers.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7A4B54031354701B37ECF94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C8EE4B4F2824588AA51C185 /* LevelGenerator.swift in Sources */,
+				5DF5F92CCF7B4251890887EA /* Levels.swift in Sources */,
+				70F61A5F9E5C4ABF921B02EB /* ScoreCalculator.swift in Sources */,
+				2F2DF786163A462AB5493CE7 /* TypingMetrics.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9E79DE9C5C9E48AB97EAF246 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 417CE416F3794DC981716D94 /* TypingGame */;
+			targetProxy = 3CD59AD11DF64D11BC49BAFC /* PBXContainerItemProxy */;
+		};
+		20AC792825D3492FBD6B69C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B8D663EB6CC44ABAB3B29907 /* TypingGameCore */;
+			targetProxy = 443377E3BF7E412C95C829E4 /* PBXContainerItemProxy */;
+		};
+		A32F310E9A0D4E4A824B6DD9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B8D663EB6CC44ABAB3B29907 /* TypingGameCore */;
+			targetProxy = 1924BE379A37436783906A15 /* PBXContainerItemProxy */;
+		};
+		CF5E73EA5887429682EEF053 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 417CE416F3794DC981716D94 /* TypingGame */;
+			targetProxy = 3CD59AD11DF64D11BC49BAFC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0A0048CBF1704B739D7488D3 /* Debug */ = {
@@ -298,6 +564,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
+				PRODUCT_MODULE_NAME = TypingGame;
 				PRODUCT_BUNDLE_IDENTIFIER = com.typinggame.app;
 				PRODUCT_NAME = "Typing Quest";
 				SWIFT_VERSION = 5.0;
@@ -363,6 +630,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
+				PRODUCT_MODULE_NAME = TypingGame;
 				PRODUCT_BUNDLE_IDENTIFIER = com.typinggame.app;
 				PRODUCT_NAME = "Typing Quest";
 				SWIFT_VERSION = 5.0;
@@ -397,6 +665,71 @@
 			};
 			name = Release;
 		};
+		699FE7B5B95442D994BD350D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.typinggame.appTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Typing Quest.app/Contents/MacOS/Typing Quest";
+				TEST_TARGET_NAME = TypingGame;
+			};
+			name = Debug;
+		};
+		34870A8AAED24062B0A3FFE7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.typinggame.appTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Typing Quest.app/Contents/MacOS/Typing Quest";
+				TEST_TARGET_NAME = TypingGame;
+			};
+			name = Release;
+		};
+		B70A964C7C914A99B688072B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.typinggame.core;
+				PRODUCT_NAME = TypingGameCore;
+				SKIP_INSTALL = YES;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		4994ECFE4D3D4C9DB8FDDF9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.typinggame.core;
+				PRODUCT_NAME = TypingGameCore;
+				SKIP_INSTALL = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -409,11 +742,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		B8AFE48FF37741C6944B669B /* Build configuration list for PBXNativeTarget "TypingGameCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B70A964C7C914A99B688072B /* Debug */,
+				4994ECFE4D3D4C9DB8FDDF9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		513E195173344BAA968C7278 /* Build configuration list for PBXProject "TypingGame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0A0048CBF1704B739D7488D3 /* Debug */,
 				A64768EFE498401F8A5B0A7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		589445B7A05B43CCACEA95BE /* Build configuration list for PBXNativeTarget "TypingGameTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				699FE7B5B95442D994BD350D /* Debug */,
+				34870A8AAED24062B0A3FFE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

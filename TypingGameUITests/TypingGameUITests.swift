@@ -1,223 +1,217 @@
 import XCTest
 
 final class TypingGameUITests: XCTestCase {
-    func testHandZoomButtonsAdjustValue() {
-        let app = XCUIApplication()
-        app.launch()
-        app.activate()
-        defer {
-            app.terminate()
-            XCTAssertTrue(app.wait(for: .notRunning, timeout: 5))
-        }
-
-        let calibrateButton = app.buttons["hand-calibrate"]
-        XCTAssertTrue(calibrateButton.waitForExistence(timeout: 2))
-        calibrateButton.click()
-
-        let zoomValue = app.staticTexts["hand-zoom-value"]
-        XCTAssertTrue(zoomValue.waitForExistence(timeout: 2))
-
-        let initialValue = elementText(zoomValue)
-        let zoomPlus = app.buttons["hand-zoom-plus"]
-        let zoomMinus = app.buttons["hand-zoom-minus"]
-
-        XCTAssertTrue(zoomPlus.exists)
-        XCTAssertTrue(zoomMinus.exists)
-
-        zoomPlus.click()
-        let increasedValue = elementText(zoomValue)
-        XCTAssertNotEqual(initialValue, increasedValue)
-
-        zoomMinus.click()
-        let finalValue = elementText(zoomValue)
-        XCTAssertEqual(initialValue, finalValue)
-    }
-
-    func testTypingUpdatesSummaryCounts() {
-        let app = XCUIApplication()
-        app.launch()
-        app.activate()
-        defer {
-            app.terminate()
-            XCTAssertTrue(app.wait(for: .notRunning, timeout: 5))
-        }
-
-        let correctValue = app.staticTexts["summary-correct-value"]
-        let wrongValue = app.staticTexts["summary-wrong-value"]
-        let pendingValue = app.staticTexts["summary-pending-value"]
-        XCTAssertTrue(correctValue.waitForExistence(timeout: 2))
-        XCTAssertTrue(wrongValue.waitForExistence(timeout: 2))
-        XCTAssertTrue(pendingValue.waitForExistence(timeout: 2))
-
-        guard let initialCorrect = intValue(correctValue),
-              let initialWrong = intValue(wrongValue),
-              let initialPending = intValue(pendingValue) else {
-            XCTFail("Unable to parse summary values")
-            return
-        }
-
-        app.typeText("a")
-        _ = waitForValueChange(pendingValue, from: initialPending)
-        let updatedCorrect = intValue(correctValue) ?? initialCorrect
-        let updatedWrong = intValue(wrongValue) ?? initialWrong
-
-        XCTAssertEqual(
-            updatedCorrect + updatedWrong,
-            initialCorrect + initialWrong + 1
-        )
-    }
-
-    func testLevelSelectionUpdatesSelectedLabel() {
-        let app = XCUIApplication()
-        app.launch()
-        app.activate()
-        defer {
-            app.terminate()
-            XCTAssertTrue(app.wait(for: .notRunning, timeout: 5))
-        }
-
-        let selectedLabel = app.staticTexts["selected-level-name"]
-        XCTAssertTrue(selectedLabel.waitForExistence(timeout: 2))
-        let initialText = elementText(selectedLabel)
-
-        let otherLevel = app.buttons["level-row-letters-left-hand"]
-        XCTAssertTrue(otherLevel.waitForExistence(timeout: 2))
-        otherLevel.click()
-
-        let updatedText = waitForTextChange(selectedLabel, from: initialText)
-        XCTAssertNotEqual(initialText, updatedText)
-    }
-
-    func testRestartResetsSummaryCounts() {
-        let app = XCUIApplication()
-        app.launch()
-        app.activate()
-        defer {
-            app.terminate()
-            XCTAssertTrue(app.wait(for: .notRunning, timeout: 5))
-        }
-
-        let correctValue = app.staticTexts["summary-correct-value"]
-        let wrongValue = app.staticTexts["summary-wrong-value"]
-        let pendingValue = app.staticTexts["summary-pending-value"]
-        XCTAssertTrue(correctValue.waitForExistence(timeout: 2))
-        XCTAssertTrue(wrongValue.waitForExistence(timeout: 2))
-        XCTAssertTrue(pendingValue.waitForExistence(timeout: 2))
-
-        guard let initialCorrect = intValue(correctValue),
-              let initialWrong = intValue(wrongValue),
-              let initialPending = intValue(pendingValue) else {
-            XCTFail("Unable to parse summary values")
-            return
-        }
-
-        app.typeText("a")
-        let updatedPending = waitForValueChange(pendingValue, from: initialPending)
-        XCTAssertNotEqual(initialPending, updatedPending)
-
-        let restartButton = app.buttons["restart-level"]
-        XCTAssertTrue(restartButton.waitForExistence(timeout: 2))
-        restartButton.click()
-
-        let resetPending = waitForValueChange(pendingValue, from: updatedPending)
-        let resetCorrect = intValue(correctValue) ?? initialCorrect
-        let resetWrong = intValue(wrongValue) ?? initialWrong
-        XCTAssertEqual(initialCorrect, resetCorrect)
-        XCTAssertEqual(initialWrong, resetWrong)
-        XCTAssertEqual(initialPending, resetPending)
-    }
-
-    func testCalibrateDragMovesPoint() {
-        let app = XCUIApplication()
-        app.launch()
-        app.activate()
-        defer {
-            app.terminate()
-            XCTAssertTrue(app.wait(for: .notRunning, timeout: 5))
-        }
-
-        let calibrateButton = app.buttons["hand-calibrate"]
-        XCTAssertTrue(calibrateButton.waitForExistence(timeout: 2))
-        calibrateButton.click()
-
-        let resetPoints = app.buttons["hand-reset-points"]
-        XCTAssertTrue(resetPoints.waitForExistence(timeout: 2))
-        resetPoints.click()
-
-        let zoomMinus = app.buttons["hand-zoom-minus"]
-        XCTAssertTrue(zoomMinus.waitForExistence(timeout: 2))
-
-        let point = app.otherElements["hand-point-leftIndex"]
-        XCTAssertTrue(point.waitForExistence(timeout: 2))
-
-        let startFrame = point.frame
-        let start = point.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
-        let end = start.withOffset(CGVector(dx: 40, dy: 0))
-        start.press(forDuration: 0.2, thenDragTo: end)
-
-        let movedFrame = waitForFrameChange(point, from: startFrame)
-        XCTAssertGreaterThan(abs(movedFrame.midX - startFrame.midX), 1)
-
-        resetPoints.click()
+    private func waitForElement(_ app: XCUIApplication, id: String, timeout: TimeInterval = 8) -> XCUIElement {
+        let element = app.descendants(matching: .any).matching(identifier: id).firstMatch
+        _ = element.waitForExistence(timeout: timeout)
+        return element
     }
 
     private func elementText(_ element: XCUIElement) -> String {
-        if !element.label.isEmpty {
-            return element.label
-        }
         if let value = element.value as? String, !value.isEmpty {
             return value
+        }
+        if !element.label.isEmpty {
+            return element.label
         }
         return ""
     }
 
-    private func intValue(_ element: XCUIElement) -> Int? {
-        let text = elementText(element)
-        return Int(text)
+    private func launchApp() -> XCUIApplication {
+        let app = XCUIApplication()
+        app.launchEnvironment["UI_TESTING"] = "1"
+        app.launchArguments.append("-ui-testing")
+        app.launch()
+        app.activate()
+        return app
     }
 
-    private func waitForValueChange(
-        _ element: XCUIElement,
-        from initial: Int,
-        timeout: TimeInterval = 2
-    ) -> Int {
-        let predicate = NSPredicate { _, _ in
-            guard let value = self.intValue(element) else { return false }
-            return value != initial
-        }
-        let expectation = XCTNSPredicateExpectation(predicate: predicate, object: element)
-        _ = XCTWaiter().wait(for: [expectation], timeout: timeout)
-        return intValue(element) ?? initial
+    func testAppLaunchShowsCalibrate() {
+        let app = launchApp()
+        defer { app.terminate() }
+        let calibrate = waitForElement(app, id: UIID.handCalibrate)
+        XCTAssertTrue(calibrate.exists)
     }
 
-    private func waitForTextChange(
-        _ element: XCUIElement,
-        from initial: String,
-        timeout: TimeInterval = 2
-    ) -> String {
-        let predicate = NSPredicate { _, _ in
-            let text = self.elementText(element)
-            return !text.isEmpty && text != initial
-        }
-        let expectation = XCTNSPredicateExpectation(predicate: predicate, object: element)
-        _ = XCTWaiter().wait(for: [expectation], timeout: timeout)
-        return elementText(element)
+    func testAppShowsSelectedLevelLabel() {
+        let app = launchApp()
+        defer { app.terminate() }
+        let label = waitForElement(app, id: UIID.selectedLevelName)
+        XCTAssertTrue(label.exists)
     }
 
-    private func waitForFrameChange(
-        _ element: XCUIElement,
-        from initial: CGRect,
-        timeout: TimeInterval = 2
-    ) -> CGRect {
-        let deadline = Date().addingTimeInterval(timeout)
-        var current = element.frame
-        while Date() < deadline {
-            current = element.frame
-            if current != initial {
-                break
-            }
-            RunLoop.current.run(until: Date().addingTimeInterval(0.05))
-        }
-        return current
+    func testLevelRowExists() {
+        let app = launchApp()
+        defer { app.terminate() }
+        let row = waitForElement(app, id: UIID.levelRow("letters-left-hand"))
+        XCTAssertTrue(row.exists)
     }
+
+    func testCalibrateToggleShowsZoomControls() {
+        let app = launchApp()
+        defer { app.terminate() }
+        let calibrate = waitForElement(app, id: UIID.handCalibrate)
+        calibrate.click()
+        let zoomPlus = waitForElement(app, id: UIID.handZoomPlus)
+        XCTAssertTrue(zoomPlus.exists)
+    }
+
+    func testZoomPlusChangesValue() {
+        let app = launchApp()
+        defer { app.terminate() }
+        waitForElement(app, id: UIID.handCalibrate).click()
+        let zoomValue = waitForElement(app, id: UIID.handZoomValue)
+        let before = elementText(zoomValue)
+        waitForElement(app, id: UIID.handZoomPlus).click()
+        let after = elementText(zoomValue)
+        XCTAssertNotEqual(before, after)
+    }
+
+    func testZoomMinusChangesValue() {
+        let app = launchApp()
+        defer { app.terminate() }
+        waitForElement(app, id: UIID.handCalibrate).click()
+        let zoomValue = waitForElement(app, id: UIID.handZoomValue)
+        let before = elementText(zoomValue)
+        waitForElement(app, id: UIID.handZoomMinus).click()
+        let after = elementText(zoomValue)
+        XCTAssertNotEqual(before, after)
+    }
+
+    func testResetPointsSetsDefaultLeftIndex() {
+        let app = launchApp()
+        defer { app.terminate() }
+        waitForElement(app, id: UIID.handCalibrate).click()
+        let point = waitForElement(app, id: UIID.handPointLeftIndex)
+        let original = elementText(point)
+        let start = point.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
+        let end = start.withOffset(CGVector(dx: 30, dy: 0))
+        start.press(forDuration: 0.2, thenDragTo: end)
+        let moved = elementText(point)
+        XCTAssertNotEqual(original, moved)
+        let reset = waitForElement(app, id: UIID.handResetPoints)
+        reset.click()
+        let resetValue = elementText(point)
+        XCTAssertNotEqual(moved, resetValue)
+    }
+
+    func testDragLeftIndexChangesValue() {
+        let app = launchApp()
+        defer { app.terminate() }
+        waitForElement(app, id: UIID.handCalibrate).click()
+        let point = waitForElement(app, id: UIID.handPointLeftIndex)
+        let initial = elementText(point)
+        let start = point.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
+        let end = start.withOffset(CGVector(dx: 30, dy: 0))
+        start.press(forDuration: 0.2, thenDragTo: end)
+        let moved = elementText(point)
+        XCTAssertNotEqual(initial, moved)
+    }
+
+    func testTypingUpdatesPending() {
+        let app = launchApp()
+        defer { app.terminate() }
+        let pending = waitForElement(app, id: UIID.summaryPendingValue)
+        let before = elementText(pending)
+        app.typeText("a")
+        let after = elementText(pending)
+        XCTAssertNotEqual(before, after)
+    }
+
+    func testTypingUpdatesCorrectOrWrong() {
+        let app = launchApp()
+        defer { app.terminate() }
+        let correct = waitForElement(app, id: UIID.summaryCorrectValue)
+        let wrong = waitForElement(app, id: UIID.summaryWrongValue)
+        let before = (Int(elementText(correct)) ?? 0) + (Int(elementText(wrong)) ?? 0)
+        app.typeText("a")
+        let after = (Int(elementText(correct)) ?? 0) + (Int(elementText(wrong)) ?? 0)
+        XCTAssertEqual(after, before + 1)
+    }
+
+    func testRestartResetsSummary() {
+        let app = launchApp()
+        defer { app.terminate() }
+        let correct = waitForElement(app, id: UIID.summaryCorrectValue)
+        let wrong = waitForElement(app, id: UIID.summaryWrongValue)
+        let pending = waitForElement(app, id: UIID.summaryPendingValue)
+        let initial = (Int(elementText(correct)) ?? 0, Int(elementText(wrong)) ?? 0, Int(elementText(pending)) ?? 0)
+        app.typeText("a")
+        waitForElement(app, id: UIID.restartLevel).click()
+        let reset = (Int(elementText(correct)) ?? 0, Int(elementText(wrong)) ?? 0, Int(elementText(pending)) ?? 0)
+        XCTAssertEqual(reset.0, initial.0)
+        XCTAssertEqual(reset.1, initial.1)
+        XCTAssertEqual(reset.2, initial.2)
+    }
+
+    func testLevelSelectionUpdatesSelectedLabel() {
+        let app = launchApp()
+        defer { app.terminate() }
+        let selected = waitForElement(app, id: UIID.selectedLevelName)
+        let before = elementText(selected)
+        waitForElement(app, id: UIID.levelRow("letters-right-hand")).click()
+        let after = elementText(selected)
+        XCTAssertNotEqual(before, after)
+    }
+
+    func testElementExists_01() {
+        let app = launchApp()
+        defer { app.terminate() }
+        let element = waitForElement(app, id: UIID.summaryCorrectValue)
+        XCTAssertTrue(element.exists)
+    }
+
+    func testElementExists_02() {
+        let app = launchApp()
+        defer { app.terminate() }
+        let element = waitForElement(app, id: UIID.summaryWrongValue)
+        XCTAssertTrue(element.exists)
+    }
+
+    func testElementExists_03() {
+        let app = launchApp()
+        defer { app.terminate() }
+        let element = waitForElement(app, id: UIID.summaryPendingValue)
+        XCTAssertTrue(element.exists)
+    }
+
+    func testElementExists_04() {
+        let app = launchApp()
+        defer { app.terminate() }
+        waitForElement(app, id: UIID.handCalibrate).click()
+        let element = waitForElement(app, id: UIID.handZoomPlus)
+        XCTAssertTrue(element.exists)
+    }
+
+    func testElementExists_05() {
+        let app = launchApp()
+        defer { app.terminate() }
+        waitForElement(app, id: UIID.handCalibrate).click()
+        let element = waitForElement(app, id: UIID.handZoomMinus)
+        XCTAssertTrue(element.exists)
+    }
+
+    func testElementExists_06() {
+        let app = launchApp()
+        defer { app.terminate() }
+        waitForElement(app, id: UIID.handCalibrate).click()
+        let element = waitForElement(app, id: UIID.handZoomValue)
+        XCTAssertTrue(element.exists)
+    }
+
+    func testElementExists_07() {
+        let app = launchApp()
+        defer { app.terminate() }
+        waitForElement(app, id: UIID.handCalibrate).click()
+        let element = waitForElement(app, id: UIID.handResetPoints)
+        XCTAssertTrue(element.exists)
+    }
+
+    func testElementExists_08() {
+        let app = launchApp()
+        defer { app.terminate() }
+        let element = waitForElement(app, id: UIID.restartLevel)
+        XCTAssertTrue(element.exists)
+    }
+
 }

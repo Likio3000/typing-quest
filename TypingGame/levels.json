@@ -1,0 +1,348 @@
+[
+  {
+    "id": "letters-home-row",
+    "name": "Letters: Home row",
+    "description": "asdf jkl; focused warmup.",
+    "pool": "asdfjkl;",
+    "length": 160,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "left-pinky-keys",
+    "name": "Letters: Left pinky",
+    "description": "q a z 1 with ` and ~.",
+    "pool": "`~1!qQaAzZ",
+    "length": 180,
+    "wordLengthRange": [
+      3,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "right-pinky-keys",
+    "name": "Letters: Right pinky",
+    "description": "p ; / 0 - = [ ] \\ ' and shifts.",
+    "pool": "pP;:/?0)-_=+[]{}\\|'\"",
+    "length": 200,
+    "wordLengthRange": [
+      2,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "letters-left-hand",
+    "name": "Letters: Left hand",
+    "description": "qwert asdfg zxcvb.",
+    "pool": "qwertasdfgzxcvb",
+    "length": 180,
+    "wordLengthRange": [
+      4,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "letters-right-hand",
+    "name": "Letters: Right hand",
+    "description": "yuiop hjkl; nm,./",
+    "pool": "yuiophjkl;nm,./",
+    "length": 180,
+    "wordLengthRange": [
+      4,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "letters-top-row",
+    "name": "Letters: Top row",
+    "description": "qwertyuiop only.",
+    "pool": "qwertyuiop",
+    "length": 180,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "letters-bottom-row",
+    "name": "Letters: Bottom row",
+    "description": "zxcvbnm only.",
+    "pool": "zxcvbnm",
+    "length": 160,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "letters-vowels",
+    "name": "Letters: Vowels",
+    "description": "aeiou heavy repetition.",
+    "pool": "aeiou",
+    "length": 140,
+    "wordLengthRange": [
+      3,
+      5
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "letters-lowercase-mix",
+    "name": "Letters: Lowercase mix",
+    "description": "Full lowercase alphabet.",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 220,
+    "wordLengthRange": [
+      4,
+      8
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "letters-mixed-case",
+    "name": "Letters: Mixed case",
+    "description": "Uppercase and lowercase.",
+    "pool": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    "length": 220,
+    "wordLengthRange": [
+      4,
+      8
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "numbers-1-5",
+    "name": "Numbers: 1-5",
+    "description": "Low numbers focus.",
+    "pool": "12345",
+    "length": 140,
+    "wordLengthRange": [
+      3,
+      5
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "numbers-6-0",
+    "name": "Numbers: 6-0",
+    "description": "High numbers focus.",
+    "pool": "67890",
+    "length": 140,
+    "wordLengthRange": [
+      3,
+      5
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "numbers-all",
+    "name": "Numbers: All digits",
+    "description": "0-9 mixed.",
+    "pool": "0123456789",
+    "length": 180,
+    "wordLengthRange": [
+      3,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "symbols-punctuation",
+    "name": "Symbols: Punctuation",
+    "description": "., ; ' /",
+    "pool": ".,;'/",
+    "length": 160,
+    "wordLengthRange": [
+      2,
+      4
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "symbols-brackets",
+    "name": "Symbols: Brackets",
+    "description": "[ ] { } ( )",
+    "pool": "[]{}()",
+    "length": 160,
+    "wordLengthRange": [
+      2,
+      4
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "symbols-operators",
+    "name": "Symbols: Operators",
+    "description": "- = + * /",
+    "pool": "-=+*/",
+    "length": 160,
+    "wordLengthRange": [
+      2,
+      4
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "symbols-shift",
+    "name": "Symbols: Shifted",
+    "description": "! @ # $ % ^ & * ( )",
+    "pool": "!@#$%^&*()",
+    "length": 160,
+    "wordLengthRange": [
+      2,
+      4
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "full-mix",
+    "name": "Full mix",
+    "description": "Letters, numbers, punctuation, operators.",
+    "pool": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,;'/[]{}()-=+*/!@#$%^&*()",
+    "length": 240,
+    "wordLengthRange": [
+      4,
+      9
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "story-night-market",
+    "name": "Story: Night Market",
+    "description": "Full text with numbers and symbols.",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 295,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "At 6:05 PM, the night market lit up, and Mina wrote \"List #3\" on her wrist. She bought 2 pies for $7.50, paid with a card, and got a receipt that read: TAX=8%. A small cat followed her, jumping over crates marked [A-12] and (B-4). \"Stay close,\" she said; the bell chimed, and the vendor nodded.\n"
+  },
+  {
+    "id": "story-signal-log",
+    "name": "Story: Signal Log",
+    "description": "Full text with mixed case and operators.",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 275,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "The radio log started with: \"Day 19, 04:17 @ Ridge Station.\" We tested a new antenna, toggled switch A/B, and the meter jumped from 0.9 to 1.3. The old map had notes like \"north-3\" and \"west+2\", but the signal only stabilized when we set gain=7 and the lamp blinked 3 times.\n"
+  },
+  {
+    "id": "story-clockwork-letter",
+    "name": "Story: Clockwork Letter",
+    "description": "Full text with punctuation and math.",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 229,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "In the attic, a folded letter said: \"Meet me at Gate 5 - bring the brass key.\" Jae checked the clock (11:02) and scribbled 2+2=4 on the envelope. The note smelled of oil & smoke, and a tiny gear with 8 teeth fell onto the table.\n"
+  },
+  {
+    "id": "story-workshop-report",
+    "name": "Story: Workshop Report",
+    "description": "Full text with symbols, units, and caps.",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 233,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Report 07: The prototype \"Vega\" failed test #42. We saw a 3.14 cm crack, a 12% voltage drop, and a fuse marked 10A/250V. Still, the crew cheered when the reboot finished in 9.8s; the console flashed OK>READY and the room went quiet.\n"
+  },
+  {
+    "id": "data-entry-invoice",
+    "name": "Data Entry: Invoice",
+    "description": "Invoice lines with prices, IDs, and totals.",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 243,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Invoice #48371 | Date: 2026-01-27 | Vendor: Northwind Parts\nItem: Gear Set (GS-442) Qty: 3 Unit: $79.95 Line: $239.85\nItem: Belt Kit (BK-210) Qty: 1 Unit: $34.50 Line: $34.50\nSubtotal: $274.35  Tax 8.25%: $22.64  Total: $296.99  Paid: CC-4582\n"
+  },
+  {
+    "id": "data-entry-contacts",
+    "name": "Data Entry: Contacts",
+    "description": "Names, departments, extensions, and emails.",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 216,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Contact Log: 3 entries\n1) Rivera, Ana | Dept: Ops | Ext: 224 | Email: ana.rivera@acme.co\n2) Chen, Li | Dept: IT | Ext: 318 | Email: li.chen@acme.co\n3) Patel, Omar | Dept: Sales | Ext: 105 | Email: omar.patel@acme.co\n"
+  },
+  {
+    "id": "data-entry-shipment",
+    "name": "Data Entry: Shipment",
+    "description": "Addresses, IDs, and ETA details.",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 168,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Shipment Record: ID SHP-90218\nOrigin: 4501 W 3rd St, Austin, TX 78703\nDest: 18 Harbor Way, Newark, NJ 07102\nWeight: 42.6 lb  Boxes: 4  Carrier: FDX-2Day  ETA: 01/30/26\n"
+  },
+  {
+    "id": "data-entry-inventory",
+    "name": "Data Entry: Inventory",
+    "description": "SKUs, counts, bins, and sizes.",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 270,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Inventory Update (Cycle B): Aisle 7\nSKU: HN-1442 | Desc: Hand Nut 10mm | On Hand: 860 | Reorder: 500 | Bin: B-07-14\nSKU: BX-9901 | Desc: Box, 12x10x8 | On Hand: 120 | Reorder: 60 | Bin: C-02-03\nSKU: CL-5530 | Desc: Clamp 3/4in | On Hand: 48 | Reorder: 75 | Bin: A-01-09\n"
+  },
+  {
+    "id": "data-entry-timesheet",
+    "name": "Data Entry: Timesheet",
+    "description": "Dates, hours, totals, and notes.",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 188,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Timesheet: Week 04 (Employee ID: 77102)\nMon 01/20: 8.0  Tue 01/21: 7.5  Wed 01/22: 8.0\nThu 01/23: 8.5  Fri 01/24: 6.5  OT: 1.5  Total: 38.0\nNotes: \"Inventory count + customer follow-ups.\"\n"
+  },
+  {
+    "id": "data-entry-support-ticket",
+    "name": "Data Entry: Support Ticket",
+    "description": "Ticket fields with assets and steps.",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 226,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Ticket #A-77530 | Priority: P2 | Status: OPEN\nUser: Kim, Jordan | Asset: LTP-4471 | OS: macOS 14.2\nIssue: \"Printer queue shows error 79\" | Started: 09:14 | Attempts: 2\nResolution: Clear spooler, reboot, re-add printer PRN-04.\n"
+  }
+]

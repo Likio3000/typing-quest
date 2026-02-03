@@ -6,8 +6,12 @@ final class ContentViewModel: ObservableObject {
     let levels: [Level]
     let session: TypingSession
 
-    @Published var selectedLevelID: String
-    @Published var activeLevelID: String
+    @Published var selectedLevelID: String {
+        didSet { persistSelectedLevel() }
+    }
+    @Published var activeLevelID: String {
+        didSet { persistActiveLevel() }
+    }
     @Published var bestScores: [String: Double]
     @Published var handPoints: [FingerIdentifier: CGPoint] {
         didSet { HandCalibration.savePoints(handPoints) }
@@ -23,10 +27,23 @@ final class ContentViewModel: ObservableObject {
     init(levels: [Level] = LevelCatalog.levels) {
         self.levels = levels
 
-        let initialLevel = levels.first ?? LevelCatalog.fallbackLevel
-        self.session = TypingSession(targetText: LevelGenerator.generateText(for: initialLevel))
-        self.selectedLevelID = initialLevel.id
-        self.activeLevelID = initialLevel.id
+        let defaultLevel = levels.first ?? LevelCatalog.fallbackLevel
+        let defaults = UserDefaults.standard
+        if UITesting.enabled {
+            defaults.removeObject(forKey: StorageKey.selectedLevelID)
+            defaults.removeObject(forKey: StorageKey.activeLevelID)
+            defaults.removeObject(forKey: HandCalibration.storageKey)
+            defaults.removeObject(forKey: HandImageZoom.storageKey)
+        }
+        let savedSelectedID = defaults.string(forKey: StorageKey.selectedLevelID)
+        let savedActiveID = defaults.string(forKey: StorageKey.activeLevelID)
+        let selectedLevelID = Self.resolveLevelID(savedSelectedID, levels: levels) ?? defaultLevel.id
+        let activeLevelID = Self.resolveLevelID(savedActiveID, levels: levels) ?? selectedLevelID
+        let activeLevel = levels.first(where: { $0.id == activeLevelID }) ?? defaultLevel
+
+        self.session = TypingSession(targetText: LevelGenerator.generateText(for: activeLevel))
+        self.selectedLevelID = selectedLevelID
+        self.activeLevelID = activeLevelID
         self.bestScores = LevelScoreStore.loadAll(levels: levels)
         self.handPoints = HandCalibration.loadPoints()
         self.handImageZoom = HandImageZoom.load()
@@ -75,4 +92,22 @@ final class ContentViewModel: ObservableObject {
             LevelScoreStore.save(score, for: activeLevelID)
         }
     }
+
+    private static func resolveLevelID(_ candidate: String?, levels: [Level]) -> String? {
+        guard let candidate else { return nil }
+        return levels.first(where: { $0.id == candidate })?.id
+    }
+
+    private func persistSelectedLevel() {
+        UserDefaults.standard.set(selectedLevelID, forKey: StorageKey.selectedLevelID)
+    }
+
+    private func persistActiveLevel() {
+        UserDefaults.standard.set(activeLevelID, forKey: StorageKey.activeLevelID)
+    }
+}
+
+private enum StorageKey {
+    static let selectedLevelID = "typinggame.selected-level-id"
+    static let activeLevelID = "typinggame.active-level-id"
 }

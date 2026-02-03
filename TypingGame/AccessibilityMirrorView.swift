@@ -6,64 +6,68 @@ struct AccessibilityMirrorView: View {
     let stats: TypingStats
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Text("Selected: \(viewModel.selectedLevel.name)")
-                .accessibilityIdentifier(UIID.selectedLevelName)
+        Group {
+            if UITesting.enabled {
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("Selected: \(viewModel.selectedLevel.name)")
+                        .accessibilityIdentifier(UIID.selectedLevelName)
 
-            Button(viewModel.isCalibratingHands ? "Done" : "Calibrate") {
-                viewModel.isCalibratingHands.toggle()
-            }
-            .accessibilityIdentifier(UIID.handCalibrate)
-
-            if viewModel.isCalibratingHands {
-                HStack(spacing: 8) {
-                    Button("Zoom -") {
-                        viewModel.handImageZoom = HandImageZoom.clamp(
-                            viewModel.handImageZoom - HandImageZoom.step
-                        )
+                    Button(viewModel.isCalibratingHands ? "Done" : "Calibrate") {
+                        viewModel.isCalibratingHands.toggle()
                     }
-                    .accessibilityIdentifier(UIID.handZoomMinus)
+                    .accessibilityIdentifier(UIID.handCalibrate)
 
-                    Text("\(Int(viewModel.handImageZoom * 100))%")
-                        .accessibilityIdentifier(UIID.handZoomValue)
+                    if viewModel.isCalibratingHands {
+                        HStack(spacing: 8) {
+                            Button("Zoom -") {
+                                viewModel.handImageZoom = HandImageZoom.clamp(
+                                    viewModel.handImageZoom - HandImageZoom.step
+                                )
+                            }
+                            .accessibilityIdentifier(UIID.handZoomMinus)
 
-                    Button("Zoom +") {
-                        viewModel.handImageZoom = HandImageZoom.clamp(
-                            viewModel.handImageZoom + HandImageZoom.step
-                        )
+                            Text("\(Int(viewModel.handImageZoom * 100))%")
+                                .accessibilityIdentifier(UIID.handZoomValue)
+
+                            Button("Zoom +") {
+                                viewModel.handImageZoom = HandImageZoom.clamp(
+                                    viewModel.handImageZoom + HandImageZoom.step
+                                )
+                            }
+                            .accessibilityIdentifier(UIID.handZoomPlus)
+
+                            Button("Reset Points") {
+                                viewModel.handPoints = HandCalibration.defaultPoints
+                            }
+                            .accessibilityIdentifier(UIID.handResetPoints)
+                        }
                     }
-                    .accessibilityIdentifier(UIID.handZoomPlus)
 
-                    Button("Reset Points") {
-                        viewModel.handPoints = HandCalibration.defaultPoints
+                    Button("Restart") {
+                        viewModel.session.resetSession()
                     }
-                    .accessibilityIdentifier(UIID.handResetPoints)
+                    .accessibilityIdentifier(UIID.restartLevel)
+
+                    Button("Left Hand") {
+                        if let level = viewModel.levels.first(where: { $0.id == "letters-left-hand" }) {
+                            viewModel.applyLevel(level)
+                        }
+                    }
+                    .accessibilityIdentifier(UIID.levelRow("letters-left-hand"))
+
+                    HStack(spacing: 8) {
+                        Text("\(stats.correct)")
+                            .accessibilityIdentifier(UIID.summaryCorrectValue)
+                        Text("\(stats.wrong)")
+                            .accessibilityIdentifier(UIID.summaryWrongValue)
+                        Text("\(stats.pending)")
+                            .accessibilityIdentifier(UIID.summaryPendingValue)
+                    }
+
+                    handPointProxy
+                        .frame(width: 160, height: 160)
                 }
             }
-
-            Button("Restart") {
-                viewModel.session.resetSession()
-            }
-            .accessibilityIdentifier(UIID.restartLevel)
-
-            Button("Left Hand") {
-                if let level = viewModel.levels.first(where: { $0.id == "letters-left-hand" }) {
-                    viewModel.applyLevel(level)
-                }
-            }
-            .accessibilityIdentifier(UIID.levelRow("letters-left-hand"))
-
-            HStack(spacing: 8) {
-                Text("\(stats.correct)")
-                    .accessibilityIdentifier(UIID.summaryCorrectValue)
-                Text("\(stats.wrong)")
-                    .accessibilityIdentifier(UIID.summaryWrongValue)
-                Text("\(stats.pending)")
-                    .accessibilityIdentifier(UIID.summaryPendingValue)
-            }
-
-            handPointProxy
-                .frame(width: 160, height: 160)
         }
     }
 

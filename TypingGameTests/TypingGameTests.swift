@@ -2570,9 +2570,9 @@ text="b" fg=1.00,1.00,0.00,1.00 bg=0.00,0.00,1.00,1.00 size=12
             let foreground = colorString(attrs[.foregroundColor] as? NSColor)
             let background = colorString(attrs[.backgroundColor] as? NSColor)
             let fontSize = Int(((attrs[.font] as? NSFont)?.pointSize ?? 0).rounded())
-            lines.append("text=\"\\(text)\" fg=\\(foreground) bg=\\(background) size=\\(fontSize)")
+            lines.append("text=\"\(text)\" fg=\(foreground) bg=\(background) size=\(fontSize)")
         }
-        return lines.joined(separator: "\n") + "\n"
+        return lines.joined(separator: "\n")
     }
 
     private func colorString(_ color: NSColor?) -> String {

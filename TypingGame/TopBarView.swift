@@ -5,6 +5,11 @@ struct TopBarView: View {
     let netWPM: String
     let accuracy: String
     let completion: Double
+    let isFullscreen: Bool
+
+    private var progressBarWidth: CGFloat {
+        isFullscreen ? 720 : 420
+    }
 
     var body: some View {
         ZStack {
@@ -15,10 +20,10 @@ struct TopBarView: View {
             }
 
             HStack {
-                Spacer()
                 LevelProgressBar(progress: completion)
-                    .frame(width: 220)
+                    .frame(width: progressBarWidth)
             }
+            .frame(maxWidth: .infinity, alignment: .trailing)
         }
         .frame(maxWidth: .infinity)
         .padding(12)
@@ -35,22 +40,16 @@ private struct LevelProgressBar: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
-            Text("Progress")
-                .font(.system(size: 11, weight: .semibold))
-                .foregroundColor(Theme.mutedText)
+        GeometryReader { proxy in
+            ZStack(alignment: .leading) {
+                Capsule()
+                    .fill(Theme.border.opacity(0.9))
 
-            GeometryReader { proxy in
-                ZStack(alignment: .leading) {
-                    Capsule()
-                        .fill(Theme.border.opacity(0.9))
-
-                    Capsule()
-                        .fill(Theme.accent)
-                        .frame(width: proxy.size.width * clampedProgress)
-                }
+                Capsule()
+                    .fill(Theme.accent)
+                    .frame(width: proxy.size.width * clampedProgress)
             }
-            .frame(height: 8)
         }
+        .frame(height: 8)
     }
 }

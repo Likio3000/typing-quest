@@ -6,6 +6,9 @@
 - Category control is minimal and readable.
 - Top bar is intentionally 3 metrics (Time, Net WPM, Accuracy).
 - Top bar includes a horizontal level-completion progress bar.
+- Progress bar width is context-aware: wider in fullscreen, standard width in windowed mode.
+- Fullscreen progress width grows toward the center by keeping trailing alignment fixed.
+- Progress bar is unlabeled (no "Progress" text) to keep the top bar visually clean.
 
 ## Progression
 

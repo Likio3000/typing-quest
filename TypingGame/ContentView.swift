@@ -7,6 +7,7 @@ struct ContentView: View {
     @StateObject private var targetRenderer = TargetTextRenderer()
     @State private var targetFontSize: Double = 22
     @State private var now = Date()
+    @State private var isFullscreen = false
 
     private let timer = Timer.publish(every: 0.05, on: .main, in: .common).autoconnect()
     private let targetFontRange: ClosedRange<Double> = 14...42
@@ -25,7 +26,8 @@ struct ContentView: View {
                 time: formatTime(metrics.elapsed),
                 netWPM: formatNumber(metrics.netWPM),
                 accuracy: formatPercent(metrics.accuracy),
-                completion: completion
+                completion: completion,
+                isFullscreen: isFullscreen
             )
 
             HStack(alignment: .top, spacing: 16) {
@@ -61,8 +63,18 @@ struct ContentView: View {
         .overlay(keyCaptureView)
         .onAppear {
             NSApp.activate(ignoringOtherApps: true)
+            syncFullscreenState()
         }
         .onReceive(timer) { now = $0 }
+        .onReceive(NotificationCenter.default.publisher(for: NSWindow.didEnterFullScreenNotification)) { notification in
+            updateFullscreenState(from: notification)
+        }
+        .onReceive(NotificationCenter.default.publisher(for: NSWindow.didExitFullScreenNotification)) { notification in
+            updateFullscreenState(from: notification)
+        }
+        .onReceive(NotificationCenter.default.publisher(for: NSWindow.didBecomeKeyNotification)) { notification in
+            updateFullscreenState(from: notification)
+        }
     }
 
     private func centerPanel(session: TypingSession) -> some View {
@@ -217,6 +229,23 @@ struct ContentView: View {
         case .either, .unknown:
             return ["shift-left", "shift-right"]
         }
+    }
+
+    private func updateFullscreenState(from notification: Notification) {
+        guard let window = notification.object as? NSWindow else { return }
+        isFullscreen = window.styleMask.contains(.fullScreen)
+    }
+
+    private func syncFullscreenState() {
+        if let keyWindow = NSApp.keyWindow {
+            isFullscreen = keyWindow.styleMask.contains(.fullScreen)
+            return
+        }
+        if let mainWindow = NSApp.mainWindow {
+            isFullscreen = mainWindow.styleMask.contains(.fullScreen)
+            return
+        }
+        isFullscreen = false
     }
 }
 

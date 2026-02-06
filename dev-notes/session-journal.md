@@ -13,3 +13,11 @@
 - Updated category picker selected text styling to high-contrast white.
 - Added persistent repo memory policy (`AGENTS.md`) and memory-skill maintenance rules.
 - Verified test pass via `xcodebuild ... test` (349 tests, 0 failures).
+- Added `make fresh-run` target to clean, rebuild, and launch the app in one command.
+- Updated make run flow to auto-stop after a timed window (`RUN_FOR`, default 20s), plus `make run-live` for manual sessions.
+- Set default end-of-task runtime check policy to `make run RUN_FOR=20`.
+- Widened top-bar progress line from compact to long format for better visibility.
+- Updated make run targets to auto-attempt fullscreen before the timed run window.
+- Progress bar now expands further only in fullscreen while keeping prior width in windowed mode.
+- Increased fullscreen progress bar width again and kept it trailing-anchored so extra width grows toward center.
+- Removed "Progress" label text from the top-bar progress element.

@@ -10,6 +10,7 @@ description: Project-specific development workflow for the Typing_game macOS app
 1. Start by loading the `typing-game-memory` skill workflow and reading relevant files in `dev-notes/`.
 2. Make the requested code changes in this repo.
 3. Run validation before declaring the task done:
+   - Always run: `make run RUN_FOR=20`
    - Preferred: `make smoke`
    - Direct: `scripts/smoke_run.sh \"build/Build/Products/Debug/Typing Quest.app/Contents/MacOS/Typing Quest\"`
    - If smoke is flaky in the environment, run:

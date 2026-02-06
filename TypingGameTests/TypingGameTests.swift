@@ -802,6 +802,23 @@ final class TypingSessionMetricsTests: XCTestCase {
         XCTAssertEqual(metrics.accuracy, 1.000000, accuracy: 0.0001)
         XCTAssertEqual(metrics.kpm, 1.333333, accuracy: 0.0001)
     }
+
+    func testMetrics_accuracyCountsCorrectedErrors() {
+        let session = TypingSession(targetText: "abcd")
+        session.typedText = "abcd"
+        session.totalKeystrokes = 6
+        session.correctedErrors = 2
+        let start = Date(timeIntervalSince1970: 0)
+        let end = Date(timeIntervalSince1970: 60.0)
+        session.startTime = start
+        session.endTime = end
+
+        let metrics = session.metrics(now: end)
+        XCTAssertEqual(metrics.grossWPM, 1.200000, accuracy: 0.0001)
+        XCTAssertEqual(metrics.netWPM, 1.200000, accuracy: 0.0001)
+        XCTAssertEqual(metrics.accuracy, 0.666667, accuracy: 0.0001)
+        XCTAssertEqual(metrics.kpm, 6.000000, accuracy: 0.0001)
+    }
 }
 
 final class TypingSessionProblemKeyTests: XCTestCase {

@@ -1965,6 +1965,72 @@ final class LevelDecodingTests: XCTestCase {
         XCTAssertEqual(level.length, 20)
         XCTAssertEqual(level.pool, Array("xyz"))
     }
+
+    func testDecode_metadataDefaults() throws {
+        let json = "{\"id\":\"m1\",\"name\":\"n\",\"description\":\"d\",\"pool\":\"abc\",\"length\":5,\"wordLengthRange\":[1,2]}"
+        let data = json.data(using: .utf8)!
+        let level = try JSONDecoder().decode(Level.self, from: data)
+        XCTAssertEqual(level.category, "General")
+        XCTAssertEqual(level.difficulty, 1)
+        XCTAssertEqual(level.tags, [])
+        XCTAssertEqual(level.sortOrder, 0)
+        XCTAssertNil(level.source)
+    }
+
+    func testDecode_metadataValues() throws {
+        let json = "{\"id\":\"m2\",\"name\":\"n\",\"description\":\"d\",\"pool\":\"abc\",\"length\":5,\"wordLengthRange\":[1,2],\"category\":\"Letters\",\"difficulty\":3,\"tags\":[\"letters\",\"test\"],\"sortOrder\":42,\"source\":\"spec\"}"
+        let data = json.data(using: .utf8)!
+        let level = try JSONDecoder().decode(Level.self, from: data)
+        XCTAssertEqual(level.category, "Letters")
+        XCTAssertEqual(level.difficulty, 3)
+        XCTAssertEqual(level.tags, ["letters", "test"])
+        XCTAssertEqual(level.sortOrder, 42)
+        XCTAssertEqual(level.source, "spec")
+    }
+}
+
+final class LevelsJSONValidationTests: XCTestCase {
+    func testLevelsJSONValid() throws {
+        let levels = try loadLevelsFromRepo()
+        XCTAssertFalse(levels.isEmpty)
+
+        var ids = Set<String>()
+        for level in levels {
+            XCTAssertTrue(ids.insert(level.id).inserted, "Duplicate id: \(level.id)")
+            XCTAssertFalse(level.name.isEmpty)
+            XCTAssertFalse(level.description.isEmpty)
+            XCTAssertGreaterThan(level.length, 0)
+
+            if level.fixedText == nil || level.fixedText?.isEmpty == true {
+                XCTAssertFalse(level.pool.isEmpty, "Level \(level.id) missing pool")
+            }
+
+            let lower = level.wordLengthRange.lowerBound
+            let upper = level.wordLengthRange.upperBound
+            XCTAssertGreaterThanOrEqual(lower, 1)
+            XCTAssertGreaterThanOrEqual(upper, lower)
+            XCTAssertLessThanOrEqual(upper, level.length)
+
+            if let fixedText = level.fixedText {
+                XCTAssertEqual(fixedText, fixedText.trimmingCharacters(in: .whitespacesAndNewlines))
+                for ch in fixedText {
+                    let code = ch.unicodeScalars.first?.value ?? 0
+                    if ch == "\n" { continue }
+                    XCTAssertTrue(code >= 32 && code <= 126, "Level \(level.id) has non-ASCII characters")
+                }
+            }
+        }
+    }
+
+    private func loadLevelsFromRepo() throws -> [Level] {
+        let testFileURL = URL(fileURLWithPath: #file)
+        let repoRoot = testFileURL
+            .deletingLastPathComponent()
+            .deletingLastPathComponent()
+        let levelsURL = repoRoot.appendingPathComponent("TypingGame/levels.json")
+        let data = try Data(contentsOf: levelsURL)
+        return try JSONDecoder().decode([Level].self, from: data)
+    }
 }
 
 final class ScoreCalculatorTests: XCTestCase {

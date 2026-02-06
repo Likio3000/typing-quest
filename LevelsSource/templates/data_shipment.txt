@@ -1,0 +1,4 @@
+Shipment {{ORDER}} | Date: {{DATE}} | Carrier: {{COMPANY}}
+Origin: {{STREET}}, {{CITY}}, {{STATE}} {{ZIP}}
+Dest: {{STREET}}, {{CITY}}, {{STATE}} {{ZIP}}
+Weight: {{WEIGHT}} {{UNIT}}  Boxes: {{QTY}}  ETA: {{DATE}} {{TIME}}

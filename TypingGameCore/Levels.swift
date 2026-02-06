@@ -4,6 +4,11 @@ public struct Level: Identifiable, Decodable {
     public let id: String
     public let name: String
     public let description: String
+    public let category: String
+    public let difficulty: Int
+    public let tags: [String]
+    public let sortOrder: Int
+    public let source: String?
     public let pool: [Character]
     public let length: Int
     public let wordLengthRange: ClosedRange<Int>
@@ -18,6 +23,11 @@ public struct Level: Identifiable, Decodable {
         case id
         case name
         case description
+        case category
+        case difficulty
+        case tags
+        case sortOrder
+        case source
         case pool
         case length
         case wordLengthRange
@@ -29,6 +39,11 @@ public struct Level: Identifiable, Decodable {
         id: String,
         name: String,
         description: String,
+        category: String = "General",
+        difficulty: Int = 1,
+        tags: [String] = [],
+        sortOrder: Int = 0,
+        source: String? = nil,
         pool: [Character],
         length: Int,
         wordLengthRange: ClosedRange<Int>,
@@ -38,6 +53,11 @@ public struct Level: Identifiable, Decodable {
         self.id = id
         self.name = name
         self.description = description
+        self.category = category
+        self.difficulty = difficulty
+        self.tags = tags
+        self.sortOrder = sortOrder
+        self.source = source
         self.pool = pool
         self.length = length
         self.wordLengthRange = wordLengthRange
@@ -50,6 +70,11 @@ public struct Level: Identifiable, Decodable {
         id = try container.decode(String.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
         description = try container.decode(String.self, forKey: .description)
+        category = try container.decodeIfPresent(String.self, forKey: .category) ?? "General"
+        difficulty = try container.decodeIfPresent(Int.self, forKey: .difficulty) ?? 1
+        tags = try container.decodeIfPresent([String].self, forKey: .tags) ?? []
+        sortOrder = try container.decodeIfPresent(Int.self, forKey: .sortOrder) ?? 0
+        source = try container.decodeIfPresent(String.self, forKey: .source)
 
         let poolString = try container.decodeIfPresent(String.self, forKey: .pool) ?? ""
         pool = Array(poolString)
@@ -89,7 +114,24 @@ public enum LevelCatalog {
         do {
             let data = try Data(contentsOf: url)
             let decoded = try JSONDecoder().decode([Level].self, from: data)
-            return decoded.isEmpty ? [fallbackLevel] : decoded
+            let sorted = decoded.sorted { lhs, rhs in
+                if lhs.sortOrder != rhs.sortOrder {
+                    return lhs.sortOrder < rhs.sortOrder
+                }
+                let categoryOrder = lhs.category.localizedCaseInsensitiveCompare(rhs.category)
+                if categoryOrder != .orderedSame {
+                    return categoryOrder == .orderedAscending
+                }
+                if lhs.difficulty != rhs.difficulty {
+                    return lhs.difficulty < rhs.difficulty
+                }
+                let nameOrder = lhs.name.localizedCaseInsensitiveCompare(rhs.name)
+                if nameOrder != .orderedSame {
+                    return nameOrder == .orderedAscending
+                }
+                return lhs.id < rhs.id
+            }
+            return sorted.isEmpty ? [fallbackLevel] : sorted
         } catch {
             return [fallbackLevel]
         }

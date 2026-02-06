@@ -1,0 +1,4 @@
+Ticket {{TICKET}} | Priority: P{{QTY}} | Status: OPEN
+User: {{NAME}} | Dept: {{DEPARTMENT}} | Ext: {{QTY}}{{QTY}}{{QTY}}
+Issue: "{{NOTE}}" | Started: {{TIME}} | Attempts: {{QTY}}
+Asset: {{MODEL}} | Serial: {{SERIAL}}

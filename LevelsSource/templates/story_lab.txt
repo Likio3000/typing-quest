@@ -1,0 +1,2 @@
+Log {{CODE}} | Date {{DATE}} {{TIME}} | Operator {{LAST_NAME}}
+We {{ACTION}} the {{OBJECT}}, recorded {{PERCENT}} variance, and set the {{MODEL}} to mode {{CODE}}. A note on the console said "{{NOTE}}".

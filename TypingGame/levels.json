@@ -9,7 +9,15 @@
       4,
       6
     ],
-    "includeSpaces": true
+    "includeSpaces": true,
+    "category": "Letters",
+    "difficulty": 1,
+    "tags": [
+      "letters",
+      "home-row"
+    ],
+    "sortOrder": 10,
+    "source": "static"
   },
   {
     "id": "left-pinky-keys",
@@ -21,7 +29,16 @@
       3,
       6
     ],
-    "includeSpaces": true
+    "includeSpaces": true,
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "letters",
+      "left",
+      "pinky"
+    ],
+    "sortOrder": 20,
+    "source": "static"
   },
   {
     "id": "right-pinky-keys",
@@ -33,7 +50,17 @@
       2,
       6
     ],
-    "includeSpaces": true
+    "includeSpaces": true,
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "letters",
+      "right",
+      "pinky",
+      "symbols"
+    ],
+    "sortOrder": 30,
+    "source": "static"
   },
   {
     "id": "letters-left-hand",
@@ -45,7 +72,15 @@
       4,
       7
     ],
-    "includeSpaces": true
+    "includeSpaces": true,
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "letters",
+      "left-hand"
+    ],
+    "sortOrder": 40,
+    "source": "static"
   },
   {
     "id": "letters-right-hand",
@@ -57,7 +92,15 @@
       4,
       7
     ],
-    "includeSpaces": true
+    "includeSpaces": true,
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "letters",
+      "right-hand"
+    ],
+    "sortOrder": 50,
+    "source": "static"
   },
   {
     "id": "letters-top-row",
@@ -69,7 +112,15 @@
       4,
       6
     ],
-    "includeSpaces": true
+    "includeSpaces": true,
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "letters",
+      "top-row"
+    ],
+    "sortOrder": 60,
+    "source": "static"
   },
   {
     "id": "letters-bottom-row",
@@ -81,7 +132,15 @@
       4,
       6
     ],
-    "includeSpaces": true
+    "includeSpaces": true,
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "letters",
+      "bottom-row"
+    ],
+    "sortOrder": 70,
+    "source": "static"
   },
   {
     "id": "letters-vowels",
@@ -93,7 +152,15 @@
       3,
       5
     ],
-    "includeSpaces": true
+    "includeSpaces": true,
+    "category": "Letters",
+    "difficulty": 1,
+    "tags": [
+      "letters",
+      "vowels"
+    ],
+    "sortOrder": 80,
+    "source": "static"
   },
   {
     "id": "letters-lowercase-mix",
@@ -105,7 +172,15 @@
       4,
       8
     ],
-    "includeSpaces": true
+    "includeSpaces": true,
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "letters",
+      "lowercase"
+    ],
+    "sortOrder": 90,
+    "source": "static"
   },
   {
     "id": "letters-mixed-case",
@@ -117,7 +192,15 @@
       4,
       8
     ],
-    "includeSpaces": true
+    "includeSpaces": true,
+    "category": "Letters",
+    "difficulty": 3,
+    "tags": [
+      "letters",
+      "mixed-case"
+    ],
+    "sortOrder": 100,
+    "source": "static"
   },
   {
     "id": "numbers-1-5",
@@ -129,7 +212,15 @@
       3,
       5
     ],
-    "includeSpaces": true
+    "includeSpaces": true,
+    "category": "Numbers",
+    "difficulty": 2,
+    "tags": [
+      "numbers",
+      "low"
+    ],
+    "sortOrder": 110,
+    "source": "static"
   },
   {
     "id": "numbers-6-0",
@@ -141,7 +232,15 @@
       3,
       5
     ],
-    "includeSpaces": true
+    "includeSpaces": true,
+    "category": "Numbers",
+    "difficulty": 2,
+    "tags": [
+      "numbers",
+      "high"
+    ],
+    "sortOrder": 120,
+    "source": "static"
   },
   {
     "id": "numbers-all",
@@ -153,7 +252,14 @@
       3,
       6
     ],
-    "includeSpaces": true
+    "includeSpaces": true,
+    "category": "Numbers",
+    "difficulty": 3,
+    "tags": [
+      "numbers"
+    ],
+    "sortOrder": 130,
+    "source": "static"
   },
   {
     "id": "symbols-punctuation",
@@ -165,7 +271,15 @@
       2,
       4
     ],
-    "includeSpaces": true
+    "includeSpaces": true,
+    "category": "Symbols",
+    "difficulty": 3,
+    "tags": [
+      "symbols",
+      "punctuation"
+    ],
+    "sortOrder": 140,
+    "source": "static"
   },
   {
     "id": "symbols-brackets",
@@ -177,7 +291,15 @@
       2,
       4
     ],
-    "includeSpaces": true
+    "includeSpaces": true,
+    "category": "Symbols",
+    "difficulty": 3,
+    "tags": [
+      "symbols",
+      "brackets"
+    ],
+    "sortOrder": 150,
+    "source": "static"
   },
   {
     "id": "symbols-operators",
@@ -189,7 +311,15 @@
       2,
       4
     ],
-    "includeSpaces": true
+    "includeSpaces": true,
+    "category": "Symbols",
+    "difficulty": 3,
+    "tags": [
+      "symbols",
+      "operators"
+    ],
+    "sortOrder": 160,
+    "source": "static"
   },
   {
     "id": "symbols-shift",
@@ -201,7 +331,15 @@
       2,
       4
     ],
-    "includeSpaces": true
+    "includeSpaces": true,
+    "category": "Symbols",
+    "difficulty": 4,
+    "tags": [
+      "symbols",
+      "shifted"
+    ],
+    "sortOrder": 170,
+    "source": "static"
   },
   {
     "id": "full-mix",
@@ -213,116 +351,3212 @@
       4,
       9
     ],
-    "includeSpaces": true
+    "includeSpaces": true,
+    "category": "Mixed",
+    "difficulty": 5,
+    "tags": [
+      "mixed",
+      "letters",
+      "numbers",
+      "symbols"
+    ],
+    "sortOrder": 180,
+    "source": "static"
   },
   {
     "id": "story-night-market",
     "name": "Story: Night Market",
     "description": "Full text with numbers and symbols.",
     "pool": "abcdefghijklmnopqrstuvwxyz",
-    "length": 295,
+    "length": 294,
     "wordLengthRange": [
       1,
       1
     ],
     "includeSpaces": true,
-    "fixedText": "At 6:05 PM, the night market lit up, and Mina wrote \"List #3\" on her wrist. She bought 2 pies for $7.50, paid with a card, and got a receipt that read: TAX=8%. A small cat followed her, jumping over crates marked [A-12] and (B-4). \"Stay close,\" she said; the bell chimed, and the vendor nodded.\n"
+    "fixedText": "At 6:05 PM, the night market lit up, and Mina wrote \"List #3\" on her wrist. She bought 2 pies for $7.50, paid with a card, and got a receipt that read: TAX=8%. A small cat followed her, jumping over crates marked [A-12] and (B-4). \"Stay close,\" she said; the bell chimed, and the vendor nodded.",
+    "category": "Story",
+    "difficulty": 4,
+    "tags": [
+      "story"
+    ],
+    "sortOrder": 190,
+    "source": "static"
   },
   {
     "id": "story-signal-log",
     "name": "Story: Signal Log",
     "description": "Full text with mixed case and operators.",
     "pool": "abcdefghijklmnopqrstuvwxyz",
-    "length": 275,
+    "length": 274,
     "wordLengthRange": [
       1,
       1
     ],
     "includeSpaces": true,
-    "fixedText": "The radio log started with: \"Day 19, 04:17 @ Ridge Station.\" We tested a new antenna, toggled switch A/B, and the meter jumped from 0.9 to 1.3. The old map had notes like \"north-3\" and \"west+2\", but the signal only stabilized when we set gain=7 and the lamp blinked 3 times.\n"
+    "fixedText": "The radio log started with: \"Day 19, 04:17 @ Ridge Station.\" We tested a new antenna, toggled switch A/B, and the meter jumped from 0.9 to 1.3. The old map had notes like \"north-3\" and \"west+2\", but the signal only stabilized when we set gain=7 and the lamp blinked 3 times.",
+    "category": "Story",
+    "difficulty": 4,
+    "tags": [
+      "story"
+    ],
+    "sortOrder": 200,
+    "source": "static"
   },
   {
     "id": "story-clockwork-letter",
     "name": "Story: Clockwork Letter",
     "description": "Full text with punctuation and math.",
     "pool": "abcdefghijklmnopqrstuvwxyz",
-    "length": 229,
+    "length": 228,
     "wordLengthRange": [
       1,
       1
     ],
     "includeSpaces": true,
-    "fixedText": "In the attic, a folded letter said: \"Meet me at Gate 5 - bring the brass key.\" Jae checked the clock (11:02) and scribbled 2+2=4 on the envelope. The note smelled of oil & smoke, and a tiny gear with 8 teeth fell onto the table.\n"
+    "fixedText": "In the attic, a folded letter said: \"Meet me at Gate 5 - bring the brass key.\" Jae checked the clock (11:02) and scribbled 2+2=4 on the envelope. The note smelled of oil & smoke, and a tiny gear with 8 teeth fell onto the table.",
+    "category": "Story",
+    "difficulty": 4,
+    "tags": [
+      "story"
+    ],
+    "sortOrder": 210,
+    "source": "static"
   },
   {
     "id": "story-workshop-report",
     "name": "Story: Workshop Report",
     "description": "Full text with symbols, units, and caps.",
     "pool": "abcdefghijklmnopqrstuvwxyz",
-    "length": 233,
+    "length": 232,
     "wordLengthRange": [
       1,
       1
     ],
     "includeSpaces": true,
-    "fixedText": "Report 07: The prototype \"Vega\" failed test #42. We saw a 3.14 cm crack, a 12% voltage drop, and a fuse marked 10A/250V. Still, the crew cheered when the reboot finished in 9.8s; the console flashed OK>READY and the room went quiet.\n"
+    "fixedText": "Report 07: The prototype \"Vega\" failed test #42. We saw a 3.14 cm crack, a 12% voltage drop, and a fuse marked 10A/250V. Still, the crew cheered when the reboot finished in 9.8s; the console flashed OK>READY and the room went quiet.",
+    "category": "Story",
+    "difficulty": 4,
+    "tags": [
+      "story"
+    ],
+    "sortOrder": 220,
+    "source": "static"
   },
   {
     "id": "data-entry-invoice",
     "name": "Data Entry: Invoice",
     "description": "Invoice lines with prices, IDs, and totals.",
     "pool": "abcdefghijklmnopqrstuvwxyz",
-    "length": 243,
+    "length": 242,
     "wordLengthRange": [
       1,
       1
     ],
     "includeSpaces": true,
-    "fixedText": "Invoice #48371 | Date: 2026-01-27 | Vendor: Northwind Parts\nItem: Gear Set (GS-442) Qty: 3 Unit: $79.95 Line: $239.85\nItem: Belt Kit (BK-210) Qty: 1 Unit: $34.50 Line: $34.50\nSubtotal: $274.35  Tax 8.25%: $22.64  Total: $296.99  Paid: CC-4582\n"
+    "fixedText": "Invoice #48371 | Date: 2026-01-27 | Vendor: Northwind Parts\nItem: Gear Set (GS-442) Qty: 3 Unit: $79.95 Line: $239.85\nItem: Belt Kit (BK-210) Qty: 1 Unit: $34.50 Line: $34.50\nSubtotal: $274.35  Tax 8.25%: $22.64  Total: $296.99  Paid: CC-4582",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "invoice"
+    ],
+    "sortOrder": 230,
+    "source": "static"
   },
   {
     "id": "data-entry-contacts",
     "name": "Data Entry: Contacts",
     "description": "Names, departments, extensions, and emails.",
     "pool": "abcdefghijklmnopqrstuvwxyz",
-    "length": 216,
+    "length": 215,
     "wordLengthRange": [
       1,
       1
     ],
     "includeSpaces": true,
-    "fixedText": "Contact Log: 3 entries\n1) Rivera, Ana | Dept: Ops | Ext: 224 | Email: ana.rivera@acme.co\n2) Chen, Li | Dept: IT | Ext: 318 | Email: li.chen@acme.co\n3) Patel, Omar | Dept: Sales | Ext: 105 | Email: omar.patel@acme.co\n"
+    "fixedText": "Contact Log: 3 entries\n1) Rivera, Ana | Dept: Ops | Ext: 224 | Email: ana.rivera@acme.co\n2) Chen, Li | Dept: IT | Ext: 318 | Email: li.chen@acme.co\n3) Patel, Omar | Dept: Sales | Ext: 105 | Email: omar.patel@acme.co",
+    "category": "Data Entry",
+    "difficulty": 3,
+    "tags": [
+      "data-entry",
+      "contacts"
+    ],
+    "sortOrder": 240,
+    "source": "static"
   },
   {
     "id": "data-entry-shipment",
     "name": "Data Entry: Shipment",
     "description": "Addresses, IDs, and ETA details.",
     "pool": "abcdefghijklmnopqrstuvwxyz",
-    "length": 168,
+    "length": 167,
     "wordLengthRange": [
       1,
       1
     ],
     "includeSpaces": true,
-    "fixedText": "Shipment Record: ID SHP-90218\nOrigin: 4501 W 3rd St, Austin, TX 78703\nDest: 18 Harbor Way, Newark, NJ 07102\nWeight: 42.6 lb  Boxes: 4  Carrier: FDX-2Day  ETA: 01/30/26\n"
+    "fixedText": "Shipment Record: ID SHP-90218\nOrigin: 4501 W 3rd St, Austin, TX 78703\nDest: 18 Harbor Way, Newark, NJ 07102\nWeight: 42.6 lb  Boxes: 4  Carrier: FDX-2Day  ETA: 01/30/26",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "shipment"
+    ],
+    "sortOrder": 250,
+    "source": "static"
   },
   {
     "id": "data-entry-inventory",
     "name": "Data Entry: Inventory",
     "description": "SKUs, counts, bins, and sizes.",
     "pool": "abcdefghijklmnopqrstuvwxyz",
-    "length": 270,
+    "length": 269,
     "wordLengthRange": [
       1,
       1
     ],
     "includeSpaces": true,
-    "fixedText": "Inventory Update (Cycle B): Aisle 7\nSKU: HN-1442 | Desc: Hand Nut 10mm | On Hand: 860 | Reorder: 500 | Bin: B-07-14\nSKU: BX-9901 | Desc: Box, 12x10x8 | On Hand: 120 | Reorder: 60 | Bin: C-02-03\nSKU: CL-5530 | Desc: Clamp 3/4in | On Hand: 48 | Reorder: 75 | Bin: A-01-09\n"
+    "fixedText": "Inventory Update (Cycle B): Aisle 7\nSKU: HN-1442 | Desc: Hand Nut 10mm | On Hand: 860 | Reorder: 500 | Bin: B-07-14\nSKU: BX-9901 | Desc: Box, 12x10x8 | On Hand: 120 | Reorder: 60 | Bin: C-02-03\nSKU: CL-5530 | Desc: Clamp 3/4in | On Hand: 48 | Reorder: 75 | Bin: A-01-09",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "inventory"
+    ],
+    "sortOrder": 260,
+    "source": "static"
   },
   {
     "id": "data-entry-timesheet",
     "name": "Data Entry: Timesheet",
     "description": "Dates, hours, totals, and notes.",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 187,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Timesheet: Week 04 (Employee ID: 77102)\nMon 01/20: 8.0  Tue 01/21: 7.5  Wed 01/22: 8.0\nThu 01/23: 8.5  Fri 01/24: 6.5  OT: 1.5  Total: 38.0\nNotes: \"Inventory count + customer follow-ups.\"",
+    "category": "Data Entry",
+    "difficulty": 3,
+    "tags": [
+      "data-entry",
+      "timesheet"
+    ],
+    "sortOrder": 270,
+    "source": "static"
+  },
+  {
+    "id": "data-entry-support-ticket",
+    "name": "Data Entry: Support Ticket",
+    "description": "Ticket fields with assets and steps.",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 225,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Ticket #A-77530 | Priority: P2 | Status: OPEN\nUser: Kim, Jordan | Asset: LTP-4471 | OS: macOS 14.2\nIssue: \"Printer queue shows error 79\" | Started: 09:14 | Attempts: 2\nResolution: Clear spooler, reboot, re-add printer PRN-04.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "support"
+    ],
+    "sortOrder": 280,
+    "source": "static"
+  },
+  {
+    "id": "drill-home-row-001",
+    "name": "Drill: Home row 01",
+    "description": "Randomized home row sequences.",
+    "category": "Letters",
+    "difficulty": 1,
+    "tags": [
+      "drill",
+      "home-row"
+    ],
+    "sortOrder": 1000,
+    "source": "drill:drill-home-row",
+    "pool": "asdfjkl;",
+    "length": 120,
+    "wordLengthRange": [
+      3,
+      5
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-home-row-002",
+    "name": "Drill: Home row 02",
+    "description": "Randomized home row sequences.",
+    "category": "Letters",
+    "difficulty": 1,
+    "tags": [
+      "drill",
+      "home-row"
+    ],
+    "sortOrder": 1001,
+    "source": "drill:drill-home-row",
+    "pool": "asdfjkl;",
+    "length": 140,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-home-row-003",
+    "name": "Drill: Home row 03",
+    "description": "Randomized home row sequences.",
+    "category": "Letters",
+    "difficulty": 1,
+    "tags": [
+      "drill",
+      "home-row"
+    ],
+    "sortOrder": 1002,
+    "source": "drill:drill-home-row",
+    "pool": "asdfjkl;",
+    "length": 160,
+    "wordLengthRange": [
+      5,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-home-row-004",
+    "name": "Drill: Home row 04",
+    "description": "Randomized home row sequences.",
+    "category": "Letters",
+    "difficulty": 1,
+    "tags": [
+      "drill",
+      "home-row"
+    ],
+    "sortOrder": 1003,
+    "source": "drill:drill-home-row",
+    "pool": "asdfjkl;",
+    "length": 180,
+    "wordLengthRange": [
+      3,
+      5
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-home-row-005",
+    "name": "Drill: Home row 05",
+    "description": "Randomized home row sequences.",
+    "category": "Letters",
+    "difficulty": 1,
+    "tags": [
+      "drill",
+      "home-row"
+    ],
+    "sortOrder": 1004,
+    "source": "drill:drill-home-row",
+    "pool": "asdfjkl;",
+    "length": 200,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-home-row-006",
+    "name": "Drill: Home row 06",
+    "description": "Randomized home row sequences.",
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "drill",
+      "home-row"
+    ],
+    "sortOrder": 1005,
+    "source": "drill:drill-home-row",
+    "pool": "asdfjkl;",
+    "length": 120,
+    "wordLengthRange": [
+      5,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-home-row-007",
+    "name": "Drill: Home row 07",
+    "description": "Randomized home row sequences.",
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "drill",
+      "home-row"
+    ],
+    "sortOrder": 1006,
+    "source": "drill:drill-home-row",
+    "pool": "asdfjkl;",
+    "length": 140,
+    "wordLengthRange": [
+      3,
+      5
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-home-row-008",
+    "name": "Drill: Home row 08",
+    "description": "Randomized home row sequences.",
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "drill",
+      "home-row"
+    ],
+    "sortOrder": 1007,
+    "source": "drill:drill-home-row",
+    "pool": "asdfjkl;",
+    "length": 160,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-home-row-009",
+    "name": "Drill: Home row 09",
+    "description": "Randomized home row sequences.",
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "drill",
+      "home-row"
+    ],
+    "sortOrder": 1008,
+    "source": "drill:drill-home-row",
+    "pool": "asdfjkl;",
+    "length": 180,
+    "wordLengthRange": [
+      5,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-home-row-010",
+    "name": "Drill: Home row 10",
+    "description": "Randomized home row sequences.",
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "drill",
+      "home-row"
+    ],
+    "sortOrder": 1009,
+    "source": "drill:drill-home-row",
+    "pool": "asdfjkl;",
+    "length": 200,
+    "wordLengthRange": [
+      3,
+      5
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-left-hand-001",
+    "name": "Drill: Left hand 01",
+    "description": "Left hand letter drills.",
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "drill",
+      "left-hand"
+    ],
+    "sortOrder": 1100,
+    "source": "drill:drill-left-hand",
+    "pool": "qwertasdfgzxcvb",
+    "length": 140,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-left-hand-002",
+    "name": "Drill: Left hand 02",
+    "description": "Left hand letter drills.",
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "drill",
+      "left-hand"
+    ],
+    "sortOrder": 1101,
+    "source": "drill:drill-left-hand",
+    "pool": "qwertasdfgzxcvb",
+    "length": 160,
+    "wordLengthRange": [
+      5,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-left-hand-003",
+    "name": "Drill: Left hand 03",
+    "description": "Left hand letter drills.",
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "drill",
+      "left-hand"
+    ],
+    "sortOrder": 1102,
+    "source": "drill:drill-left-hand",
+    "pool": "qwertasdfgzxcvb",
+    "length": 180,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-left-hand-004",
+    "name": "Drill: Left hand 04",
+    "description": "Left hand letter drills.",
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "drill",
+      "left-hand"
+    ],
+    "sortOrder": 1103,
+    "source": "drill:drill-left-hand",
+    "pool": "qwertasdfgzxcvb",
+    "length": 200,
+    "wordLengthRange": [
+      5,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-left-hand-005",
+    "name": "Drill: Left hand 05",
+    "description": "Left hand letter drills.",
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "drill",
+      "left-hand"
+    ],
+    "sortOrder": 1104,
+    "source": "drill:drill-left-hand",
+    "pool": "qwertasdfgzxcvb",
+    "length": 220,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-left-hand-006",
+    "name": "Drill: Left hand 06",
+    "description": "Left hand letter drills.",
+    "category": "Letters",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "left-hand"
+    ],
+    "sortOrder": 1105,
+    "source": "drill:drill-left-hand",
+    "pool": "qwertasdfgzxcvb",
+    "length": 140,
+    "wordLengthRange": [
+      5,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-left-hand-007",
+    "name": "Drill: Left hand 07",
+    "description": "Left hand letter drills.",
+    "category": "Letters",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "left-hand"
+    ],
+    "sortOrder": 1106,
+    "source": "drill:drill-left-hand",
+    "pool": "qwertasdfgzxcvb",
+    "length": 160,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-left-hand-008",
+    "name": "Drill: Left hand 08",
+    "description": "Left hand letter drills.",
+    "category": "Letters",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "left-hand"
+    ],
+    "sortOrder": 1107,
+    "source": "drill:drill-left-hand",
+    "pool": "qwertasdfgzxcvb",
+    "length": 180,
+    "wordLengthRange": [
+      5,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-left-hand-009",
+    "name": "Drill: Left hand 09",
+    "description": "Left hand letter drills.",
+    "category": "Letters",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "left-hand"
+    ],
+    "sortOrder": 1108,
+    "source": "drill:drill-left-hand",
+    "pool": "qwertasdfgzxcvb",
+    "length": 200,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-left-hand-010",
+    "name": "Drill: Left hand 10",
+    "description": "Left hand letter drills.",
+    "category": "Letters",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "left-hand"
+    ],
+    "sortOrder": 1109,
+    "source": "drill:drill-left-hand",
+    "pool": "qwertasdfgzxcvb",
+    "length": 220,
+    "wordLengthRange": [
+      5,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-right-hand-001",
+    "name": "Drill: Right hand 01",
+    "description": "Right hand letter drills.",
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "drill",
+      "right-hand"
+    ],
+    "sortOrder": 1200,
+    "source": "drill:drill-right-hand",
+    "pool": "yuiophjkl;nm,./",
+    "length": 140,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-right-hand-002",
+    "name": "Drill: Right hand 02",
+    "description": "Right hand letter drills.",
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "drill",
+      "right-hand"
+    ],
+    "sortOrder": 1201,
+    "source": "drill:drill-right-hand",
+    "pool": "yuiophjkl;nm,./",
+    "length": 160,
+    "wordLengthRange": [
+      5,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-right-hand-003",
+    "name": "Drill: Right hand 03",
+    "description": "Right hand letter drills.",
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "drill",
+      "right-hand"
+    ],
+    "sortOrder": 1202,
+    "source": "drill:drill-right-hand",
+    "pool": "yuiophjkl;nm,./",
+    "length": 180,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-right-hand-004",
+    "name": "Drill: Right hand 04",
+    "description": "Right hand letter drills.",
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "drill",
+      "right-hand"
+    ],
+    "sortOrder": 1203,
+    "source": "drill:drill-right-hand",
+    "pool": "yuiophjkl;nm,./",
+    "length": 200,
+    "wordLengthRange": [
+      5,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-right-hand-005",
+    "name": "Drill: Right hand 05",
+    "description": "Right hand letter drills.",
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "drill",
+      "right-hand"
+    ],
+    "sortOrder": 1204,
+    "source": "drill:drill-right-hand",
+    "pool": "yuiophjkl;nm,./",
+    "length": 220,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-right-hand-006",
+    "name": "Drill: Right hand 06",
+    "description": "Right hand letter drills.",
+    "category": "Letters",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "right-hand"
+    ],
+    "sortOrder": 1205,
+    "source": "drill:drill-right-hand",
+    "pool": "yuiophjkl;nm,./",
+    "length": 140,
+    "wordLengthRange": [
+      5,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-right-hand-007",
+    "name": "Drill: Right hand 07",
+    "description": "Right hand letter drills.",
+    "category": "Letters",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "right-hand"
+    ],
+    "sortOrder": 1206,
+    "source": "drill:drill-right-hand",
+    "pool": "yuiophjkl;nm,./",
+    "length": 160,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-right-hand-008",
+    "name": "Drill: Right hand 08",
+    "description": "Right hand letter drills.",
+    "category": "Letters",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "right-hand"
+    ],
+    "sortOrder": 1207,
+    "source": "drill:drill-right-hand",
+    "pool": "yuiophjkl;nm,./",
+    "length": 180,
+    "wordLengthRange": [
+      5,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-right-hand-009",
+    "name": "Drill: Right hand 09",
+    "description": "Right hand letter drills.",
+    "category": "Letters",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "right-hand"
+    ],
+    "sortOrder": 1208,
+    "source": "drill:drill-right-hand",
+    "pool": "yuiophjkl;nm,./",
+    "length": 200,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-right-hand-010",
+    "name": "Drill: Right hand 10",
+    "description": "Right hand letter drills.",
+    "category": "Letters",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "right-hand"
+    ],
+    "sortOrder": 1209,
+    "source": "drill:drill-right-hand",
+    "pool": "yuiophjkl;nm,./",
+    "length": 220,
+    "wordLengthRange": [
+      5,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-top-row-001",
+    "name": "Drill: Top row 01",
+    "description": "Top row letter patterns.",
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "drill",
+      "top-row"
+    ],
+    "sortOrder": 1300,
+    "source": "drill:drill-top-row",
+    "pool": "qwertyuiop",
+    "length": 140,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-top-row-002",
+    "name": "Drill: Top row 02",
+    "description": "Top row letter patterns.",
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "drill",
+      "top-row"
+    ],
+    "sortOrder": 1301,
+    "source": "drill:drill-top-row",
+    "pool": "qwertyuiop",
+    "length": 160,
+    "wordLengthRange": [
+      5,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-top-row-003",
+    "name": "Drill: Top row 03",
+    "description": "Top row letter patterns.",
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "drill",
+      "top-row"
+    ],
+    "sortOrder": 1302,
+    "source": "drill:drill-top-row",
+    "pool": "qwertyuiop",
+    "length": 180,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-top-row-004",
+    "name": "Drill: Top row 04",
+    "description": "Top row letter patterns.",
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "drill",
+      "top-row"
+    ],
+    "sortOrder": 1303,
+    "source": "drill:drill-top-row",
+    "pool": "qwertyuiop",
+    "length": 200,
+    "wordLengthRange": [
+      5,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-top-row-005",
+    "name": "Drill: Top row 05",
+    "description": "Top row letter patterns.",
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "drill",
+      "top-row"
+    ],
+    "sortOrder": 1304,
+    "source": "drill:drill-top-row",
+    "pool": "qwertyuiop",
+    "length": 220,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-top-row-006",
+    "name": "Drill: Top row 06",
+    "description": "Top row letter patterns.",
+    "category": "Letters",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "top-row"
+    ],
+    "sortOrder": 1305,
+    "source": "drill:drill-top-row",
+    "pool": "qwertyuiop",
+    "length": 140,
+    "wordLengthRange": [
+      5,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-top-row-007",
+    "name": "Drill: Top row 07",
+    "description": "Top row letter patterns.",
+    "category": "Letters",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "top-row"
+    ],
+    "sortOrder": 1306,
+    "source": "drill:drill-top-row",
+    "pool": "qwertyuiop",
+    "length": 160,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-top-row-008",
+    "name": "Drill: Top row 08",
+    "description": "Top row letter patterns.",
+    "category": "Letters",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "top-row"
+    ],
+    "sortOrder": 1307,
+    "source": "drill:drill-top-row",
+    "pool": "qwertyuiop",
+    "length": 180,
+    "wordLengthRange": [
+      5,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-top-row-009",
+    "name": "Drill: Top row 09",
+    "description": "Top row letter patterns.",
+    "category": "Letters",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "top-row"
+    ],
+    "sortOrder": 1308,
+    "source": "drill:drill-top-row",
+    "pool": "qwertyuiop",
+    "length": 200,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-top-row-010",
+    "name": "Drill: Top row 10",
+    "description": "Top row letter patterns.",
+    "category": "Letters",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "top-row"
+    ],
+    "sortOrder": 1309,
+    "source": "drill:drill-top-row",
+    "pool": "qwertyuiop",
+    "length": 220,
+    "wordLengthRange": [
+      5,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-bottom-row-001",
+    "name": "Drill: Bottom row 01",
+    "description": "Bottom row letter patterns.",
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "drill",
+      "bottom-row"
+    ],
+    "sortOrder": 1400,
+    "source": "drill:drill-bottom-row",
+    "pool": "zxcvbnm",
+    "length": 120,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-bottom-row-002",
+    "name": "Drill: Bottom row 02",
+    "description": "Bottom row letter patterns.",
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "drill",
+      "bottom-row"
+    ],
+    "sortOrder": 1401,
+    "source": "drill:drill-bottom-row",
+    "pool": "zxcvbnm",
+    "length": 140,
+    "wordLengthRange": [
+      5,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-bottom-row-003",
+    "name": "Drill: Bottom row 03",
+    "description": "Bottom row letter patterns.",
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "drill",
+      "bottom-row"
+    ],
+    "sortOrder": 1402,
+    "source": "drill:drill-bottom-row",
+    "pool": "zxcvbnm",
+    "length": 160,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-bottom-row-004",
+    "name": "Drill: Bottom row 04",
+    "description": "Bottom row letter patterns.",
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "drill",
+      "bottom-row"
+    ],
+    "sortOrder": 1403,
+    "source": "drill:drill-bottom-row",
+    "pool": "zxcvbnm",
+    "length": 180,
+    "wordLengthRange": [
+      5,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-bottom-row-005",
+    "name": "Drill: Bottom row 05",
+    "description": "Bottom row letter patterns.",
+    "category": "Letters",
+    "difficulty": 2,
+    "tags": [
+      "drill",
+      "bottom-row"
+    ],
+    "sortOrder": 1404,
+    "source": "drill:drill-bottom-row",
+    "pool": "zxcvbnm",
+    "length": 200,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-bottom-row-006",
+    "name": "Drill: Bottom row 06",
+    "description": "Bottom row letter patterns.",
+    "category": "Letters",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "bottom-row"
+    ],
+    "sortOrder": 1405,
+    "source": "drill:drill-bottom-row",
+    "pool": "zxcvbnm",
+    "length": 120,
+    "wordLengthRange": [
+      5,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-bottom-row-007",
+    "name": "Drill: Bottom row 07",
+    "description": "Bottom row letter patterns.",
+    "category": "Letters",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "bottom-row"
+    ],
+    "sortOrder": 1406,
+    "source": "drill:drill-bottom-row",
+    "pool": "zxcvbnm",
+    "length": 140,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-bottom-row-008",
+    "name": "Drill: Bottom row 08",
+    "description": "Bottom row letter patterns.",
+    "category": "Letters",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "bottom-row"
+    ],
+    "sortOrder": 1407,
+    "source": "drill:drill-bottom-row",
+    "pool": "zxcvbnm",
+    "length": 160,
+    "wordLengthRange": [
+      5,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-bottom-row-009",
+    "name": "Drill: Bottom row 09",
+    "description": "Bottom row letter patterns.",
+    "category": "Letters",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "bottom-row"
+    ],
+    "sortOrder": 1408,
+    "source": "drill:drill-bottom-row",
+    "pool": "zxcvbnm",
+    "length": 180,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-bottom-row-010",
+    "name": "Drill: Bottom row 10",
+    "description": "Bottom row letter patterns.",
+    "category": "Letters",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "bottom-row"
+    ],
+    "sortOrder": 1409,
+    "source": "drill:drill-bottom-row",
+    "pool": "zxcvbnm",
+    "length": 200,
+    "wordLengthRange": [
+      5,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-mixed-case-001",
+    "name": "Drill: Mixed case 01",
+    "description": "Upper/lowercase alphabet drills.",
+    "category": "Letters",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "mixed-case"
+    ],
+    "sortOrder": 1500,
+    "source": "drill:drill-mixed-case",
+    "pool": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    "length": 160,
+    "wordLengthRange": [
+      4,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-mixed-case-002",
+    "name": "Drill: Mixed case 02",
+    "description": "Upper/lowercase alphabet drills.",
+    "category": "Letters",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "mixed-case"
+    ],
+    "sortOrder": 1501,
+    "source": "drill:drill-mixed-case",
+    "pool": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    "length": 180,
+    "wordLengthRange": [
+      5,
+      8
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-mixed-case-003",
+    "name": "Drill: Mixed case 03",
+    "description": "Upper/lowercase alphabet drills.",
+    "category": "Letters",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "mixed-case"
+    ],
+    "sortOrder": 1502,
+    "source": "drill:drill-mixed-case",
+    "pool": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    "length": 200,
+    "wordLengthRange": [
+      4,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-mixed-case-004",
+    "name": "Drill: Mixed case 04",
+    "description": "Upper/lowercase alphabet drills.",
+    "category": "Letters",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "mixed-case"
+    ],
+    "sortOrder": 1503,
+    "source": "drill:drill-mixed-case",
+    "pool": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    "length": 220,
+    "wordLengthRange": [
+      5,
+      8
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-mixed-case-005",
+    "name": "Drill: Mixed case 05",
+    "description": "Upper/lowercase alphabet drills.",
+    "category": "Letters",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "mixed-case"
+    ],
+    "sortOrder": 1504,
+    "source": "drill:drill-mixed-case",
+    "pool": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    "length": 240,
+    "wordLengthRange": [
+      4,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-mixed-case-006",
+    "name": "Drill: Mixed case 06",
+    "description": "Upper/lowercase alphabet drills.",
+    "category": "Letters",
+    "difficulty": 4,
+    "tags": [
+      "drill",
+      "mixed-case"
+    ],
+    "sortOrder": 1505,
+    "source": "drill:drill-mixed-case",
+    "pool": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    "length": 160,
+    "wordLengthRange": [
+      5,
+      8
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-mixed-case-007",
+    "name": "Drill: Mixed case 07",
+    "description": "Upper/lowercase alphabet drills.",
+    "category": "Letters",
+    "difficulty": 4,
+    "tags": [
+      "drill",
+      "mixed-case"
+    ],
+    "sortOrder": 1506,
+    "source": "drill:drill-mixed-case",
+    "pool": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    "length": 180,
+    "wordLengthRange": [
+      4,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-mixed-case-008",
+    "name": "Drill: Mixed case 08",
+    "description": "Upper/lowercase alphabet drills.",
+    "category": "Letters",
+    "difficulty": 4,
+    "tags": [
+      "drill",
+      "mixed-case"
+    ],
+    "sortOrder": 1507,
+    "source": "drill:drill-mixed-case",
+    "pool": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    "length": 200,
+    "wordLengthRange": [
+      5,
+      8
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-mixed-case-009",
+    "name": "Drill: Mixed case 09",
+    "description": "Upper/lowercase alphabet drills.",
+    "category": "Letters",
+    "difficulty": 4,
+    "tags": [
+      "drill",
+      "mixed-case"
+    ],
+    "sortOrder": 1508,
+    "source": "drill:drill-mixed-case",
+    "pool": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    "length": 220,
+    "wordLengthRange": [
+      4,
+      7
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-mixed-case-010",
+    "name": "Drill: Mixed case 10",
+    "description": "Upper/lowercase alphabet drills.",
+    "category": "Letters",
+    "difficulty": 4,
+    "tags": [
+      "drill",
+      "mixed-case"
+    ],
+    "sortOrder": 1509,
+    "source": "drill:drill-mixed-case",
+    "pool": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    "length": 240,
+    "wordLengthRange": [
+      5,
+      8
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-numbers-001",
+    "name": "Drill: Numbers 01",
+    "description": "All-digit number drills.",
+    "category": "Numbers",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "numbers"
+    ],
+    "sortOrder": 1600,
+    "source": "drill:drill-numbers",
+    "pool": "0123456789",
+    "length": 140,
+    "wordLengthRange": [
+      3,
+      5
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-numbers-002",
+    "name": "Drill: Numbers 02",
+    "description": "All-digit number drills.",
+    "category": "Numbers",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "numbers"
+    ],
+    "sortOrder": 1601,
+    "source": "drill:drill-numbers",
+    "pool": "0123456789",
+    "length": 160,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-numbers-003",
+    "name": "Drill: Numbers 03",
+    "description": "All-digit number drills.",
+    "category": "Numbers",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "numbers"
+    ],
+    "sortOrder": 1602,
+    "source": "drill:drill-numbers",
+    "pool": "0123456789",
+    "length": 180,
+    "wordLengthRange": [
+      3,
+      5
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-numbers-004",
+    "name": "Drill: Numbers 04",
+    "description": "All-digit number drills.",
+    "category": "Numbers",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "numbers"
+    ],
+    "sortOrder": 1603,
+    "source": "drill:drill-numbers",
+    "pool": "0123456789",
+    "length": 200,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-numbers-005",
+    "name": "Drill: Numbers 05",
+    "description": "All-digit number drills.",
+    "category": "Numbers",
+    "difficulty": 3,
+    "tags": [
+      "drill",
+      "numbers"
+    ],
+    "sortOrder": 1604,
+    "source": "drill:drill-numbers",
+    "pool": "0123456789",
+    "length": 220,
+    "wordLengthRange": [
+      3,
+      5
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-numbers-006",
+    "name": "Drill: Numbers 06",
+    "description": "All-digit number drills.",
+    "category": "Numbers",
+    "difficulty": 4,
+    "tags": [
+      "drill",
+      "numbers"
+    ],
+    "sortOrder": 1605,
+    "source": "drill:drill-numbers",
+    "pool": "0123456789",
+    "length": 140,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-numbers-007",
+    "name": "Drill: Numbers 07",
+    "description": "All-digit number drills.",
+    "category": "Numbers",
+    "difficulty": 4,
+    "tags": [
+      "drill",
+      "numbers"
+    ],
+    "sortOrder": 1606,
+    "source": "drill:drill-numbers",
+    "pool": "0123456789",
+    "length": 160,
+    "wordLengthRange": [
+      3,
+      5
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-numbers-008",
+    "name": "Drill: Numbers 08",
+    "description": "All-digit number drills.",
+    "category": "Numbers",
+    "difficulty": 4,
+    "tags": [
+      "drill",
+      "numbers"
+    ],
+    "sortOrder": 1607,
+    "source": "drill:drill-numbers",
+    "pool": "0123456789",
+    "length": 180,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-numbers-009",
+    "name": "Drill: Numbers 09",
+    "description": "All-digit number drills.",
+    "category": "Numbers",
+    "difficulty": 4,
+    "tags": [
+      "drill",
+      "numbers"
+    ],
+    "sortOrder": 1608,
+    "source": "drill:drill-numbers",
+    "pool": "0123456789",
+    "length": 200,
+    "wordLengthRange": [
+      3,
+      5
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-numbers-010",
+    "name": "Drill: Numbers 10",
+    "description": "All-digit number drills.",
+    "category": "Numbers",
+    "difficulty": 4,
+    "tags": [
+      "drill",
+      "numbers"
+    ],
+    "sortOrder": 1609,
+    "source": "drill:drill-numbers",
+    "pool": "0123456789",
+    "length": 220,
+    "wordLengthRange": [
+      4,
+      6
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-symbols-shift-001",
+    "name": "Drill: Shifted symbols 01",
+    "description": "Shifted symbol combinations.",
+    "category": "Symbols",
+    "difficulty": 4,
+    "tags": [
+      "drill",
+      "shifted"
+    ],
+    "sortOrder": 1700,
+    "source": "drill:drill-symbols-shift",
+    "pool": "!@#$%^&*()",
+    "length": 140,
+    "wordLengthRange": [
+      2,
+      4
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-symbols-shift-002",
+    "name": "Drill: Shifted symbols 02",
+    "description": "Shifted symbol combinations.",
+    "category": "Symbols",
+    "difficulty": 4,
+    "tags": [
+      "drill",
+      "shifted"
+    ],
+    "sortOrder": 1701,
+    "source": "drill:drill-symbols-shift",
+    "pool": "!@#$%^&*()",
+    "length": 160,
+    "wordLengthRange": [
+      3,
+      5
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-symbols-shift-003",
+    "name": "Drill: Shifted symbols 03",
+    "description": "Shifted symbol combinations.",
+    "category": "Symbols",
+    "difficulty": 4,
+    "tags": [
+      "drill",
+      "shifted"
+    ],
+    "sortOrder": 1702,
+    "source": "drill:drill-symbols-shift",
+    "pool": "!@#$%^&*()",
+    "length": 180,
+    "wordLengthRange": [
+      2,
+      4
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-symbols-shift-004",
+    "name": "Drill: Shifted symbols 04",
+    "description": "Shifted symbol combinations.",
+    "category": "Symbols",
+    "difficulty": 4,
+    "tags": [
+      "drill",
+      "shifted"
+    ],
+    "sortOrder": 1703,
+    "source": "drill:drill-symbols-shift",
+    "pool": "!@#$%^&*()",
+    "length": 200,
+    "wordLengthRange": [
+      3,
+      5
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-symbols-shift-005",
+    "name": "Drill: Shifted symbols 05",
+    "description": "Shifted symbol combinations.",
+    "category": "Symbols",
+    "difficulty": 4,
+    "tags": [
+      "drill",
+      "shifted"
+    ],
+    "sortOrder": 1704,
+    "source": "drill:drill-symbols-shift",
+    "pool": "!@#$%^&*()",
+    "length": 220,
+    "wordLengthRange": [
+      2,
+      4
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-symbols-shift-006",
+    "name": "Drill: Shifted symbols 06",
+    "description": "Shifted symbol combinations.",
+    "category": "Symbols",
+    "difficulty": 5,
+    "tags": [
+      "drill",
+      "shifted"
+    ],
+    "sortOrder": 1705,
+    "source": "drill:drill-symbols-shift",
+    "pool": "!@#$%^&*()",
+    "length": 140,
+    "wordLengthRange": [
+      3,
+      5
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-symbols-shift-007",
+    "name": "Drill: Shifted symbols 07",
+    "description": "Shifted symbol combinations.",
+    "category": "Symbols",
+    "difficulty": 5,
+    "tags": [
+      "drill",
+      "shifted"
+    ],
+    "sortOrder": 1706,
+    "source": "drill:drill-symbols-shift",
+    "pool": "!@#$%^&*()",
+    "length": 160,
+    "wordLengthRange": [
+      2,
+      4
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-symbols-shift-008",
+    "name": "Drill: Shifted symbols 08",
+    "description": "Shifted symbol combinations.",
+    "category": "Symbols",
+    "difficulty": 5,
+    "tags": [
+      "drill",
+      "shifted"
+    ],
+    "sortOrder": 1707,
+    "source": "drill:drill-symbols-shift",
+    "pool": "!@#$%^&*()",
+    "length": 180,
+    "wordLengthRange": [
+      3,
+      5
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-symbols-shift-009",
+    "name": "Drill: Shifted symbols 09",
+    "description": "Shifted symbol combinations.",
+    "category": "Symbols",
+    "difficulty": 5,
+    "tags": [
+      "drill",
+      "shifted"
+    ],
+    "sortOrder": 1708,
+    "source": "drill:drill-symbols-shift",
+    "pool": "!@#$%^&*()",
+    "length": 200,
+    "wordLengthRange": [
+      2,
+      4
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-symbols-shift-010",
+    "name": "Drill: Shifted symbols 10",
+    "description": "Shifted symbol combinations.",
+    "category": "Symbols",
+    "difficulty": 5,
+    "tags": [
+      "drill",
+      "shifted"
+    ],
+    "sortOrder": 1709,
+    "source": "drill:drill-symbols-shift",
+    "pool": "!@#$%^&*()",
+    "length": 220,
+    "wordLengthRange": [
+      3,
+      5
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-full-mix-001",
+    "name": "Drill: Full mix 01",
+    "description": "Letters, numbers, and symbols mixed.",
+    "category": "Mixed",
+    "difficulty": 5,
+    "tags": [
+      "drill",
+      "full-mix"
+    ],
+    "sortOrder": 1800,
+    "source": "drill:drill-full-mix",
+    "pool": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,;'/[]{}()-=+*/!@#$%^&*()",
+    "length": 180,
+    "wordLengthRange": [
+      4,
+      8
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-full-mix-002",
+    "name": "Drill: Full mix 02",
+    "description": "Letters, numbers, and symbols mixed.",
+    "category": "Mixed",
+    "difficulty": 5,
+    "tags": [
+      "drill",
+      "full-mix"
+    ],
+    "sortOrder": 1801,
+    "source": "drill:drill-full-mix",
+    "pool": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,;'/[]{}()-=+*/!@#$%^&*()",
+    "length": 200,
+    "wordLengthRange": [
+      5,
+      9
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-full-mix-003",
+    "name": "Drill: Full mix 03",
+    "description": "Letters, numbers, and symbols mixed.",
+    "category": "Mixed",
+    "difficulty": 5,
+    "tags": [
+      "drill",
+      "full-mix"
+    ],
+    "sortOrder": 1802,
+    "source": "drill:drill-full-mix",
+    "pool": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,;'/[]{}()-=+*/!@#$%^&*()",
+    "length": 220,
+    "wordLengthRange": [
+      4,
+      8
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-full-mix-004",
+    "name": "Drill: Full mix 04",
+    "description": "Letters, numbers, and symbols mixed.",
+    "category": "Mixed",
+    "difficulty": 5,
+    "tags": [
+      "drill",
+      "full-mix"
+    ],
+    "sortOrder": 1803,
+    "source": "drill:drill-full-mix",
+    "pool": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,;'/[]{}()-=+*/!@#$%^&*()",
+    "length": 240,
+    "wordLengthRange": [
+      5,
+      9
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-full-mix-005",
+    "name": "Drill: Full mix 05",
+    "description": "Letters, numbers, and symbols mixed.",
+    "category": "Mixed",
+    "difficulty": 5,
+    "tags": [
+      "drill",
+      "full-mix"
+    ],
+    "sortOrder": 1804,
+    "source": "drill:drill-full-mix",
+    "pool": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,;'/[]{}()-=+*/!@#$%^&*()",
+    "length": 260,
+    "wordLengthRange": [
+      4,
+      8
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-full-mix-006",
+    "name": "Drill: Full mix 06",
+    "description": "Letters, numbers, and symbols mixed.",
+    "category": "Mixed",
+    "difficulty": 5,
+    "tags": [
+      "drill",
+      "full-mix"
+    ],
+    "sortOrder": 1805,
+    "source": "drill:drill-full-mix",
+    "pool": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,;'/[]{}()-=+*/!@#$%^&*()",
+    "length": 180,
+    "wordLengthRange": [
+      5,
+      9
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-full-mix-007",
+    "name": "Drill: Full mix 07",
+    "description": "Letters, numbers, and symbols mixed.",
+    "category": "Mixed",
+    "difficulty": 5,
+    "tags": [
+      "drill",
+      "full-mix"
+    ],
+    "sortOrder": 1806,
+    "source": "drill:drill-full-mix",
+    "pool": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,;'/[]{}()-=+*/!@#$%^&*()",
+    "length": 200,
+    "wordLengthRange": [
+      4,
+      8
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-full-mix-008",
+    "name": "Drill: Full mix 08",
+    "description": "Letters, numbers, and symbols mixed.",
+    "category": "Mixed",
+    "difficulty": 5,
+    "tags": [
+      "drill",
+      "full-mix"
+    ],
+    "sortOrder": 1807,
+    "source": "drill:drill-full-mix",
+    "pool": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,;'/[]{}()-=+*/!@#$%^&*()",
+    "length": 220,
+    "wordLengthRange": [
+      5,
+      9
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-full-mix-009",
+    "name": "Drill: Full mix 09",
+    "description": "Letters, numbers, and symbols mixed.",
+    "category": "Mixed",
+    "difficulty": 5,
+    "tags": [
+      "drill",
+      "full-mix"
+    ],
+    "sortOrder": 1808,
+    "source": "drill:drill-full-mix",
+    "pool": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,;'/[]{}()-=+*/!@#$%^&*()",
+    "length": 240,
+    "wordLengthRange": [
+      4,
+      8
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "drill-full-mix-010",
+    "name": "Drill: Full mix 10",
+    "description": "Letters, numbers, and symbols mixed.",
+    "category": "Mixed",
+    "difficulty": 5,
+    "tags": [
+      "drill",
+      "full-mix"
+    ],
+    "sortOrder": 1809,
+    "source": "drill:drill-full-mix",
+    "pool": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,;'/[]{}()-=+*/!@#$%^&*()",
+    "length": 260,
+    "wordLengthRange": [
+      5,
+      9
+    ],
+    "includeSpaces": true
+  },
+  {
+    "id": "words-common-001",
+    "name": "Words: Common 01",
+    "description": "Common English words.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "common"
+    ],
+    "sortOrder": 2000,
+    "source": "wordlist:common_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 145,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "number below after time mother money inside follow change right question after power build bring story power before after below ready both change"
+  },
+  {
+    "id": "words-common-002",
+    "name": "Words: Common 02",
+    "description": "Common English words.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "common"
+    ],
+    "sortOrder": 2001,
+    "source": "wordlist:common_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 165,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "before button during still until could people along follow large about important button river large letter three mountain music inside house button learn think sound"
+  },
+  {
+    "id": "words-common-003",
+    "name": "Words: Common 03",
+    "description": "Common English words.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "common"
+    ],
+    "sortOrder": 2002,
+    "source": "wordlist:common_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 190,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "first other another problem enough button time button found problem follow another around money order point power could question company back under people number service number company early"
+  },
+  {
+    "id": "words-common-004",
+    "name": "Words: Common 04",
+    "description": "Common English words.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "common"
+    ],
+    "sortOrder": 2003,
+    "source": "wordlist:common_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 207,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "light color school money another house along second color around often above after sound often think story close enough often public color often letter early build often ready about ready money water because"
+  },
+  {
+    "id": "words-common-005",
+    "name": "Words: Common 05",
+    "description": "Common English words.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "common"
+    ],
+    "sortOrder": 2004,
+    "source": "wordlist:common_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 147,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "time company point little group because second service bring after after change almost right point below close company inside little both important"
+  },
+  {
+    "id": "words-common-006",
+    "name": "Words: Common 06",
+    "description": "Common English words.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "common"
+    ],
+    "sortOrder": 2005,
+    "source": "wordlist:common_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 166,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "close place place time across found first early letter around change system between between among bring among story little around after other change first night clear"
+  },
+  {
+    "id": "words-common-007",
+    "name": "Words: Common 07",
+    "description": "Common English words.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "common"
+    ],
+    "sortOrder": 2006,
+    "source": "wordlist:common_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 185,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "button city second still other music between problem around because during family ready music along house mother time often change enough below across work question air keep point sound"
+  },
+  {
+    "id": "words-common-008",
+    "name": "Words: Common 08",
+    "description": "Common English words.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "common"
+    ],
+    "sortOrder": 2007,
+    "source": "wordlist:common_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 205,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "button below both inside order company company letter question back found river during color follow hand along camera people another place often between important among answer below work back early company"
+  },
+  {
+    "id": "words-common-009",
+    "name": "Words: Common 09",
+    "description": "Common English words.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "common"
+    ],
+    "sortOrder": 2008,
+    "source": "wordlist:common_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 146,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "time about inside still system question across night mountain both water second family school along story other right point answer air bring place"
+  },
+  {
+    "id": "words-common-010",
+    "name": "Words: Common 10",
+    "description": "Common English words.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "common"
+    ],
+    "sortOrder": 2009,
+    "source": "wordlist:common_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 164,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "house family first close order order house ready above during first order work before system power people across large above enough first during little other people"
+  },
+  {
+    "id": "words-business-001",
+    "name": "Words: Business 01",
+    "description": "Business and office vocabulary.",
+    "category": "Words",
+    "difficulty": 3,
+    "tags": [
+      "words",
+      "business"
+    ],
+    "sortOrder": 2100,
+    "source": "wordlist:business_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 159,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "meeting shipment order shipment market credit deposit client growth target inventory report agreement agreement growth terms budget payment cost deposit growth"
+  },
+  {
+    "id": "words-business-002",
+    "name": "Words: Business 02",
+    "description": "Business and office vocabulary.",
+    "category": "Words",
+    "difficulty": 3,
+    "tags": [
+      "words",
+      "business"
+    ],
+    "sortOrder": 2101,
+    "source": "wordlist:business_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 177,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "credit target deadline client cost deposit growth status invoice account client status schedule schedule contract strategy annual finance expense revenue expense support revenue"
+  },
+  {
+    "id": "words-business-003",
+    "name": "Words: Business 03",
+    "description": "Business and office vocabulary.",
+    "category": "Words",
+    "difficulty": 3,
+    "tags": [
+      "words",
+      "business"
+    ],
+    "sortOrder": 2102,
+    "source": "wordlist:business_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 198,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "policy inventory budget status discount strategy contract finance revenue discount data margin email order market account terms forecast discount deposit report schedule deposit market terms meeting"
+  },
+  {
+    "id": "words-business-004",
+    "name": "Words: Business 04",
+    "description": "Business and office vocabulary.",
+    "category": "Words",
+    "difficulty": 3,
+    "tags": [
+      "words",
+      "business"
+    ],
+    "sortOrder": 2103,
+    "source": "wordlist:business_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 218,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "expense strategy account report client report cost account tracking margin proposal margin support agreement revenue expense market margin forecast proposal expense revenue cost vendor credit inventory revenue schedule"
+  },
+  {
+    "id": "words-business-005",
+    "name": "Words: Business 05",
+    "description": "Business and office vocabulary.",
+    "category": "Words",
+    "difficulty": 3,
+    "tags": [
+      "words",
+      "business"
+    ],
+    "sortOrder": 2104,
+    "source": "wordlist:business_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 154,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "meeting proposal revenue budget invoice client deadline shipment project stakeholder forecast terms balance margin tracking contract credit order shipment"
+  },
+  {
+    "id": "words-business-006",
+    "name": "Words: Business 06",
+    "description": "Business and office vocabulary.",
+    "category": "Words",
+    "difficulty": 3,
+    "tags": [
+      "words",
+      "business"
+    ],
+    "sortOrder": 2105,
+    "source": "wordlist:business_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 179,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "tracking report growth project shipment cost tracking contract forecast agreement inventory strategy policy project growth inventory order status schedule discount strategy report"
+  },
+  {
+    "id": "words-business-007",
+    "name": "Words: Business 07",
+    "description": "Business and office vocabulary.",
+    "category": "Words",
+    "difficulty": 3,
+    "tags": [
+      "words",
+      "business"
+    ],
+    "sortOrder": 2106,
+    "source": "wordlist:business_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 198,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "balance policy account client tracking annual shipment email margin expense deadline proposal budget finance annual deadline margin project forecast status meeting stakeholder client growth schedule"
+  },
+  {
+    "id": "words-business-008",
+    "name": "Words: Business 08",
+    "description": "Business and office vocabulary.",
+    "category": "Words",
+    "difficulty": 3,
+    "tags": [
+      "words",
+      "business"
+    ],
+    "sortOrder": 2107,
+    "source": "wordlist:business_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 214,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "stakeholder project balance contract data vendor margin margin growth growth cost annual order deposit status margin project deadline market agreement contract project finance email revenue forecast client schedule"
+  },
+  {
+    "id": "words-business-009",
+    "name": "Words: Business 09",
+    "description": "Business and office vocabulary.",
+    "category": "Words",
+    "difficulty": 3,
+    "tags": [
+      "words",
+      "business"
+    ],
+    "sortOrder": 2108,
+    "source": "wordlist:business_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 160,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "data vendor budget shipment deposit annual target project balance support terms policy cost agreement report strategy market growth cost forecast terms deadline"
+  },
+  {
+    "id": "words-business-010",
+    "name": "Words: Business 10",
+    "description": "Business and office vocabulary.",
+    "category": "Words",
+    "difficulty": 3,
+    "tags": [
+      "words",
+      "business"
+    ],
+    "sortOrder": 2109,
+    "source": "wordlist:business_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 175,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "invoice project market shipment policy annual revenue order vendor stakeholder account terms contract contract account account annual growth cost forecast expense cost project"
+  },
+  {
+    "id": "words-tech-001",
+    "name": "Words: Tech 01",
+    "description": "Technical terms and system words.",
+    "category": "Words",
+    "difficulty": 3,
+    "tags": [
+      "words",
+      "tech"
+    ],
+    "sortOrder": 2200,
+    "source": "wordlist:tech_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 152,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "driver gateway commit server queue network script access update error process api latency framework console version network socket thread network update"
+  },
+  {
+    "id": "words-tech-002",
+    "name": "Words: Tech 02",
+    "description": "Technical terms and system words.",
+    "category": "Words",
+    "difficulty": 3,
+    "tags": [
+      "words",
+      "tech"
+    ],
+    "sortOrder": 2201,
+    "source": "wordlist:tech_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 178,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "console backup latency commit commit api database kernel index deploy server server latency cache database storage cache console memory socket index config process driver network"
+  },
+  {
+    "id": "words-tech-003",
+    "name": "Words: Tech 03",
+    "description": "Technical terms and system words.",
+    "category": "Words",
+    "difficulty": 3,
+    "tags": [
+      "words",
+      "tech"
+    ],
+    "sortOrder": 2202,
+    "source": "wordlist:tech_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 193,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "api kernel signal memory thread script socket api process commit socket version cache config api deploy system client packet network backup commit cache deploy client driver socket module cloud"
+  },
+  {
+    "id": "words-tech-004",
+    "name": "Words: Tech 04",
+    "description": "Technical terms and system words.",
+    "category": "Words",
+    "difficulty": 3,
+    "tags": [
+      "words",
+      "tech"
+    ],
+    "sortOrder": 2203,
+    "source": "wordlist:tech_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 220,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "network feature module packet router server commit latency backup backup module latency deploy update index memory cache storage release module framework feature network latency version signal update client kernel packet"
+  },
+  {
+    "id": "words-tech-005",
+    "name": "Words: Tech 05",
+    "description": "Technical terms and system words.",
+    "category": "Words",
+    "difficulty": 3,
+    "tags": [
+      "words",
+      "tech"
+    ],
+    "sortOrder": 2204,
+    "source": "wordlist:tech_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 157,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "signal release script release packet kernel client api config framework thread client release commit backup system access socket access database api database"
+  },
+  {
+    "id": "words-tech-006",
+    "name": "Words: Tech 06",
+    "description": "Technical terms and system words.",
+    "category": "Words",
+    "difficulty": 3,
+    "tags": [
+      "words",
+      "tech"
+    ],
+    "sortOrder": 2205,
+    "source": "wordlist:tech_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 175,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "access feature memory memory storage access queue error api router memory script socket index latency system module storage update gateway access gateway process backup router"
+  },
+  {
+    "id": "words-tech-007",
+    "name": "Words: Tech 07",
+    "description": "Technical terms and system words.",
+    "category": "Words",
+    "difficulty": 3,
+    "tags": [
+      "words",
+      "tech"
+    ],
+    "sortOrder": 2206,
+    "source": "wordlist:tech_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 198,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "gateway database socket backup socket gateway version cache database database module feature client update error system cloud module latency memory gateway framework access cloud error driver client"
+  },
+  {
+    "id": "words-tech-008",
+    "name": "Words: Tech 08",
+    "description": "Technical terms and system words.",
+    "category": "Words",
+    "difficulty": 3,
+    "tags": [
+      "words",
+      "tech"
+    ],
+    "sortOrder": 2207,
+    "source": "wordlist:tech_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 220,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "client process cloud config network api backup driver router module cloud client cache memory api client framework release thread config api update router deploy system release memory kernel console process kernel deploy"
+  },
+  {
+    "id": "words-tech-009",
+    "name": "Words: Tech 09",
+    "description": "Technical terms and system words.",
+    "category": "Words",
+    "difficulty": 3,
+    "tags": [
+      "words",
+      "tech"
+    ],
+    "sortOrder": 2208,
+    "source": "wordlist:tech_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 156,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "latency network latency database server framework packet packet server latency feature release queue commit update update signal client signal update system"
+  },
+  {
+    "id": "words-tech-010",
+    "name": "Words: Tech 10",
+    "description": "Technical terms and system words.",
+    "category": "Words",
+    "difficulty": 3,
+    "tags": [
+      "words",
+      "tech"
+    ],
+    "sortOrder": 2209,
+    "source": "wordlist:tech_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 178,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "thread socket socket console error cache driver system console console cache access deploy access release deploy process socket index update gateway config feature version client"
+  },
+  {
+    "id": "words-travel-001",
+    "name": "Words: Travel 01",
+    "description": "Travel and transit vocabulary.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "travel"
+    ],
+    "sortOrder": 2300,
+    "source": "wordlist:travel_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 145,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "journey arrival passport customs departure checkin gate map compass transit cabin cafe compass map departure train travel checkin departure coach"
+  },
+  {
+    "id": "words-travel-002",
+    "name": "Words: Travel 02",
+    "description": "Travel and transit vocabulary.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "travel"
+    ],
+    "sortOrder": 2301,
+    "source": "wordlist:travel_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 167,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "checkin train flight platform boarding platform compass destination station departure trip terminal destination coach ticket departure arrival boarding country customs"
+  },
+  {
+    "id": "words-travel-003",
+    "name": "Words: Travel 03",
+    "description": "Travel and transit vocabulary.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "travel"
+    ],
+    "sortOrder": 2302,
+    "source": "wordlist:travel_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 190,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "journey customs platform trip station compass ticket map departure flight train transit route bridge compass route train departure country hotel destination journey passport journey terminal"
+  },
+  {
+    "id": "words-travel-004",
+    "name": "Words: Travel 04",
+    "description": "Travel and transit vocabulary.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "travel"
+    ],
+    "sortOrder": 2303,
+    "source": "wordlist:travel_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 210,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "journey route boarding flight trip map arrival cabin map destination platform destination passport travel cafe terminal trip country route hotel map travel departure valise travel cabin passport checkin customs"
+  },
+  {
+    "id": "words-travel-005",
+    "name": "Words: Travel 05",
+    "description": "Travel and transit vocabulary.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "travel"
+    ],
+    "sortOrder": 2304,
+    "source": "wordlist:travel_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 147,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "departure cafe route cafe cafe checkin passport arrival terminal cabin country gate terminal boarding station country bridge transit ticket transit"
+  },
+  {
+    "id": "words-travel-006",
+    "name": "Words: Travel 06",
+    "description": "Travel and transit vocabulary.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "travel"
+    ],
+    "sortOrder": 2305,
+    "source": "wordlist:travel_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 169,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "country station country departure station trip trip hotel transit station terminal passport bridge map bridge terminal flight hotel valise compass flight passport ticket"
+  },
+  {
+    "id": "words-travel-007",
+    "name": "Words: Travel 07",
+    "description": "Travel and transit vocabulary.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "travel"
+    ],
+    "sortOrder": 2306,
+    "source": "wordlist:travel_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 186,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "departure station flight trip route destination arrival boarding cabin route destination bridge bridge train trip gate checkin train journey coach cabin station country country route map"
+  },
+  {
+    "id": "words-travel-008",
+    "name": "Words: Travel 08",
+    "description": "Travel and transit vocabulary.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "travel"
+    ],
+    "sortOrder": 2307,
+    "source": "wordlist:travel_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 209,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "travel coach country trip departure flight destination transit country passport ticket checkin arrival flight country platform boarding ticket cabin map journey passport route trip gate checkin terminal bridge"
+  },
+  {
+    "id": "words-travel-009",
+    "name": "Words: Travel 09",
+    "description": "Travel and transit vocabulary.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "travel"
+    ],
+    "sortOrder": 2308,
+    "source": "wordlist:travel_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 145,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "ticket gate gate compass compass flight gate station platform flight terminal journey route arrival trip map bridge trip route cabin cafe compass"
+  },
+  {
+    "id": "words-travel-010",
+    "name": "Words: Travel 10",
+    "description": "Travel and transit vocabulary.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "travel"
+    ],
+    "sortOrder": 2309,
+    "source": "wordlist:travel_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 169,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "boarding journey checkin customs journey journey transit platform cafe compass customs arrival cafe ticket checkin gate passport flight station boarding flight departure"
+  },
+  {
+    "id": "words-actions-001",
+    "name": "Words: Actions 01",
+    "description": "Action verbs for speed practice.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "actions"
+    ],
+    "sortOrder": 2400,
+    "source": "wordlist:action_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 146,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "enable clean stop scan arrange open update collect collect select move select select move edit accept calculate merge start import calculate build"
+  },
+  {
+    "id": "words-actions-002",
+    "name": "Words: Actions 02",
+    "description": "Action verbs for speed practice.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "actions"
+    ],
+    "sortOrder": 2401,
+    "source": "wordlist:action_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 170,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "select verify adjust open create finish reduce edit test build build update collect finish calculate edit stop close split arrange print delete finish open measure create"
+  },
+  {
+    "id": "words-actions-003",
+    "name": "Words: Actions 03",
+    "description": "Action verbs for speed practice.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "actions"
+    ],
+    "sortOrder": 2402,
+    "source": "wordlist:action_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 184,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "install scan review close review finish scan delete install test select move measure calculate adjust start update export open update fix move finish accept expand merge install create"
+  },
+  {
+    "id": "words-actions-004",
+    "name": "Words: Actions 04",
+    "description": "Action verbs for speed practice.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "actions"
+    ],
+    "sortOrder": 2403,
+    "source": "wordlist:action_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 209,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "split edit merge create merge review adjust deploy calculate clean split finish delete reduce balance calculate stop stop submit open adjust deploy calculate verify create deploy edit collect save align format"
+  },
+  {
+    "id": "words-actions-005",
+    "name": "Words: Actions 05",
+    "description": "Action verbs for speed practice.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "actions"
+    ],
+    "sortOrder": 2404,
+    "source": "wordlist:action_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 147,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "save inspect split send reduce test merge deploy merge scan close collect expand print calculate test collect print delete test reduce split submit"
+  },
+  {
+    "id": "words-actions-006",
+    "name": "Words: Actions 06",
+    "description": "Action verbs for speed practice.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "actions"
+    ],
+    "sortOrder": 2405,
+    "source": "wordlist:action_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 166,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "collect accept close move fix create connect close calculate update align fix split delete filter build format import connect install accept accept enable enable open"
+  },
+  {
+    "id": "words-actions-007",
+    "name": "Words: Actions 07",
+    "description": "Action verbs for speed practice.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "actions"
+    ],
+    "sortOrder": 2406,
+    "source": "wordlist:action_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 185,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "save send scan open merge format balance align calculate split review export reduce connect calculate connect verify clean scan filter reduce collect finish align align fix create start"
+  },
+  {
+    "id": "words-actions-008",
+    "name": "Words: Actions 08",
+    "description": "Action verbs for speed practice.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "actions"
+    ],
+    "sortOrder": 2407,
+    "source": "wordlist:action_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 208,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "scan move arrange measure delete open enable collect deploy format measure clean split test deploy adjust move deploy open submit open print open measure close update test update fix inspect accept fix verify"
+  },
+  {
+    "id": "words-actions-009",
+    "name": "Words: Actions 09",
+    "description": "Action verbs for speed practice.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "actions"
+    ],
+    "sortOrder": 2408,
+    "source": "wordlist:action_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 146,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "split save merge delete start format create clean filter enable review stop connect send filter edit test scan import finish calculate expand stop"
+  },
+  {
+    "id": "words-actions-010",
+    "name": "Words: Actions 10",
+    "description": "Action verbs for speed practice.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "actions"
+    ],
+    "sortOrder": 2409,
+    "source": "wordlist:action_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 170,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "install clean review accept adjust format deploy stop import accept close move open adjust build update update finish delete enable create review print finish move expand"
+  },
+  {
+    "id": "words-quality-001",
+    "name": "Words: Quality 01",
+    "description": "Quality and assessment words.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "quality"
+    ],
+    "sortOrder": 2500,
+    "source": "wordlist:quality_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 147,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "modern steady steady immediate major correct fast steady strong strong valid easy light focused accurate stable reliable tight honest tight correct"
+  },
+  {
+    "id": "words-quality-002",
+    "name": "Words: Quality 02",
+    "description": "Quality and assessment words.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "quality"
+    ],
+    "sortOrder": 2501,
+    "source": "wordlist:quality_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 165,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "critical quick accurate tight clean major focused strong focused minor easy honest detailed friendly efficient clean reliable correct light tight consistent detailed"
+  },
+  {
+    "id": "words-quality-003",
+    "name": "Words: Quality 03",
+    "description": "Quality and assessment words.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "quality"
+    ],
+    "sortOrder": 2502,
+    "source": "wordlist:quality_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 186,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "simple light simple fast immediate clear modern consistent simple critical reliable quick useful clear fast focused valid easy honest immediate accurate neutral strong critical immediate"
+  },
+  {
+    "id": "words-quality-004",
+    "name": "Words: Quality 04",
+    "description": "Quality and assessment words.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "quality"
+    ],
+    "sortOrder": 2503,
+    "source": "wordlist:quality_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 204,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "focused minor valid friendly major strong strong modern light honest reliable stable detailed steady stable fast tight consistent major honest stable simple honest honest valid accurate critical efficient"
+  },
+  {
+    "id": "words-quality-005",
+    "name": "Words: Quality 05",
+    "description": "Quality and assessment words.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "quality"
+    ],
+    "sortOrder": 2504,
+    "source": "wordlist:quality_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 145,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "focused quick accurate easy valid friendly accurate simple reliable efficient modern minor consistent reliable detailed honest stable strong fast"
+  },
+  {
+    "id": "words-quality-006",
+    "name": "Words: Quality 06",
+    "description": "Quality and assessment words.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "quality"
+    ],
+    "sortOrder": 2505,
+    "source": "wordlist:quality_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 162,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "friendly simple neutral valid minor focused accurate focused simple steady easy modern valid useful immediate focused major accurate tight brief detailed friendly"
+  },
+  {
+    "id": "words-quality-007",
+    "name": "Words: Quality 07",
+    "description": "Quality and assessment words.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "quality"
+    ],
+    "sortOrder": 2506,
+    "source": "wordlist:quality_words.txt",
     "pool": "abcdefghijklmnopqrstuvwxyz",
     "length": 188,
     "wordLengthRange": [
@@ -330,19 +3564,1349 @@
       1
     ],
     "includeSpaces": true,
-    "fixedText": "Timesheet: Week 04 (Employee ID: 77102)\nMon 01/20: 8.0  Tue 01/21: 7.5  Wed 01/22: 8.0\nThu 01/23: 8.5  Fri 01/24: 6.5  OT: 1.5  Total: 38.0\nNotes: \"Inventory count + customer follow-ups.\"\n"
+    "fixedText": "clean brief clean stable fast focused brief easy major critical brief modern light minor accurate stable honest friendly useful major stable light efficient clean focused tight quick clean"
   },
   {
-    "id": "data-entry-support-ticket",
-    "name": "Data Entry: Support Ticket",
-    "description": "Ticket fields with assets and steps.",
+    "id": "words-quality-008",
+    "name": "Words: Quality 08",
+    "description": "Quality and assessment words.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "quality"
+    ],
+    "sortOrder": 2507,
+    "source": "wordlist:quality_words.txt",
     "pool": "abcdefghijklmnopqrstuvwxyz",
-    "length": 226,
+    "length": 203,
     "wordLengthRange": [
       1,
       1
     ],
     "includeSpaces": true,
-    "fixedText": "Ticket #A-77530 | Priority: P2 | Status: OPEN\nUser: Kim, Jordan | Asset: LTP-4471 | OS: macOS 14.2\nIssue: \"Printer queue shows error 79\" | Started: 09:14 | Attempts: 2\nResolution: Clear spooler, reboot, re-add printer PRN-04.\n"
+    "fixedText": "quick neutral friendly correct valid immediate valid neutral accurate reliable minor valid accurate efficient clear immediate simple brief fast major steady tight efficient valid efficient honest correct"
+  },
+  {
+    "id": "words-quality-009",
+    "name": "Words: Quality 09",
+    "description": "Quality and assessment words.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "quality"
+    ],
+    "sortOrder": 2508,
+    "source": "wordlist:quality_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 146,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "light consistent neutral simple consistent honest correct immediate focused detailed focused immediate correct honest brief detailed tight focused"
+  },
+  {
+    "id": "words-quality-010",
+    "name": "Words: Quality 10",
+    "description": "Quality and assessment words.",
+    "category": "Words",
+    "difficulty": 2,
+    "tags": [
+      "words",
+      "quality"
+    ],
+    "sortOrder": 2509,
+    "source": "wordlist:quality_words.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 167,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "stable light friendly neutral minor minor consistent light critical immediate major detailed correct focused friendly strong friendly accurate reliable correct focused"
+  },
+  {
+    "id": "data-invoice-001",
+    "name": "Data Entry: Invoice 01",
+    "description": "Invoice lines with prices and totals.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "invoice"
+    ],
+    "sortOrder": 3000,
+    "source": "template:data_invoice.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 259,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Invoice INV-9015 | Date: 2025-05-27 | Vendor: Riverline Freight\nItem: Control Panel (WX-9110) Qty: 8 Unit: $220.25 Line: $261.95\nItem: Tool Case (WJ-3051) Qty: 2 Unit: $327.25 Line: $108.99\nSubtotal: $141.50  Tax 11.82%: $164.75  Total: $171.25  Paid: ID-7528"
+  },
+  {
+    "id": "data-invoice-002",
+    "name": "Data Entry: Invoice 02",
+    "description": "Invoice lines with prices and totals.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "invoice"
+    ],
+    "sortOrder": 3001,
+    "source": "template:data_invoice.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 251,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Invoice INV-24855 | Date: 2026-08-11 | Vendor: Nimbus Health\nItem: Tool Case (LF-3290) Qty: 4 Unit: $68.50 Line: $23.00\nItem: Filter Pack (VB-2525) Qty: 5 Unit: $81.00 Line: $341.25\nSubtotal: $383.75  Tax 9.89%: $408.50  Total: $204.50  Paid: ID-63610"
+  },
+  {
+    "id": "data-invoice-003",
+    "name": "Data Entry: Invoice 03",
+    "description": "Invoice lines with prices and totals.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "invoice"
+    ],
+    "sortOrder": 3002,
+    "source": "template:data_invoice.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 253,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Invoice INV-50713 | Date: 2026-04-15 | Vendor: Copperleaf Foods\nItem: Seal Ring (TU-4228) Qty: 1 Unit: $255.00 Line: $386.25\nItem: Gear Set (LE-6024) Qty: 9 Unit: $365.75 Line: $80.25\nSubtotal: $295.25  Tax 8.46%: $420.99  Total: $200.50  Paid: ID-72448"
+  },
+  {
+    "id": "data-invoice-004",
+    "name": "Data Entry: Invoice 04",
+    "description": "Invoice lines with prices and totals.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "invoice"
+    ],
+    "sortOrder": 3003,
+    "source": "template:data_invoice.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 257,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Invoice INV-30616 | Date: 2026-05-05 | Vendor: Summit Logistics\nItem: Motor Mount (HD-8254) Qty: 5 Unit: $136.95 Line: $285.50\nItem: Sensor Pack (QV-8315) Qty: 3 Unit: $53.50 Line: $66.00\nSubtotal: $305.25  Tax 9.99%: $206.99  Total: $266.99  Paid: ID-18860"
+  },
+  {
+    "id": "data-invoice-005",
+    "name": "Data Entry: Invoice 05",
+    "description": "Invoice lines with prices and totals.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "invoice"
+    ],
+    "sortOrder": 3004,
+    "source": "template:data_invoice.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 251,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Invoice INV-42284 | Date: 2026-11-10 | Vendor: Acme Systems\nItem: Gear Set (WF-4744) Qty: 4 Unit: $231.75 Line: $251.75\nItem: Pump Housing (BC-4157) Qty: 8 Unit: $205.00 Line: $413.50\nSubtotal: $13.50  Tax 7.17%: $150.99  Total: $51.00  Paid: ID-21583"
+  },
+  {
+    "id": "data-invoice-006",
+    "name": "Data Entry: Invoice 06",
+    "description": "Invoice lines with prices and totals.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "invoice"
+    ],
+    "sortOrder": 3005,
+    "source": "template:data_invoice.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 254,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Invoice INV-29724 | Date: 2025-12-11 | Vendor: Skyline Retail\nItem: Cable Harness (GA-6740) Qty: 6 Unit: $344.50 Line: $325.00\nItem: Fuse Pack (XT-138) Qty: 5 Unit: $249.95 Line: $67.99\nSubtotal: $342.99  Tax 5.25%: $41.95  Total: $212.95  Paid: ID-23751"
+  },
+  {
+    "id": "data-invoice-007",
+    "name": "Data Entry: Invoice 07",
+    "description": "Invoice lines with prices and totals.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "invoice"
+    ],
+    "sortOrder": 3006,
+    "source": "template:data_invoice.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 250,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Invoice INV-33314 | Date: 2026-07-24 | Vendor: Blue Peak Labs\nItem: Clamp Kit (DA-7569) Qty: 5 Unit: $24.50 Line: $385.50\nItem: Fuse Pack (LB-4307) Qty: 8 Unit: $339.75 Line: $62.99\nSubtotal: $346.50  Tax 5.97%: $88.95  Total: $107.99  Paid: ID-97254"
+  },
+  {
+    "id": "data-invoice-008",
+    "name": "Data Entry: Invoice 08",
+    "description": "Invoice lines with prices and totals.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "invoice"
+    ],
+    "sortOrder": 3007,
+    "source": "template:data_invoice.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 254,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Invoice INV-55946 | Date: 2025-09-10 | Vendor: Brightwave Media\nItem: Seal Ring (RG-9786) Qty: 9 Unit: $69.00 Line: $278.95\nItem: Clamp Kit (EY-6540) Qty: 9 Unit: $161.95 Line: $154.99\nSubtotal: $231.00  Tax 9.74%: $241.75  Total: $139.95  Paid: ID-52403"
+  },
+  {
+    "id": "data-invoice-009",
+    "name": "Data Entry: Invoice 09",
+    "description": "Invoice lines with prices and totals.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "invoice"
+    ],
+    "sortOrder": 3008,
+    "source": "template:data_invoice.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 251,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Invoice INV-99813 | Date: 2026-09-15 | Vendor: Nimbus Health\nItem: Gear Set (GH-4441) Qty: 3 Unit: $381.95 Line: $280.75\nItem: Cable Harness (RK-5812) Qty: 5 Unit: $40.25 Line: $266.25\nSubtotal: $55.25  Tax 6.99%: $53.75  Total: $13.95  Paid: ID-35868"
+  },
+  {
+    "id": "data-invoice-010",
+    "name": "Data Entry: Invoice 10",
+    "description": "Invoice lines with prices and totals.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "invoice"
+    ],
+    "sortOrder": 3009,
+    "source": "template:data_invoice.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 254,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Invoice INV-73510 | Date: 2025-09-24 | Vendor: Nimbus Health\nItem: Filter Pack (EL-3561) Qty: 6 Unit: $164.95 Line: $191.75\nItem: Tool Case (BL-1693) Qty: 2 Unit: $282.50 Line: $255.95\nSubtotal: $238.50  Tax 7.65%: $257.99  Total: $287.50  Paid: ID-48235"
+  },
+  {
+    "id": "data-shipment-001",
+    "name": "Data Entry: Shipment 01",
+    "description": "Shipment records with addresses.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "shipment"
+    ],
+    "sortOrder": 3100,
+    "source": "template:data_shipment.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 197,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Shipment ORD-63367 | Date: 2026-07-15 | Carrier: Riverline Freight\nOrigin: 1159 Forest Dr, Orlando, GA 81978\nDest: 3137 Maple Ave, Portland, IL 41551\nWeight: 15.7 L  Boxes: 3  ETA: 2026-02-02 16:12"
+  },
+  {
+    "id": "data-shipment-002",
+    "name": "Data Entry: Shipment 02",
+    "description": "Shipment records with addresses.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "shipment"
+    ],
+    "sortOrder": 3101,
+    "source": "template:data_shipment.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 199,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Shipment ORD-87040 | Date: 2025-02-23 | Carrier: Cedar Ridge Supply\nOrigin: 5140 Oak St, Nashville, CA 83059\nDest: 3444 Hillcrest Ave, Austin, MA 85311\nWeight: 14.0 V  Boxes: 5  ETA: 2025-03-02 12:45"
+  },
+  {
+    "id": "data-shipment-003",
+    "name": "Data Entry: Shipment 03",
+    "description": "Shipment records with addresses.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "shipment"
+    ],
+    "sortOrder": 3102,
+    "source": "template:data_shipment.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 188,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Shipment ORD-78964 | Date: 2026-01-14 | Carrier: Harbor Tech\nOrigin: 5908 Broadway, Phoenix, AL 29635\nDest: 1096 Broadway, Orlando, CO 23463\nWeight: 33.3 L  Boxes: 8  ETA: 2025-01-27 01:05"
+  },
+  {
+    "id": "data-shipment-004",
+    "name": "Data Entry: Shipment 04",
+    "description": "Shipment records with addresses.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "shipment"
+    ],
+    "sortOrder": 3103,
+    "source": "template:data_shipment.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 192,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Shipment ORD-7873 | Date: 2026-04-28 | Carrier: Vanguard Motors\nOrigin: 1053 Forest Dr, Denver, CO 83767\nDest: 7474 Market St, Raleigh, AL 14456\nWeight: 77.5 A  Boxes: 2  ETA: 2025-01-11 22:40"
+  },
+  {
+    "id": "data-shipment-005",
+    "name": "Data Entry: Shipment 05",
+    "description": "Shipment records with addresses.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "shipment"
+    ],
+    "sortOrder": 3104,
+    "source": "template:data_shipment.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 194,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Shipment ORD-9940 | Date: 2026-09-01 | Carrier: Harbor Tech\nOrigin: 6022 Forest Dr, Seattle, AL 96057\nDest: 4074 Lakeview Rd, Cleveland, GA 35180\nWeight: 91.4 ft  Boxes: 4  ETA: 2025-03-12 14:00"
+  },
+  {
+    "id": "data-shipment-006",
+    "name": "Data Entry: Shipment 06",
+    "description": "Shipment records with addresses.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "shipment"
+    ],
+    "sortOrder": 3105,
+    "source": "template:data_shipment.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 188,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Shipment ORD-49479 | Date: 2025-12-14 | Carrier: Skyline Retail\nOrigin: 889 Broadway, Boise, PA 12365\nDest: 9898 Union Ave, Atlanta, MN 39760\nWeight: 3.6 m  Boxes: 3  ETA: 2025-08-27 14:50"
+  },
+  {
+    "id": "data-shipment-007",
+    "name": "Data Entry: Shipment 07",
+    "description": "Shipment records with addresses.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "shipment"
+    ],
+    "sortOrder": 3106,
+    "source": "template:data_shipment.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 192,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Shipment ORD-25959 | Date: 2025-07-03 | Carrier: Vanguard Motors\nOrigin: 3685 Oak St, Boston, WA 84894\nDest: 6842 Valley Rd, San Jose, OH 41903\nWeight: 89.8 lb  Boxes: 8  ETA: 2026-08-07 16:15"
+  },
+  {
+    "id": "data-shipment-008",
+    "name": "Data Entry: Shipment 08",
+    "description": "Shipment records with addresses.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "shipment"
+    ],
+    "sortOrder": 3107,
+    "source": "template:data_shipment.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 196,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Shipment ORD-9155 | Date: 2026-05-18 | Carrier: Northwind Parts\nOrigin: 3591 Valley Rd, Cleveland, AL 58221\nDest: 9044 Harbor Way, Austin, NJ 96668\nWeight: 84.2 lb  Boxes: 2  ETA: 2026-12-17 12:35"
+  },
+  {
+    "id": "data-shipment-009",
+    "name": "Data Entry: Shipment 09",
+    "description": "Shipment records with addresses.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "shipment"
+    ],
+    "sortOrder": 3108,
+    "source": "template:data_shipment.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 194,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Shipment ORD-95946 | Date: 2025-01-02 | Carrier: Brightwave Media\nOrigin: 5920 Pine Rd, Tucson, AZ 63499\nDest: 9163 Spruce Way, Seattle, WA 53078\nWeight: 15.8 ft  Boxes: 3  ETA: 2025-05-14 03:50"
+  },
+  {
+    "id": "data-shipment-010",
+    "name": "Data Entry: Shipment 10",
+    "description": "Shipment records with addresses.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "shipment"
+    ],
+    "sortOrder": 3109,
+    "source": "template:data_shipment.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 193,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Shipment ORD-12646 | Date: 2026-06-10 | Carrier: Summit Logistics\nOrigin: 2209 Sunset Blvd, Madison, AL 93492\nDest: 2328 Oak St, Boise, PA 69295\nWeight: 30.5 cm  Boxes: 5  ETA: 2026-09-22 17:25"
+  },
+  {
+    "id": "data-support-001",
+    "name": "Data Entry: Support Ticket 01",
+    "description": "Ticket fields with assets and steps.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "support"
+    ],
+    "sortOrder": 3200,
+    "source": "template:data_support_ticket.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 192,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Ticket TCK-34802 | Priority: P4 | Status: OPEN\nUser: Luca Russell | Dept: Support | Ext: 834\nIssue: \"checked the quiet meter\" | Started: 23:15 | Attempts: 5\nAsset: P65-435 | Serial: SN-2441-FF"
+  },
+  {
+    "id": "data-support-002",
+    "name": "Data Entry: Support Ticket 02",
+    "description": "Ticket fields with assets and steps.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "support"
+    ],
+    "sortOrder": 3201,
+    "source": "template:data_support_ticket.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 195,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Ticket TCK-2824 | Priority: P3 | Status: OPEN\nUser: Sage Sullivan | Dept: Procurement | Ext: 689\nIssue: \"sealed the cracked map\" | Started: 05:05 | Attempts: 8\nAsset: C21-503 | Serial: SN-2385-UJ"
+  },
+  {
+    "id": "data-support-003",
+    "name": "Data Entry: Support Ticket 03",
+    "description": "Ticket fields with assets and steps.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "support"
+    ],
+    "sortOrder": 3202,
+    "source": "template:data_support_ticket.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 183,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Ticket TCK-91483 | Priority: P4 | Status: OPEN\nUser: Lila Nguyen | Dept: HR | Ext: 623\nIssue: \"sealed the cold sign\" | Started: 11:15 | Attempts: 3\nAsset: J95-502 | Serial: SN-9509-GM"
+  },
+  {
+    "id": "data-support-004",
+    "name": "Data Entry: Support Ticket 04",
+    "description": "Ticket fields with assets and steps.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "support"
+    ],
+    "sortOrder": 3203,
+    "source": "template:data_support_ticket.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 189,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Ticket TCK-76956 | Priority: P1 | Status: OPEN\nUser: Rhea Fisher | Dept: Sales | Ext: 618\nIssue: \"rebooted the cold valve\" | Started: 06:30 | Attempts: 7\nAsset: H31-524 | Serial: SN-6413-DE"
+  },
+  {
+    "id": "data-support-005",
+    "name": "Data Entry: Support Ticket 05",
+    "description": "Ticket fields with assets and steps.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "support"
+    ],
+    "sortOrder": 3204,
+    "source": "template:data_support_ticket.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 190,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Ticket TCK-29436 | Priority: P2 | Status: OPEN\nUser: Luca Dunn | Dept: Design | Ext: 787\nIssue: \"inspected the faded panel\" | Started: 17:12 | Attempts: 9\nAsset: P55-914 | Serial: SN-3153-KC"
+  },
+  {
+    "id": "data-support-006",
+    "name": "Data Entry: Support Ticket 06",
+    "description": "Ticket fields with assets and steps.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "support"
+    ],
+    "sortOrder": 3205,
+    "source": "template:data_support_ticket.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 184,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Ticket TCK-4961 | Priority: P6 | Status: OPEN\nUser: Evan Campbell | Dept: QA | Ext: 732\nIssue: \"updated the warm map\" | Started: 14:45 | Attempts: 7\nAsset: L28-729 | Serial: SN-8584-BA"
+  },
+  {
+    "id": "data-support-007",
+    "name": "Data Entry: Support Ticket 07",
+    "description": "Ticket fields with assets and steps.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "support"
+    ],
+    "sortOrder": 3206,
+    "source": "template:data_support_ticket.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 190,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Ticket TCK-14843 | Priority: P9 | Status: OPEN\nUser: Kai Collins | Dept: Sales | Ext: 644\nIssue: \"updated the blue keycard\" | Started: 17:12 | Attempts: 3\nAsset: M61-444 | Serial: SN-5991-YY"
+  },
+  {
+    "id": "data-support-008",
+    "name": "Data Entry: Support Ticket 08",
+    "description": "Ticket fields with assets and steps.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "support"
+    ],
+    "sortOrder": 3207,
+    "source": "template:data_support_ticket.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 191,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Ticket TCK-61654 | Priority: P9 | Status: OPEN\nUser: Aria Garcia | Dept: Design | Ext: 112\nIssue: \"aligned the steady badge\" | Started: 04:50 | Attempts: 1\nAsset: Q72-947 | Serial: SN-6113-PA"
+  },
+  {
+    "id": "data-support-009",
+    "name": "Data Entry: Support Ticket 09",
+    "description": "Ticket fields with assets and steps.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "support"
+    ],
+    "sortOrder": 3208,
+    "source": "template:data_support_ticket.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 195,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Ticket TCK-41294 | Priority: P4 | Status: OPEN\nUser: Logan Murphy | Dept: Security | Ext: 481\nIssue: \"sealed the amber notebook\" | Started: 19:12 | Attempts: 9\nAsset: G15-795 | Serial: SN-6199-JD"
+  },
+  {
+    "id": "data-support-010",
+    "name": "Data Entry: Support Ticket 10",
+    "description": "Ticket fields with assets and steps.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "support"
+    ],
+    "sortOrder": 3209,
+    "source": "template:data_support_ticket.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 187,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Ticket TCK-7156 | Priority: P3 | Status: OPEN\nUser: Ava Henderson | Dept: QA | Ext: 545\nIssue: \"sealed the sharp router\" | Started: 17:15 | Attempts: 4\nAsset: V25-196 | Serial: SN-4071-JG"
+  },
+  {
+    "id": "data-inventory-001",
+    "name": "Data Entry: Inventory 01",
+    "description": "Inventory updates with SKUs and bins.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "inventory"
+    ],
+    "sortOrder": 3300,
+    "source": "template:data_inventory.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 194,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Inventory Update (Cycle YQ-24): Aisle 8\nSKU: QR-8984 | Desc: Pump Housing | On Hand: 31 | Reorder: 62 | Bin: QU-20-7-8\nSKU: PA-6463 | Desc: Seal Ring | On Hand: 95 | Reorder: 62 | Bin: PP-55-6-1"
+  },
+  {
+    "id": "data-inventory-002",
+    "name": "Data Entry: Inventory 02",
+    "description": "Inventory updates with SKUs and bins.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "inventory"
+    ],
+    "sortOrder": 3301,
+    "source": "template:data_inventory.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 197,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Inventory Update (Cycle UC-10): Aisle 2\nSKU: GX-6263 | Desc: Filter Pack | On Hand: 12 | Reorder: 75 | Bin: CH-15-7-8\nSKU: CN-3299 | Desc: Control Panel | On Hand: 53 | Reorder: 43 | Bin: AG-92-9-2"
+  },
+  {
+    "id": "data-inventory-003",
+    "name": "Data Entry: Inventory 03",
+    "description": "Inventory updates with SKUs and bins.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "inventory"
+    ],
+    "sortOrder": 3302,
+    "source": "template:data_inventory.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 195,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Inventory Update (Cycle WE-70): Aisle 7\nSKU: BN-6767 | Desc: Filter Pack | On Hand: 62 | Reorder: 85 | Bin: YY-36-5-7\nSKU: PC-9480 | Desc: Sensor Pack | On Hand: 12 | Reorder: 95 | Bin: UZ-72-6-7"
+  },
+  {
+    "id": "data-inventory-004",
+    "name": "Data Entry: Inventory 04",
+    "description": "Inventory updates with SKUs and bins.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "inventory"
+    ],
+    "sortOrder": 3303,
+    "source": "template:data_inventory.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 199,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Inventory Update (Cycle DU-50): Aisle 7\nSKU: RZ-3693 | Desc: Pump Housing | On Hand: 71 | Reorder: 26 | Bin: CM-35-6-3\nSKU: BP-8404 | Desc: Valve Assembly | On Hand: 69 | Reorder: 18 | Bin: RX-42-8-4"
+  },
+  {
+    "id": "data-inventory-005",
+    "name": "Data Entry: Inventory 05",
+    "description": "Inventory updates with SKUs and bins.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "inventory"
+    ],
+    "sortOrder": 3304,
+    "source": "template:data_inventory.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 195,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Inventory Update (Cycle LM-73): Aisle 8\nSKU: LB-2672 | Desc: Motor Mount | On Hand: 58 | Reorder: 31 | Bin: BF-47-3-2\nSKU: VT-9439 | Desc: Filter Pack | On Hand: 23 | Reorder: 67 | Bin: AJ-98-3-6"
+  },
+  {
+    "id": "data-inventory-006",
+    "name": "Data Entry: Inventory 06",
+    "description": "Inventory updates with SKUs and bins.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "inventory"
+    ],
+    "sortOrder": 3305,
+    "source": "template:data_inventory.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 197,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Inventory Update (Cycle JF-76): Aisle 7\nSKU: GS-6138 | Desc: Cable Harness | On Hand: 67 | Reorder: 96 | Bin: TP-15-5-8\nSKU: SH-7029 | Desc: Filter Pack | On Hand: 22 | Reorder: 22 | Bin: JB-84-3-9"
+  },
+  {
+    "id": "data-inventory-007",
+    "name": "Data Entry: Inventory 07",
+    "description": "Inventory updates with SKUs and bins.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "inventory"
+    ],
+    "sortOrder": 3306,
+    "source": "template:data_inventory.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 197,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Inventory Update (Cycle MF-69): Aisle 5\nSKU: RM-7102 | Desc: Control Panel | On Hand: 57 | Reorder: 53 | Bin: NC-61-8-8\nSKU: RJ-3130 | Desc: Bracket Kit | On Hand: 36 | Reorder: 77 | Bin: QP-87-1-3"
+  },
+  {
+    "id": "data-inventory-008",
+    "name": "Data Entry: Inventory 08",
+    "description": "Inventory updates with SKUs and bins.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "inventory"
+    ],
+    "sortOrder": 3307,
+    "source": "template:data_inventory.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 195,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Inventory Update (Cycle GG-15): Aisle 5\nSKU: ES-5110 | Desc: Sensor Pack | On Hand: 81 | Reorder: 49 | Bin: XB-19-6-9\nSKU: NB-3457 | Desc: Bearing Set | On Hand: 83 | Reorder: 21 | Bin: LQ-48-1-6"
+  },
+  {
+    "id": "data-inventory-009",
+    "name": "Data Entry: Inventory 09",
+    "description": "Inventory updates with SKUs and bins.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "inventory"
+    ],
+    "sortOrder": 3308,
+    "source": "template:data_inventory.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 193,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Inventory Update (Cycle PR-74): Aisle 7\nSKU: DK-5450 | Desc: Seal Ring | On Hand: 95 | Reorder: 96 | Bin: BL-81-5-8\nSKU: MT-7661 | Desc: Filter Pack | On Hand: 57 | Reorder: 29 | Bin: BG-46-9-7"
+  },
+  {
+    "id": "data-inventory-010",
+    "name": "Data Entry: Inventory 10",
+    "description": "Inventory updates with SKUs and bins.",
+    "category": "Data Entry",
+    "difficulty": 4,
+    "tags": [
+      "data-entry",
+      "inventory"
+    ],
+    "sortOrder": 3309,
+    "source": "template:data_inventory.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 190,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Inventory Update (Cycle EZ-90): Aisle 5\nSKU: HH-7319 | Desc: Gear Set | On Hand: 89 | Reorder: 95 | Bin: EE-30-5-5\nSKU: VK-8015 | Desc: Tool Case | On Hand: 36 | Reorder: 58 | Bin: ZV-85-1-2"
+  },
+  {
+    "id": "story-market-001",
+    "name": "Story: Market Run 01",
+    "description": "Short story with prices and codes.",
+    "category": "Story",
+    "difficulty": 4,
+    "tags": [
+      "story"
+    ],
+    "sortOrder": 4000,
+    "source": "template:story_market.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 194,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "At 04:55, Ivy reached the market in San Jose. The cracked valve flickered near stall A1, and a sign read \"Price $354.75\". Ivy wrote \"NP-64\" on a card and paid with ID-54786 before the bell rang."
+  },
+  {
+    "id": "story-market-002",
+    "name": "Story: Market Run 02",
+    "description": "Short story with prices and codes.",
+    "category": "Story",
+    "difficulty": 4,
+    "tags": [
+      "story"
+    ],
+    "sortOrder": 4001,
+    "source": "template:story_market.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 195,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "At 14:30, Kai reached the market in San Jose. The clear notebook flickered near stall C7, and a sign read \"Price $338.95\". Kai wrote \"YJ-12\" on a card and paid with ID-85078 before the bell rang."
+  },
+  {
+    "id": "story-market-003",
+    "name": "Story: Market Run 03",
+    "description": "Short story with prices and codes.",
+    "category": "Story",
+    "difficulty": 4,
+    "tags": [
+      "story"
+    ],
+    "sortOrder": 4002,
+    "source": "template:story_market.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 198,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "At 15:00, Elena reached the market in Boston. The silent notebook flickered near stall F1, and a sign read \"Price $104.50\". Elena wrote \"DK-12\" on a card and paid with ID-86177 before the bell rang."
+  },
+  {
+    "id": "story-market-004",
+    "name": "Story: Market Run 04",
+    "description": "Short story with prices and codes.",
+    "category": "Story",
+    "difficulty": 4,
+    "tags": [
+      "story"
+    ],
+    "sortOrder": 4003,
+    "source": "template:story_market.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 195,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "At 21:35, Lena reached the market in Raleigh. The bright sensor flickered near stall F4, and a sign read \"Price $306.00\". Lena wrote \"CW-13\" on a card and paid with ID-85145 before the bell rang."
+  },
+  {
+    "id": "story-market-005",
+    "name": "Story: Market Run 05",
+    "description": "Short story with prices and codes.",
+    "category": "Story",
+    "difficulty": 4,
+    "tags": [
+      "story"
+    ],
+    "sortOrder": 4004,
+    "source": "template:story_market.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 195,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "At 19:00, Ava reached the market in Sacramento. The steady panel flickered near stall H1, and a sign read \"Price $164.99\". Ava wrote \"JV-64\" on a card and paid with ID-10181 before the bell rang."
+  },
+  {
+    "id": "story-market-006",
+    "name": "Story: Market Run 06",
+    "description": "Short story with prices and codes.",
+    "category": "Story",
+    "difficulty": 4,
+    "tags": [
+      "story"
+    ],
+    "sortOrder": 4005,
+    "source": "template:story_market.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 194,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "At 17:00, Isla reached the market in Pittsburgh. The clear ship flickered near stall C6, and a sign read \"Price $43.25\". Isla wrote \"DS-93\" on a card and paid with ID-15969 before the bell rang."
+  },
+  {
+    "id": "story-market-007",
+    "name": "Story: Market Run 07",
+    "description": "Short story with prices and codes.",
+    "category": "Story",
+    "difficulty": 4,
+    "tags": [
+      "story"
+    ],
+    "sortOrder": 4006,
+    "source": "template:story_market.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 192,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "At 00:00, Mia reached the market in Tucson. The faded console flickered near stall A3, and a sign read \"Price $262.75\". Mia wrote \"TR-43\" on a card and paid with ID-71679 before the bell rang."
+  },
+  {
+    "id": "story-market-008",
+    "name": "Story: Market Run 08",
+    "description": "Short story with prices and codes.",
+    "category": "Story",
+    "difficulty": 4,
+    "tags": [
+      "story"
+    ],
+    "sortOrder": 4007,
+    "source": "template:story_market.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 193,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "At 08:25, Ava reached the market in Sacramento. The faded badge flickered near stall E7, and a sign read \"Price $94.25\". Ava wrote \"KA-65\" on a card and paid with ID-47690 before the bell rang."
+  },
+  {
+    "id": "story-lab-001",
+    "name": "Story: Lab Log 01",
+    "description": "Technical log entry with metrics.",
+    "category": "Story",
+    "difficulty": 4,
+    "tags": [
+      "story"
+    ],
+    "sortOrder": 4100,
+    "source": "template:story_lab.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 191,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Log XT-73 | Date 2026-08-26 09:55 | Operator Parker\nWe secured the lantern, recorded 11.39% variance, and set the F14-704 to mode DZ-63. A note on the console said \"reported the blue bridge\"."
+  },
+  {
+    "id": "story-lab-002",
+    "name": "Story: Lab Log 02",
+    "description": "Technical log entry with metrics.",
+    "category": "Story",
+    "difficulty": 4,
+    "tags": [
+      "story"
+    ],
+    "sortOrder": 4101,
+    "source": "template:story_lab.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 184,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Log FV-32 | Date 2025-12-14 15:12 | Operator Reed\nWe logged the valve, recorded 4.07% variance, and set the Z99-914 to mode KD-91. A note on the console said \"mounted the amber valve\"."
+  },
+  {
+    "id": "story-lab-003",
+    "name": "Story: Lab Log 03",
+    "description": "Technical log entry with metrics.",
+    "category": "Story",
+    "difficulty": 4,
+    "tags": [
+      "story"
+    ],
+    "sortOrder": 4102,
+    "source": "template:story_lab.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 194,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Log DD-54 | Date 2026-05-11 05:05 | Operator Parker\nWe inspected the notebook, recorded 10.46% variance, and set the X37-742 to mode YS-96. A note on the console said \"calibrated the low meter\"."
+  },
+  {
+    "id": "story-lab-004",
+    "name": "Story: Lab Log 04",
+    "description": "Technical log entry with metrics.",
+    "category": "Story",
+    "difficulty": 4,
+    "tags": [
+      "story"
+    ],
+    "sortOrder": 4103,
+    "source": "template:story_lab.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 188,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Log PF-22 | Date 2026-04-26 08:40 | Operator Dunn\nWe reported the console, recorded 10.45% variance, and set the C83-618 to mode PS-52. A note on the console said \"secured the faded ship\"."
+  },
+  {
+    "id": "story-lab-005",
+    "name": "Story: Lab Log 05",
+    "description": "Technical log entry with metrics.",
+    "category": "Story",
+    "difficulty": 4,
+    "tags": [
+      "story"
+    ],
+    "sortOrder": 4104,
+    "source": "template:story_lab.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 183,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Log WK-62 | Date 2025-05-19 04:12 | Operator Hughes\nWe logged the ship, recorded 5.27% variance, and set the C69-185 to mode UJ-58. A note on the console said \"secured the sharp map\"."
+  },
+  {
+    "id": "story-lab-006",
+    "name": "Story: Lab Log 06",
+    "description": "Technical log entry with metrics.",
+    "category": "Story",
+    "difficulty": 4,
+    "tags": [
+      "story"
+    ],
+    "sortOrder": 4105,
+    "source": "template:story_lab.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 188,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Log QH-12 | Date 2026-05-13 13:50 | Operator Parker\nWe secured the panel, recorded 7.23% variance, and set the W65-463 to mode CS-65. A note on the console said \"reported the bold screen\"."
+  },
+  {
+    "id": "story-lab-007",
+    "name": "Story: Lab Log 07",
+    "description": "Technical log entry with metrics.",
+    "category": "Story",
+    "difficulty": 4,
+    "tags": [
+      "story"
+    ],
+    "sortOrder": 4106,
+    "source": "template:story_lab.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 191,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Log SS-79 | Date 2026-10-12 23:10 | Operator Garcia\nWe aligned the bridge, recorded 11.51% variance, and set the G12-751 to mode PN-41. A note on the console said \"reported the quiet router\"."
+  },
+  {
+    "id": "story-travel-001",
+    "name": "Story: Travel Note 01",
+    "description": "Postcard-style travel snippet.",
+    "category": "Story",
+    "difficulty": 4,
+    "tags": [
+      "story"
+    ],
+    "sortOrder": 4200,
+    "source": "template:story_travel.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 162,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Postcard from Boston, AL: Mia Brooks boarded at gate B9 and watched the steady skyline drift past. The ticket showed ORD-21915, and the train rolled out at 05:00."
+  },
+  {
+    "id": "story-travel-002",
+    "name": "Story: Travel Note 02",
+    "description": "Postcard-style travel snippet.",
+    "category": "Story",
+    "difficulty": 4,
+    "tags": [
+      "story"
+    ],
+    "sortOrder": 4201,
+    "source": "template:story_travel.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 163,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Postcard from Pittsburgh, MA: Liam Kim boarded at gate E9 and watched the quiet skyline drift past. The ticket showed ORD-51193, and the train rolled out at 10:25."
+  },
+  {
+    "id": "story-travel-003",
+    "name": "Story: Travel Note 03",
+    "description": "Postcard-style travel snippet.",
+    "category": "Story",
+    "difficulty": 4,
+    "tags": [
+      "story"
+    ],
+    "sortOrder": 4202,
+    "source": "template:story_travel.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 164,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Postcard from Denver, WA: Elena Collins boarded at gate A2 and watched the faded skyline drift past. The ticket showed ORD-18044, and the train rolled out at 07:15."
+  },
+  {
+    "id": "story-travel-004",
+    "name": "Story: Travel Note 04",
+    "description": "Postcard-style travel snippet.",
+    "category": "Story",
+    "difficulty": 4,
+    "tags": [
+      "story"
+    ],
+    "sortOrder": 4203,
+    "source": "template:story_travel.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 164,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Postcard from Phoenix, IL: Owen Russell boarded at gate E8 and watched the faded skyline drift past. The ticket showed ORD-33114, and the train rolled out at 07:10."
+  },
+  {
+    "id": "story-travel-005",
+    "name": "Story: Travel Note 05",
+    "description": "Postcard-style travel snippet.",
+    "category": "Story",
+    "difficulty": 4,
+    "tags": [
+      "story"
+    ],
+    "sortOrder": 4204,
+    "source": "template:story_travel.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 163,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Postcard from Pittsburgh, MD: Ethan Shaw boarded at gate E8 and watched the low skyline drift past. The ticket showed ORD-71571, and the train rolled out at 03:10."
+  },
+  {
+    "id": "story-travel-006",
+    "name": "Story: Travel Note 06",
+    "description": "Postcard-style travel snippet.",
+    "category": "Story",
+    "difficulty": 4,
+    "tags": [
+      "story"
+    ],
+    "sortOrder": 4205,
+    "source": "template:story_travel.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 163,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Postcard from Raleigh, MA: Jude Morgan boarded at gate D1 and watched the clear skyline drift past. The ticket showed ORD-82558, and the train rolled out at 17:30."
+  },
+  {
+    "id": "story-travel-007",
+    "name": "Story: Travel Note 07",
+    "description": "Postcard-style travel snippet.",
+    "category": "Story",
+    "difficulty": 4,
+    "tags": [
+      "story"
+    ],
+    "sortOrder": 4206,
+    "source": "template:story_travel.txt",
+    "pool": "abcdefghijklmnopqrstuvwxyz",
+    "length": 160,
+    "wordLengthRange": [
+      1,
+      1
+    ],
+    "includeSpaces": true,
+    "fixedText": "Postcard from Austin, CA: Zoe Gibson boarded at gate F6 and watched the clear skyline drift past. The ticket showed ORD-1079, and the train rolled out at 08:30."
   }
 ]

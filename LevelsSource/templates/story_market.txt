@@ -1,0 +1,1 @@
+At {{TIME}}, {{FIRST_NAME}} reached the market in {{CITY}}. The {{ADJECTIVE}} {{OBJECT}} flickered near stall {{GATE}}, and a sign read "Price {{AMOUNT}}". {{FIRST_NAME}} wrote "{{CODE}}" on a card and paid with {{ID}} before the bell rang.

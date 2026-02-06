@@ -1,0 +1,4 @@
+Timesheet: Week {{QTY}} (Employee ID: {{EMPLOYEE_ID}})
+Mon {{DATE}}: {{HOURS}}  Tue {{DATE}}: {{HOURS}}  Wed {{DATE}}: {{HOURS}}
+Thu {{DATE}}: {{HOURS}}  Fri {{DATE}}: {{HOURS}}  OT: {{HOURS}}  Total: {{HOURS}}
+Notes: "{{NOTE}}"

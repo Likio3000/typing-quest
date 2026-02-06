@@ -1,0 +1,4 @@
+Invoice {{INVOICE}} | Date: {{DATE}} | Vendor: {{COMPANY}}
+Item: {{PRODUCT}} ({{SKU}}) Qty: {{QTY}} Unit: {{AMOUNT}} Line: {{AMOUNT}}
+Item: {{PRODUCT}} ({{SKU}}) Qty: {{QTY}} Unit: {{AMOUNT}} Line: {{AMOUNT}}
+Subtotal: {{AMOUNT}}  Tax {{PERCENT}}: {{AMOUNT}}  Total: {{AMOUNT}}  Paid: {{ID}}

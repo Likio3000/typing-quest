@@ -1,0 +1,3 @@
+Inventory Update (Cycle {{CODE}}): Aisle {{QTY}}
+SKU: {{SKU}} | Desc: {{PRODUCT}} | On Hand: {{QTY}}{{QTY}} | Reorder: {{QTY}}{{QTY}} | Bin: {{CODE}}-{{QTY}}-{{QTY}}
+SKU: {{SKU}} | Desc: {{PRODUCT}} | On Hand: {{QTY}}{{QTY}} | Reorder: {{QTY}}{{QTY}} | Bin: {{CODE}}-{{QTY}}-{{QTY}}

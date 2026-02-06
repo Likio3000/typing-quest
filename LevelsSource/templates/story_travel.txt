@@ -1,0 +1,1 @@
+Postcard from {{CITY}}, {{STATE}}: {{NAME}} boarded at gate {{GATE}} and watched the {{ADJECTIVE}} skyline drift past. The ticket showed {{ORDER}}, and the train rolled out at {{TIME}}.

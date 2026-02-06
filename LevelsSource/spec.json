@@ -1,0 +1,1089 @@
+{
+  "seed": 4242,
+  "target_count": 240,
+  "static_levels": [
+    {
+      "id": "letters-home-row",
+      "name": "Letters: Home row",
+      "description": "asdf jkl; focused warmup.",
+      "pool": "asdfjkl;",
+      "length": 160,
+      "wordLengthRange": [
+        4,
+        6
+      ],
+      "includeSpaces": true,
+      "category": "Letters",
+      "difficulty": 1,
+      "tags": [
+        "letters",
+        "home-row"
+      ],
+      "sortOrder": 10,
+      "source": "static"
+    },
+    {
+      "id": "left-pinky-keys",
+      "name": "Letters: Left pinky",
+      "description": "q a z 1 with ` and ~.",
+      "pool": "`~1!qQaAzZ",
+      "length": 180,
+      "wordLengthRange": [
+        3,
+        6
+      ],
+      "includeSpaces": true,
+      "category": "Letters",
+      "difficulty": 2,
+      "tags": [
+        "letters",
+        "left",
+        "pinky"
+      ],
+      "sortOrder": 20,
+      "source": "static"
+    },
+    {
+      "id": "right-pinky-keys",
+      "name": "Letters: Right pinky",
+      "description": "p ; / 0 - = [ ] \\ ' and shifts.",
+      "pool": "pP;:/?0)-_=+[]{}\\|'\"",
+      "length": 200,
+      "wordLengthRange": [
+        2,
+        6
+      ],
+      "includeSpaces": true,
+      "category": "Letters",
+      "difficulty": 2,
+      "tags": [
+        "letters",
+        "right",
+        "pinky",
+        "symbols"
+      ],
+      "sortOrder": 30,
+      "source": "static"
+    },
+    {
+      "id": "letters-left-hand",
+      "name": "Letters: Left hand",
+      "description": "qwert asdfg zxcvb.",
+      "pool": "qwertasdfgzxcvb",
+      "length": 180,
+      "wordLengthRange": [
+        4,
+        7
+      ],
+      "includeSpaces": true,
+      "category": "Letters",
+      "difficulty": 2,
+      "tags": [
+        "letters",
+        "left-hand"
+      ],
+      "sortOrder": 40,
+      "source": "static"
+    },
+    {
+      "id": "letters-right-hand",
+      "name": "Letters: Right hand",
+      "description": "yuiop hjkl; nm,./",
+      "pool": "yuiophjkl;nm,./",
+      "length": 180,
+      "wordLengthRange": [
+        4,
+        7
+      ],
+      "includeSpaces": true,
+      "category": "Letters",
+      "difficulty": 2,
+      "tags": [
+        "letters",
+        "right-hand"
+      ],
+      "sortOrder": 50,
+      "source": "static"
+    },
+    {
+      "id": "letters-top-row",
+      "name": "Letters: Top row",
+      "description": "qwertyuiop only.",
+      "pool": "qwertyuiop",
+      "length": 180,
+      "wordLengthRange": [
+        4,
+        6
+      ],
+      "includeSpaces": true,
+      "category": "Letters",
+      "difficulty": 2,
+      "tags": [
+        "letters",
+        "top-row"
+      ],
+      "sortOrder": 60,
+      "source": "static"
+    },
+    {
+      "id": "letters-bottom-row",
+      "name": "Letters: Bottom row",
+      "description": "zxcvbnm only.",
+      "pool": "zxcvbnm",
+      "length": 160,
+      "wordLengthRange": [
+        4,
+        6
+      ],
+      "includeSpaces": true,
+      "category": "Letters",
+      "difficulty": 2,
+      "tags": [
+        "letters",
+        "bottom-row"
+      ],
+      "sortOrder": 70,
+      "source": "static"
+    },
+    {
+      "id": "letters-vowels",
+      "name": "Letters: Vowels",
+      "description": "aeiou heavy repetition.",
+      "pool": "aeiou",
+      "length": 140,
+      "wordLengthRange": [
+        3,
+        5
+      ],
+      "includeSpaces": true,
+      "category": "Letters",
+      "difficulty": 1,
+      "tags": [
+        "letters",
+        "vowels"
+      ],
+      "sortOrder": 80,
+      "source": "static"
+    },
+    {
+      "id": "letters-lowercase-mix",
+      "name": "Letters: Lowercase mix",
+      "description": "Full lowercase alphabet.",
+      "pool": "abcdefghijklmnopqrstuvwxyz",
+      "length": 220,
+      "wordLengthRange": [
+        4,
+        8
+      ],
+      "includeSpaces": true,
+      "category": "Letters",
+      "difficulty": 2,
+      "tags": [
+        "letters",
+        "lowercase"
+      ],
+      "sortOrder": 90,
+      "source": "static"
+    },
+    {
+      "id": "letters-mixed-case",
+      "name": "Letters: Mixed case",
+      "description": "Uppercase and lowercase.",
+      "pool": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+      "length": 220,
+      "wordLengthRange": [
+        4,
+        8
+      ],
+      "includeSpaces": true,
+      "category": "Letters",
+      "difficulty": 3,
+      "tags": [
+        "letters",
+        "mixed-case"
+      ],
+      "sortOrder": 100,
+      "source": "static"
+    },
+    {
+      "id": "numbers-1-5",
+      "name": "Numbers: 1-5",
+      "description": "Low numbers focus.",
+      "pool": "12345",
+      "length": 140,
+      "wordLengthRange": [
+        3,
+        5
+      ],
+      "includeSpaces": true,
+      "category": "Numbers",
+      "difficulty": 2,
+      "tags": [
+        "numbers",
+        "low"
+      ],
+      "sortOrder": 110,
+      "source": "static"
+    },
+    {
+      "id": "numbers-6-0",
+      "name": "Numbers: 6-0",
+      "description": "High numbers focus.",
+      "pool": "67890",
+      "length": 140,
+      "wordLengthRange": [
+        3,
+        5
+      ],
+      "includeSpaces": true,
+      "category": "Numbers",
+      "difficulty": 2,
+      "tags": [
+        "numbers",
+        "high"
+      ],
+      "sortOrder": 120,
+      "source": "static"
+    },
+    {
+      "id": "numbers-all",
+      "name": "Numbers: All digits",
+      "description": "0-9 mixed.",
+      "pool": "0123456789",
+      "length": 180,
+      "wordLengthRange": [
+        3,
+        6
+      ],
+      "includeSpaces": true,
+      "category": "Numbers",
+      "difficulty": 3,
+      "tags": [
+        "numbers"
+      ],
+      "sortOrder": 130,
+      "source": "static"
+    },
+    {
+      "id": "symbols-punctuation",
+      "name": "Symbols: Punctuation",
+      "description": "., ; ' /",
+      "pool": ".,;'/",
+      "length": 160,
+      "wordLengthRange": [
+        2,
+        4
+      ],
+      "includeSpaces": true,
+      "category": "Symbols",
+      "difficulty": 3,
+      "tags": [
+        "symbols",
+        "punctuation"
+      ],
+      "sortOrder": 140,
+      "source": "static"
+    },
+    {
+      "id": "symbols-brackets",
+      "name": "Symbols: Brackets",
+      "description": "[ ] { } ( )",
+      "pool": "[]{}()",
+      "length": 160,
+      "wordLengthRange": [
+        2,
+        4
+      ],
+      "includeSpaces": true,
+      "category": "Symbols",
+      "difficulty": 3,
+      "tags": [
+        "symbols",
+        "brackets"
+      ],
+      "sortOrder": 150,
+      "source": "static"
+    },
+    {
+      "id": "symbols-operators",
+      "name": "Symbols: Operators",
+      "description": "- = + * /",
+      "pool": "-=+*/",
+      "length": 160,
+      "wordLengthRange": [
+        2,
+        4
+      ],
+      "includeSpaces": true,
+      "category": "Symbols",
+      "difficulty": 3,
+      "tags": [
+        "symbols",
+        "operators"
+      ],
+      "sortOrder": 160,
+      "source": "static"
+    },
+    {
+      "id": "symbols-shift",
+      "name": "Symbols: Shifted",
+      "description": "! @ # $ % ^ & * ( )",
+      "pool": "!@#$%^&*()",
+      "length": 160,
+      "wordLengthRange": [
+        2,
+        4
+      ],
+      "includeSpaces": true,
+      "category": "Symbols",
+      "difficulty": 4,
+      "tags": [
+        "symbols",
+        "shifted"
+      ],
+      "sortOrder": 170,
+      "source": "static"
+    },
+    {
+      "id": "full-mix",
+      "name": "Full mix",
+      "description": "Letters, numbers, punctuation, operators.",
+      "pool": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,;'/[]{}()-=+*/!@#$%^&*()",
+      "length": 240,
+      "wordLengthRange": [
+        4,
+        9
+      ],
+      "includeSpaces": true,
+      "category": "Mixed",
+      "difficulty": 5,
+      "tags": [
+        "mixed",
+        "letters",
+        "numbers",
+        "symbols"
+      ],
+      "sortOrder": 180,
+      "source": "static"
+    },
+    {
+      "id": "story-night-market",
+      "name": "Story: Night Market",
+      "description": "Full text with numbers and symbols.",
+      "pool": "abcdefghijklmnopqrstuvwxyz",
+      "length": 295,
+      "wordLengthRange": [
+        1,
+        1
+      ],
+      "includeSpaces": true,
+      "fixedText": "At 6:05 PM, the night market lit up, and Mina wrote \"List #3\" on her wrist. She bought 2 pies for $7.50, paid with a card, and got a receipt that read: TAX=8%. A small cat followed her, jumping over crates marked [A-12] and (B-4). \"Stay close,\" she said; the bell chimed, and the vendor nodded.\n",
+      "category": "Story",
+      "difficulty": 4,
+      "tags": [
+        "story"
+      ],
+      "sortOrder": 190,
+      "source": "static"
+    },
+    {
+      "id": "story-signal-log",
+      "name": "Story: Signal Log",
+      "description": "Full text with mixed case and operators.",
+      "pool": "abcdefghijklmnopqrstuvwxyz",
+      "length": 275,
+      "wordLengthRange": [
+        1,
+        1
+      ],
+      "includeSpaces": true,
+      "fixedText": "The radio log started with: \"Day 19, 04:17 @ Ridge Station.\" We tested a new antenna, toggled switch A/B, and the meter jumped from 0.9 to 1.3. The old map had notes like \"north-3\" and \"west+2\", but the signal only stabilized when we set gain=7 and the lamp blinked 3 times.\n",
+      "category": "Story",
+      "difficulty": 4,
+      "tags": [
+        "story"
+      ],
+      "sortOrder": 200,
+      "source": "static"
+    },
+    {
+      "id": "story-clockwork-letter",
+      "name": "Story: Clockwork Letter",
+      "description": "Full text with punctuation and math.",
+      "pool": "abcdefghijklmnopqrstuvwxyz",
+      "length": 229,
+      "wordLengthRange": [
+        1,
+        1
+      ],
+      "includeSpaces": true,
+      "fixedText": "In the attic, a folded letter said: \"Meet me at Gate 5 - bring the brass key.\" Jae checked the clock (11:02) and scribbled 2+2=4 on the envelope. The note smelled of oil & smoke, and a tiny gear with 8 teeth fell onto the table.\n",
+      "category": "Story",
+      "difficulty": 4,
+      "tags": [
+        "story"
+      ],
+      "sortOrder": 210,
+      "source": "static"
+    },
+    {
+      "id": "story-workshop-report",
+      "name": "Story: Workshop Report",
+      "description": "Full text with symbols, units, and caps.",
+      "pool": "abcdefghijklmnopqrstuvwxyz",
+      "length": 233,
+      "wordLengthRange": [
+        1,
+        1
+      ],
+      "includeSpaces": true,
+      "fixedText": "Report 07: The prototype \"Vega\" failed test #42. We saw a 3.14 cm crack, a 12% voltage drop, and a fuse marked 10A/250V. Still, the crew cheered when the reboot finished in 9.8s; the console flashed OK>READY and the room went quiet.\n",
+      "category": "Story",
+      "difficulty": 4,
+      "tags": [
+        "story"
+      ],
+      "sortOrder": 220,
+      "source": "static"
+    },
+    {
+      "id": "data-entry-invoice",
+      "name": "Data Entry: Invoice",
+      "description": "Invoice lines with prices, IDs, and totals.",
+      "pool": "abcdefghijklmnopqrstuvwxyz",
+      "length": 243,
+      "wordLengthRange": [
+        1,
+        1
+      ],
+      "includeSpaces": true,
+      "fixedText": "Invoice #48371 | Date: 2026-01-27 | Vendor: Northwind Parts\nItem: Gear Set (GS-442) Qty: 3 Unit: $79.95 Line: $239.85\nItem: Belt Kit (BK-210) Qty: 1 Unit: $34.50 Line: $34.50\nSubtotal: $274.35  Tax 8.25%: $22.64  Total: $296.99  Paid: CC-4582\n",
+      "category": "Data Entry",
+      "difficulty": 4,
+      "tags": [
+        "data-entry",
+        "invoice"
+      ],
+      "sortOrder": 230,
+      "source": "static"
+    },
+    {
+      "id": "data-entry-contacts",
+      "name": "Data Entry: Contacts",
+      "description": "Names, departments, extensions, and emails.",
+      "pool": "abcdefghijklmnopqrstuvwxyz",
+      "length": 216,
+      "wordLengthRange": [
+        1,
+        1
+      ],
+      "includeSpaces": true,
+      "fixedText": "Contact Log: 3 entries\n1) Rivera, Ana | Dept: Ops | Ext: 224 | Email: ana.rivera@acme.co\n2) Chen, Li | Dept: IT | Ext: 318 | Email: li.chen@acme.co\n3) Patel, Omar | Dept: Sales | Ext: 105 | Email: omar.patel@acme.co\n",
+      "category": "Data Entry",
+      "difficulty": 3,
+      "tags": [
+        "data-entry",
+        "contacts"
+      ],
+      "sortOrder": 240,
+      "source": "static"
+    },
+    {
+      "id": "data-entry-shipment",
+      "name": "Data Entry: Shipment",
+      "description": "Addresses, IDs, and ETA details.",
+      "pool": "abcdefghijklmnopqrstuvwxyz",
+      "length": 168,
+      "wordLengthRange": [
+        1,
+        1
+      ],
+      "includeSpaces": true,
+      "fixedText": "Shipment Record: ID SHP-90218\nOrigin: 4501 W 3rd St, Austin, TX 78703\nDest: 18 Harbor Way, Newark, NJ 07102\nWeight: 42.6 lb  Boxes: 4  Carrier: FDX-2Day  ETA: 01/30/26\n",
+      "category": "Data Entry",
+      "difficulty": 4,
+      "tags": [
+        "data-entry",
+        "shipment"
+      ],
+      "sortOrder": 250,
+      "source": "static"
+    },
+    {
+      "id": "data-entry-inventory",
+      "name": "Data Entry: Inventory",
+      "description": "SKUs, counts, bins, and sizes.",
+      "pool": "abcdefghijklmnopqrstuvwxyz",
+      "length": 270,
+      "wordLengthRange": [
+        1,
+        1
+      ],
+      "includeSpaces": true,
+      "fixedText": "Inventory Update (Cycle B): Aisle 7\nSKU: HN-1442 | Desc: Hand Nut 10mm | On Hand: 860 | Reorder: 500 | Bin: B-07-14\nSKU: BX-9901 | Desc: Box, 12x10x8 | On Hand: 120 | Reorder: 60 | Bin: C-02-03\nSKU: CL-5530 | Desc: Clamp 3/4in | On Hand: 48 | Reorder: 75 | Bin: A-01-09\n",
+      "category": "Data Entry",
+      "difficulty": 4,
+      "tags": [
+        "data-entry",
+        "inventory"
+      ],
+      "sortOrder": 260,
+      "source": "static"
+    },
+    {
+      "id": "data-entry-timesheet",
+      "name": "Data Entry: Timesheet",
+      "description": "Dates, hours, totals, and notes.",
+      "pool": "abcdefghijklmnopqrstuvwxyz",
+      "length": 188,
+      "wordLengthRange": [
+        1,
+        1
+      ],
+      "includeSpaces": true,
+      "fixedText": "Timesheet: Week 04 (Employee ID: 77102)\nMon 01/20: 8.0  Tue 01/21: 7.5  Wed 01/22: 8.0\nThu 01/23: 8.5  Fri 01/24: 6.5  OT: 1.5  Total: 38.0\nNotes: \"Inventory count + customer follow-ups.\"\n",
+      "category": "Data Entry",
+      "difficulty": 3,
+      "tags": [
+        "data-entry",
+        "timesheet"
+      ],
+      "sortOrder": 270,
+      "source": "static"
+    },
+    {
+      "id": "data-entry-support-ticket",
+      "name": "Data Entry: Support Ticket",
+      "description": "Ticket fields with assets and steps.",
+      "pool": "abcdefghijklmnopqrstuvwxyz",
+      "length": 226,
+      "wordLengthRange": [
+        1,
+        1
+      ],
+      "includeSpaces": true,
+      "fixedText": "Ticket #A-77530 | Priority: P2 | Status: OPEN\nUser: Kim, Jordan | Asset: LTP-4471 | OS: macOS 14.2\nIssue: \"Printer queue shows error 79\" | Started: 09:14 | Attempts: 2\nResolution: Clear spooler, reboot, re-add printer PRN-04.\n",
+      "category": "Data Entry",
+      "difficulty": 4,
+      "tags": [
+        "data-entry",
+        "support"
+      ],
+      "sortOrder": 280,
+      "source": "static"
+    }
+  ],
+  "drills": [
+    {
+      "id_prefix": "drill-home-row",
+      "name": "Drill: Home row",
+      "description": "Randomized home row sequences.",
+      "pool": "asdfjkl;",
+      "lengths": [
+        120,
+        140,
+        160,
+        180,
+        200
+      ],
+      "wordLengthRanges": [
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "includeSpaces": true,
+      "variants": 10,
+      "category": "Letters",
+      "difficulty": 1,
+      "tags": [
+        "drill",
+        "home-row"
+      ],
+      "sortOrderStart": 1000
+    },
+    {
+      "id_prefix": "drill-left-hand",
+      "name": "Drill: Left hand",
+      "description": "Left hand letter drills.",
+      "pool": "qwertasdfgzxcvb",
+      "lengths": [
+        140,
+        160,
+        180,
+        200,
+        220
+      ],
+      "wordLengthRanges": [
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "includeSpaces": true,
+      "variants": 10,
+      "category": "Letters",
+      "difficulty": 2,
+      "tags": [
+        "drill",
+        "left-hand"
+      ],
+      "sortOrderStart": 1100
+    },
+    {
+      "id_prefix": "drill-right-hand",
+      "name": "Drill: Right hand",
+      "description": "Right hand letter drills.",
+      "pool": "yuiophjkl;nm,./",
+      "lengths": [
+        140,
+        160,
+        180,
+        200,
+        220
+      ],
+      "wordLengthRanges": [
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "includeSpaces": true,
+      "variants": 10,
+      "category": "Letters",
+      "difficulty": 2,
+      "tags": [
+        "drill",
+        "right-hand"
+      ],
+      "sortOrderStart": 1200
+    },
+    {
+      "id_prefix": "drill-top-row",
+      "name": "Drill: Top row",
+      "description": "Top row letter patterns.",
+      "pool": "qwertyuiop",
+      "lengths": [
+        140,
+        160,
+        180,
+        200,
+        220
+      ],
+      "wordLengthRanges": [
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "includeSpaces": true,
+      "variants": 10,
+      "category": "Letters",
+      "difficulty": 2,
+      "tags": [
+        "drill",
+        "top-row"
+      ],
+      "sortOrderStart": 1300
+    },
+    {
+      "id_prefix": "drill-bottom-row",
+      "name": "Drill: Bottom row",
+      "description": "Bottom row letter patterns.",
+      "pool": "zxcvbnm",
+      "lengths": [
+        120,
+        140,
+        160,
+        180,
+        200
+      ],
+      "wordLengthRanges": [
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "includeSpaces": true,
+      "variants": 10,
+      "category": "Letters",
+      "difficulty": 2,
+      "tags": [
+        "drill",
+        "bottom-row"
+      ],
+      "sortOrderStart": 1400
+    },
+    {
+      "id_prefix": "drill-mixed-case",
+      "name": "Drill: Mixed case",
+      "description": "Upper/lowercase alphabet drills.",
+      "pool": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+      "lengths": [
+        160,
+        180,
+        200,
+        220,
+        240
+      ],
+      "wordLengthRanges": [
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "includeSpaces": true,
+      "variants": 10,
+      "category": "Letters",
+      "difficulty": 3,
+      "tags": [
+        "drill",
+        "mixed-case"
+      ],
+      "sortOrderStart": 1500
+    },
+    {
+      "id_prefix": "drill-numbers",
+      "name": "Drill: Numbers",
+      "description": "All-digit number drills.",
+      "pool": "0123456789",
+      "lengths": [
+        140,
+        160,
+        180,
+        200,
+        220
+      ],
+      "wordLengthRanges": [
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "includeSpaces": true,
+      "variants": 10,
+      "category": "Numbers",
+      "difficulty": 3,
+      "tags": [
+        "drill",
+        "numbers"
+      ],
+      "sortOrderStart": 1600
+    },
+    {
+      "id_prefix": "drill-symbols-shift",
+      "name": "Drill: Shifted symbols",
+      "description": "Shifted symbol combinations.",
+      "pool": "!@#$%^&*()",
+      "lengths": [
+        140,
+        160,
+        180,
+        200,
+        220
+      ],
+      "wordLengthRanges": [
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "includeSpaces": true,
+      "variants": 10,
+      "category": "Symbols",
+      "difficulty": 4,
+      "tags": [
+        "drill",
+        "shifted"
+      ],
+      "sortOrderStart": 1700
+    },
+    {
+      "id_prefix": "drill-full-mix",
+      "name": "Drill: Full mix",
+      "description": "Letters, numbers, and symbols mixed.",
+      "pool": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,;'/[]{}()-=+*/!@#$%^&*()",
+      "lengths": [
+        180,
+        200,
+        220,
+        240,
+        260
+      ],
+      "wordLengthRanges": [
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          9
+        ]
+      ],
+      "includeSpaces": true,
+      "variants": 10,
+      "category": "Mixed",
+      "difficulty": 5,
+      "tags": [
+        "drill",
+        "full-mix"
+      ],
+      "sortOrderStart": 1800
+    }
+  ],
+  "wordlists": [
+    {
+      "id_prefix": "words-common",
+      "name": "Words: Common",
+      "description": "Common English words.",
+      "wordlist_file": "common_words.txt",
+      "target_lengths": [
+        150,
+        170,
+        190,
+        210
+      ],
+      "variants": 10,
+      "category": "Words",
+      "difficulty": 2,
+      "tags": [
+        "words",
+        "common"
+      ],
+      "sortOrderStart": 2000
+    },
+    {
+      "id_prefix": "words-business",
+      "name": "Words: Business",
+      "description": "Business and office vocabulary.",
+      "wordlist_file": "business_words.txt",
+      "target_lengths": [
+        160,
+        180,
+        200,
+        220
+      ],
+      "variants": 10,
+      "category": "Words",
+      "difficulty": 3,
+      "tags": [
+        "words",
+        "business"
+      ],
+      "sortOrderStart": 2100
+    },
+    {
+      "id_prefix": "words-tech",
+      "name": "Words: Tech",
+      "description": "Technical terms and system words.",
+      "wordlist_file": "tech_words.txt",
+      "target_lengths": [
+        160,
+        180,
+        200,
+        220
+      ],
+      "variants": 10,
+      "category": "Words",
+      "difficulty": 3,
+      "tags": [
+        "words",
+        "tech"
+      ],
+      "sortOrderStart": 2200
+    },
+    {
+      "id_prefix": "words-travel",
+      "name": "Words: Travel",
+      "description": "Travel and transit vocabulary.",
+      "wordlist_file": "travel_words.txt",
+      "target_lengths": [
+        150,
+        170,
+        190,
+        210
+      ],
+      "variants": 10,
+      "category": "Words",
+      "difficulty": 2,
+      "tags": [
+        "words",
+        "travel"
+      ],
+      "sortOrderStart": 2300
+    },
+    {
+      "id_prefix": "words-actions",
+      "name": "Words: Actions",
+      "description": "Action verbs for speed practice.",
+      "wordlist_file": "action_words.txt",
+      "target_lengths": [
+        150,
+        170,
+        190,
+        210
+      ],
+      "variants": 10,
+      "category": "Words",
+      "difficulty": 2,
+      "tags": [
+        "words",
+        "actions"
+      ],
+      "sortOrderStart": 2400
+    },
+    {
+      "id_prefix": "words-quality",
+      "name": "Words: Quality",
+      "description": "Quality and assessment words.",
+      "wordlist_file": "quality_words.txt",
+      "target_lengths": [
+        150,
+        170,
+        190,
+        210
+      ],
+      "variants": 10,
+      "category": "Words",
+      "difficulty": 2,
+      "tags": [
+        "words",
+        "quality"
+      ],
+      "sortOrderStart": 2500
+    }
+  ],
+  "templates": [
+    {
+      "id_prefix": "data-invoice",
+      "name": "Data Entry: Invoice",
+      "description": "Invoice lines with prices and totals.",
+      "template_file": "data_invoice.txt",
+      "variants": 10,
+      "category": "Data Entry",
+      "difficulty": 4,
+      "tags": [
+        "data-entry",
+        "invoice"
+      ],
+      "sortOrderStart": 3000
+    },
+    {
+      "id_prefix": "data-shipment",
+      "name": "Data Entry: Shipment",
+      "description": "Shipment records with addresses.",
+      "template_file": "data_shipment.txt",
+      "variants": 10,
+      "category": "Data Entry",
+      "difficulty": 4,
+      "tags": [
+        "data-entry",
+        "shipment"
+      ],
+      "sortOrderStart": 3100
+    },
+    {
+      "id_prefix": "data-support",
+      "name": "Data Entry: Support Ticket",
+      "description": "Ticket fields with assets and steps.",
+      "template_file": "data_support_ticket.txt",
+      "variants": 10,
+      "category": "Data Entry",
+      "difficulty": 4,
+      "tags": [
+        "data-entry",
+        "support"
+      ],
+      "sortOrderStart": 3200
+    },
+    {
+      "id_prefix": "data-inventory",
+      "name": "Data Entry: Inventory",
+      "description": "Inventory updates with SKUs and bins.",
+      "template_file": "data_inventory.txt",
+      "variants": 10,
+      "category": "Data Entry",
+      "difficulty": 4,
+      "tags": [
+        "data-entry",
+        "inventory"
+      ],
+      "sortOrderStart": 3300
+    },
+    {
+      "id_prefix": "story-market",
+      "name": "Story: Market Run",
+      "description": "Short story with prices and codes.",
+      "template_file": "story_market.txt",
+      "variants": 8,
+      "category": "Story",
+      "difficulty": 4,
+      "tags": [
+        "story"
+      ],
+      "sortOrderStart": 4000
+    },
+    {
+      "id_prefix": "story-lab",
+      "name": "Story: Lab Log",
+      "description": "Technical log entry with metrics.",
+      "template_file": "story_lab.txt",
+      "variants": 7,
+      "category": "Story",
+      "difficulty": 4,
+      "tags": [
+        "story"
+      ],
+      "sortOrderStart": 4100
+    },
+    {
+      "id_prefix": "story-travel",
+      "name": "Story: Travel Note",
+      "description": "Postcard-style travel snippet.",
+      "template_file": "story_travel.txt",
+      "variants": 7,
+      "category": "Story",
+      "difficulty": 4,
+      "tags": [
+        "story"
+      ],
+      "sortOrderStart": 4200
+    }
+  ]
+}

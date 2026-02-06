@@ -4,6 +4,7 @@ import TypingGameCore
 struct LevelRow: View {
     let level: Level
     let isSelected: Bool
+    let isLocked: Bool
     let bestScore: Double?
     let action: () -> Void
 
@@ -11,8 +12,15 @@ struct LevelRow: View {
         Button(action: action) {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(level.name)
-                        .font(.system(size: 13, weight: .semibold))
+                    HStack(spacing: 6) {
+                        Text(level.name)
+                            .font(.system(size: 13, weight: .semibold))
+                        if isLocked {
+                            Text("LOCKED")
+                                .font(.system(size: 9, weight: .bold, design: .monospaced))
+                                .foregroundColor(Theme.placeholderText)
+                        }
+                    }
                     Text(level.description)
                         .font(.system(size: 11))
                         .foregroundColor(Theme.mutedText)
@@ -31,6 +39,8 @@ struct LevelRow: View {
         .background(isSelected ? selectedBackground : Color.clear)
         .overlay(RoundedRectangle(cornerRadius: 8).stroke(isSelected ? selectedBorder : idleBorder))
         .clipShape(RoundedRectangle(cornerRadius: 8))
+        .opacity(isLocked ? 0.7 : 1)
+        .disabled(isLocked)
         .buttonStyle(.plain)
         .uiTestLabel(UIID.levelRow(level.id))
     }
@@ -50,7 +60,7 @@ struct LevelRow: View {
     private var scoreBadge: some View {
         Text(bestScoreText)
             .font(.system(size: 11, weight: .semibold, design: .rounded))
-            .foregroundColor(bestScore == nil ? Theme.placeholderText : Theme.primaryText)
+            .foregroundColor(isLocked || bestScore == nil ? Theme.placeholderText : Theme.primaryText)
             .padding(.vertical, 4)
             .padding(.horizontal, 8)
             .background(Theme.metricBackground.opacity(bestScore == nil ? 0.25 : 0.55))
@@ -59,6 +69,7 @@ struct LevelRow: View {
     }
 
     private var bestScoreText: String {
+        if isLocked { return "Locked" }
         guard let bestScore else { return "—" }
         return String(format: "%.0f", bestScore)
     }

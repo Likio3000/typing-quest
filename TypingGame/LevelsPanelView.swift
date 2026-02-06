@@ -6,6 +6,9 @@ struct LevelsPanelView: View {
     let selectedLevel: Level
     let selectedLevelID: String
     let bestScores: [String: Double]
+    let maxUnlockedDifficulty: Int
+    let categories: [String]
+    @Binding var selectedCategory: String
     let onSelect: (Level) -> Void
     let onRegenerate: () -> Void
 
@@ -22,12 +25,15 @@ struct LevelsPanelView: View {
                         .foregroundColor(Theme.mutedText)
                 }
 
+                categoryPicker
+
                 ScrollView {
-                    VStack(spacing: 10) {
+                    LazyVStack(spacing: 10) {
                         ForEach(levels) { level in
                             LevelRow(
                                 level: level,
                                 isSelected: level.id == selectedLevelID,
+                                isLocked: level.difficulty > maxUnlockedDifficulty,
                                 bestScore: bestScores[level.id]
                             ) {
                                 onSelect(level)
@@ -51,6 +57,53 @@ struct LevelsPanelView: View {
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
+        }
+    }
+
+    private var categoryPicker: some View {
+        return HStack(spacing: 8) {
+            Text("Category")
+                .font(.system(size: 11, weight: .semibold))
+                .foregroundColor(Theme.mutedText)
+
+            Menu {
+                ForEach(categories, id: \.self) { category in
+                    Button {
+                        selectedCategory = category
+                    } label: {
+                        if category == selectedCategory {
+                            Label(category, systemImage: "checkmark")
+                        } else {
+                            Text(category)
+                        }
+                    }
+                }
+            } label: {
+                HStack(spacing: 6) {
+                    Text(selectedCategory)
+                        .font(.system(size: 11, weight: .semibold))
+                        .foregroundColor(Theme.primaryText)
+                    Image(systemName: "chevron.down")
+                        .font(.system(size: 9, weight: .bold))
+                        .foregroundColor(Theme.primaryText.opacity(0.9))
+                }
+                .padding(.horizontal, 10)
+                .padding(.vertical, 6)
+                .background(
+                    RoundedRectangle(cornerRadius: 6)
+                        .fill(Theme.surface)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 6)
+                                .stroke(Theme.border.opacity(0.9), lineWidth: 1)
+                        )
+                )
+            }
+
+            Spacer()
+
+            Text("Unlocked D\(maxUnlockedDifficulty)")
+                .font(.system(size: 10, weight: .semibold, design: .monospaced))
+                .foregroundColor(Theme.mutedText)
         }
     }
 }

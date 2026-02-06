@@ -150,6 +150,7 @@ struct HandGuideView: View {
     }
 
     private static let imageZoomX: CGFloat = 1.25
+    private static let imageOffsetY: CGFloat = 24
 
     private static let baseImage: NSImage? = {
         for name in Self.imageNames {
@@ -182,7 +183,7 @@ struct HandGuideView: View {
             let scaledHeight = safeImageSize.height * scale * zoom
             let origin = CGPoint(
                 x: (viewSize.width - scaledWidth) / 2.0,
-                y: (viewSize.height - scaledHeight) / 2.0
+                y: (viewSize.height - scaledHeight) / 2.0 + HandGuideView.imageOffsetY
             )
             return CGRect(origin: origin, size: CGSize(width: scaledWidth, height: scaledHeight))
         }
@@ -268,7 +269,7 @@ struct HandCalibration {
 
 struct HandImageZoom {
     static let storageKey = "hands.imageZoom.v1"
-    static let defaultZoom: Double = 1.0
+    static let defaultZoom: Double = 0.88
     static let range: ClosedRange<Double> = 0.75...1.35
     static let step: Double = 0.02
 

@@ -6,6 +6,7 @@ final class ContentViewModel: ObservableObject {
     let levels: [Level]
     let session: TypingSession
 
+    @Published var levelFilterCategory: String = "All"
     @Published var selectedLevelID: String {
         didSet { persistSelectedLevel() }
     }
@@ -37,14 +38,22 @@ final class ContentViewModel: ObservableObject {
         }
         let savedSelectedID = defaults.string(forKey: StorageKey.selectedLevelID)
         let savedActiveID = defaults.string(forKey: StorageKey.activeLevelID)
+        let loadedBestScores = LevelScoreStore.loadAll(levels: levels)
+        let initialUnlockedDifficulty = Self.maxUnlockedDifficulty(levels: levels, bestScores: loadedBestScores)
+        let firstUnlockedLevel = levels.first(where: { $0.difficulty <= initialUnlockedDifficulty }) ?? defaultLevel
+
         let selectedLevelID = Self.resolveLevelID(savedSelectedID, levels: levels) ?? defaultLevel.id
-        let activeLevelID = Self.resolveLevelID(savedActiveID, levels: levels) ?? selectedLevelID
-        let activeLevel = levels.first(where: { $0.id == activeLevelID }) ?? defaultLevel
+        let selectedLevelCandidate = levels.first(where: { $0.id == selectedLevelID }) ?? defaultLevel
+        let selectedLevel = selectedLevelCandidate.difficulty <= initialUnlockedDifficulty ? selectedLevelCandidate : firstUnlockedLevel
+
+        let activeLevelID = Self.resolveLevelID(savedActiveID, levels: levels) ?? selectedLevel.id
+        let activeLevelCandidate = levels.first(where: { $0.id == activeLevelID }) ?? selectedLevel
+        let activeLevel = activeLevelCandidate.difficulty <= initialUnlockedDifficulty ? activeLevelCandidate : selectedLevel
 
         self.session = TypingSession(targetText: LevelGenerator.generateText(for: activeLevel))
-        self.selectedLevelID = selectedLevelID
-        self.activeLevelID = activeLevelID
-        self.bestScores = LevelScoreStore.loadAll(levels: levels)
+        self.selectedLevelID = selectedLevel.id
+        self.activeLevelID = activeLevel.id
+        self.bestScores = loadedBestScores
         self.handPoints = HandCalibration.loadPoints()
         self.handImageZoom = HandImageZoom.load()
 
@@ -67,7 +76,31 @@ final class ContentViewModel: ObservableObject {
         levels.first(where: { $0.id == selectedLevelID }) ?? LevelCatalog.fallbackLevel
     }
 
+    var categories: [String] {
+        let unique = Set(levels.map { $0.category })
+        return ["All"] + unique.sorted { $0.localizedCaseInsensitiveCompare($1) == .orderedAscending }
+    }
+
+    var filteredLevels: [Level] {
+        let category = levelFilterCategory
+        guard category != "All" else {
+            return levels
+        }
+        return levels.filter { level in
+            level.category == category
+        }
+    }
+
+    var maxUnlockedDifficulty: Int {
+        Self.maxUnlockedDifficulty(levels: levels, bestScores: bestScores)
+    }
+
+    func isLevelUnlocked(_ level: Level) -> Bool {
+        level.difficulty <= maxUnlockedDifficulty
+    }
+
     func applyLevel(_ level: Level) {
+        guard isLevelUnlocked(level) else { return }
         selectedLevelID = level.id
         activeLevelID = level.id
         session.setTargetText(LevelGenerator.generateText(for: level))
@@ -98,6 +131,26 @@ final class ContentViewModel: ObservableObject {
         return levels.first(where: { $0.id == candidate })?.id
     }
 
+    private static func maxUnlockedDifficulty(levels: [Level], bestScores: [String: Double]) -> Int {
+        let maximumConfiguredDifficulty = max(Progression.baseUnlockedDifficulty, levels.map(\.difficulty).max() ?? Progression.baseUnlockedDifficulty)
+        var unlocked = Progression.baseUnlockedDifficulty
+
+        while unlocked < maximumConfiguredDifficulty {
+            let completions = levels.filter { level in
+                guard level.difficulty == unlocked else { return false }
+                guard let score = bestScores[level.id] else { return false }
+                return score >= Progression.scoreThresholdToProgress
+            }.count
+
+            guard completions >= Progression.requiredCompletionsPerDifficulty else {
+                break
+            }
+            unlocked += 1
+        }
+
+        return unlocked
+    }
+
     private func persistSelectedLevel() {
         UserDefaults.standard.set(selectedLevelID, forKey: StorageKey.selectedLevelID)
     }
@@ -110,4 +163,10 @@ final class ContentViewModel: ObservableObject {
 private enum StorageKey {
     static let selectedLevelID = "typinggame.selected-level-id"
     static let activeLevelID = "typinggame.active-level-id"
+}
+
+private enum Progression {
+    static let baseUnlockedDifficulty = 2
+    static let scoreThresholdToProgress = 70.0
+    static let requiredCompletionsPerDifficulty = 3
 }

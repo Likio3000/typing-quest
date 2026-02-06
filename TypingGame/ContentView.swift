@@ -22,18 +22,19 @@ struct ContentView: View {
         let mainContent = VStack(spacing: 16) {
             TopBarView(
                 time: formatTime(metrics.elapsed),
-                grossWPM: formatNumber(metrics.grossWPM),
                 netWPM: formatNumber(metrics.netWPM),
-                accuracy: formatPercent(metrics.accuracy),
-                kpm: formatNumber(metrics.kpm)
+                accuracy: formatPercent(metrics.accuracy)
             )
 
             HStack(alignment: .top, spacing: 16) {
                 LevelsPanelView(
-                    levels: viewModel.levels,
+                    levels: viewModel.filteredLevels,
                     selectedLevel: viewModel.selectedLevel,
                     selectedLevelID: viewModel.selectedLevelID,
                     bestScores: viewModel.bestScores,
+                    maxUnlockedDifficulty: viewModel.maxUnlockedDifficulty,
+                    categories: viewModel.categories,
+                    selectedCategory: $viewModel.levelFilterCategory,
                     onSelect: { viewModel.applyLevel($0) },
                     onRegenerate: { viewModel.applyLevel(viewModel.selectedLevel) }
                 )

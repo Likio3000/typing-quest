@@ -46,6 +46,13 @@ final class TypingSession: ObservableObject {
         )
     }
 
+    var completionProgress: Double {
+        let targetCount = targetCharacters.count
+        guard targetCount > 0 else { return 0 }
+        let typedCount = min(typedText.count, targetCount)
+        return Double(typedCount) / Double(targetCount)
+    }
+
     func metrics(now: Date) -> TypingMetrics {
         let elapsed = elapsedTime(now: now)
         let minutes = elapsed / 60.0

@@ -522,6 +522,18 @@ final class TypingSessionInputTests: XCTestCase {
 }
 
 final class TypingSessionMetricsTests: XCTestCase {
+    func testCompletionProgress_case001() {
+        let session = TypingSession(targetText: "abcde")
+        session.typedText = "ab"
+        XCTAssertEqual(session.completionProgress, 0.4, accuracy: 0.0001)
+    }
+
+    func testCompletionProgress_case002() {
+        let session = TypingSession(targetText: "abc")
+        session.typedText = "abcdef"
+        XCTAssertEqual(session.completionProgress, 1.0, accuracy: 0.0001)
+    }
+
     func testMetrics_case001() {
         let session = TypingSession(targetText: "abcde")
         session.typedText = "a"

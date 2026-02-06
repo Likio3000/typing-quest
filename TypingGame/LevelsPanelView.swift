@@ -82,10 +82,10 @@ struct LevelsPanelView: View {
                 HStack(spacing: 6) {
                     Text(selectedCategory)
                         .font(.system(size: 11, weight: .semibold))
-                        .foregroundColor(Theme.primaryText)
+                        .foregroundColor(.white)
                     Image(systemName: "chevron.down")
                         .font(.system(size: 9, weight: .bold))
-                        .foregroundColor(Theme.primaryText.opacity(0.9))
+                        .foregroundColor(.white)
                 }
                 .padding(.horizontal, 10)
                 .padding(.vertical, 6)
@@ -98,6 +98,7 @@ struct LevelsPanelView: View {
                         )
                 )
             }
+            .foregroundStyle(.white)
 
             Spacer()
 

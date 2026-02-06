@@ -1,15 +1,18 @@
 ---
 name: typing-game-dev
-description: Project-specific development workflow for the Typing_game macOS app. Use when making code changes in this repo; requires running the smoke test (make smoke / scripts/smoke_run.sh) and reporting the result before declaring a task done.
+description: Project-specific development workflow for the Typing_game macOS app. Use when making code changes in this repo; requires running smoke/test validation and updating dev-notes when decisions or durable findings change.
 ---
 
 # Typing Game Dev
 
 ## Workflow
 
-1. Make the requested code changes in this repo.
-2. Run the smoke test before declaring the task done:
+1. Start by loading the `typing-game-memory` skill workflow and reading relevant files in `dev-notes/`.
+2. Make the requested code changes in this repo.
+3. Run validation before declaring the task done:
    - Preferred: `make smoke`
-   - Direct: `scripts/smoke_run.sh build/Build/Products/Debug/TypingGame.app/Contents/MacOS/TypingGame`
-3. Report the smoke test result in the final response.
-4. If smoke fails, do not declare the task done; summarize the failure and ask how to proceed.
+   - Direct: `scripts/smoke_run.sh \"build/Build/Products/Debug/Typing Quest.app/Contents/MacOS/Typing Quest\"`
+   - If smoke is flaky in the environment, run:
+     `xcodebuild -project TypingGame.xcodeproj -scheme TypingGame -configuration Debug -derivedDataPath build test -destination 'platform=macOS,arch=arm64'`
+4. Update `dev-notes/` if the task introduces durable decisions, architecture changes, or new gotchas.
+5. Report validation results in the final response.

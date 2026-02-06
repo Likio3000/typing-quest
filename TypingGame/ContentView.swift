@@ -17,13 +17,15 @@ struct ContentView: View {
         let session = viewModel.session
         let stats = session.stats
         let metrics = session.metrics(now: now)
+        let completion = session.completionProgress
         let scoreText = session.endTime == nil ? nil : formatScore(viewModel.score(metrics: metrics, stats: stats))
 
         let mainContent = VStack(spacing: 16) {
             TopBarView(
                 time: formatTime(metrics.elapsed),
                 netWPM: formatNumber(metrics.netWPM),
-                accuracy: formatPercent(metrics.accuracy)
+                accuracy: formatPercent(metrics.accuracy),
+                completion: completion
             )
 
             HStack(alignment: .top, spacing: 16) {

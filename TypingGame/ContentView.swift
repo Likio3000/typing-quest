@@ -8,6 +8,8 @@ struct ContentView: View {
     @State private var targetFontSize: Double = 22
     @State private var now = Date()
     @State private var isFullscreen = false
+    @State private var speedSamples: [SpeedSample] = []
+    @State private var lastSpeedSampleElapsed: TimeInterval = -SpeedTrendConfig.sampleInterval
 
     private let timer = Timer.publish(every: 0.05, on: .main, in: .common).autoconnect()
     private let targetFontRange: ClosedRange<Double> = 14...42
@@ -77,7 +79,10 @@ struct ContentView: View {
             NSApp.activate(ignoringOtherApps: true)
             syncFullscreenState()
         }
-        .onReceive(timer) { now = $0 }
+        .onReceive(timer) { tick in
+            now = tick
+            captureSpeedSample(at: tick)
+        }
         .onReceive(NotificationCenter.default.publisher(for: NSWindow.didEnterFullScreenNotification)) { notification in
             updateFullscreenState(from: notification)
         }
@@ -128,6 +133,10 @@ struct ContentView: View {
             SummaryPanelView(
                 stats: stats,
                 correctedErrors: viewModel.session.correctedErrors
+            )
+            SpeedTrendPanelView(
+                samples: speedSamples,
+                windowDuration: SpeedTrendConfig.windowDuration
             )
         }
     }
@@ -261,6 +270,48 @@ struct ContentView: View {
         return 0
     }
 
+    private func captureSpeedSample(at timestamp: Date) {
+        let session = viewModel.session
+        guard session.startTime != nil else {
+            if !speedSamples.isEmpty {
+                speedSamples = []
+            }
+            lastSpeedSampleElapsed = -SpeedTrendConfig.sampleInterval
+            return
+        }
+
+        let metrics = session.metrics(now: timestamp)
+        let elapsed = metrics.elapsed
+        guard elapsed - lastSpeedSampleElapsed >= SpeedTrendConfig.sampleInterval else {
+            return
+        }
+        guard session.totalKeystrokes >= SpeedTrendConfig.minimumKeystrokesToSample else {
+            return
+        }
+
+        let rawWPM = max(0, metrics.netWPM)
+        let elapsedMinutes = max(elapsed / 60, 0.0001)
+        let observedWords = rawWPM * elapsedMinutes
+        let priorMinutes = SpeedTrendConfig.startupPriorDuration / 60
+        let priorWords = SpeedTrendConfig.startupPriorWPM * priorMinutes
+        let stabilizedWPM = (observedWords + priorWords) / (elapsedMinutes + priorMinutes)
+        let previousWPM = speedSamples.last?.wpm ?? stabilizedWPM
+        let smoothedWPM = previousWPM + (stabilizedWPM - previousWPM) * SpeedTrendConfig.emaAlpha
+
+        let sample = SpeedSample(elapsed: elapsed, wpm: smoothedWPM)
+        speedSamples.append(sample)
+        lastSpeedSampleElapsed = elapsed
+
+        let minimumElapsed = max(0, elapsed - SpeedTrendConfig.retentionDuration)
+        if let firstKeptIndex = speedSamples.firstIndex(where: { $0.elapsed >= minimumElapsed }) {
+            if firstKeptIndex > 0 {
+                speedSamples.removeFirst(firstKeptIndex)
+            }
+        } else {
+            speedSamples = [sample]
+        }
+    }
+
     private func highlightedShiftKeys(for descriptor: KeyDescriptor?) -> Set<String> {
         guard let descriptor, descriptor.needsShift else { return [] }
         switch descriptor.shiftSide {
@@ -296,6 +347,133 @@ private struct CompletionPopupData {
     let accuracyText: String
     let starCount: Int
     let completionHintText: String?
+}
+
+private enum SpeedTrendConfig {
+    static let sampleInterval: TimeInterval = 0.5
+    static let windowDuration: TimeInterval = 30
+    static let retentionDuration: TimeInterval = 120
+    static let minimumKeystrokesToSample: Int = 3
+    static let startupPriorDuration: TimeInterval = 8
+    static let startupPriorWPM: Double = 38
+    static let emaAlpha: Double = 0.38
+}
+
+private struct SpeedSample {
+    let elapsed: TimeInterval
+    let wpm: Double
+}
+
+private struct SpeedTrendPanelView: View {
+    let samples: [SpeedSample]
+    let windowDuration: TimeInterval
+
+    var body: some View {
+        Panel(title: "Speed Trend") {
+            VStack(alignment: .leading, spacing: 8) {
+                if visibleSamples.count >= 2 {
+                    WPMTrendChart(
+                        samples: visibleSamples,
+                        domainStart: domainStart,
+                        domainEnd: domainEnd
+                    )
+                    .frame(height: 110)
+                } else {
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(Theme.surface.opacity(0.6))
+                        .overlay(
+                            Text("Start typing to track WPM")
+                                .font(.system(size: 11, weight: .semibold))
+                                .foregroundColor(Theme.mutedText)
+                        )
+                        .frame(height: 110)
+                }
+
+                HStack(spacing: 8) {
+                    Text("0s")
+                    Spacer()
+                    Text("\(Int(windowDuration))s")
+                }
+                .font(.system(size: 10, weight: .semibold, design: .monospaced))
+                .foregroundColor(Theme.mutedText)
+            }
+        }
+    }
+
+    private var latestElapsed: TimeInterval {
+        samples.last?.elapsed ?? 0
+    }
+
+    private var domainStart: TimeInterval {
+        max(0, latestElapsed - windowDuration)
+    }
+
+    private var domainEnd: TimeInterval {
+        max(windowDuration, latestElapsed)
+    }
+
+    private var visibleSamples: [SpeedSample] {
+        let start = domainStart
+        var clipped = samples.filter { $0.elapsed >= start }
+
+        if let firstVisible = clipped.first,
+           let previous = samples.last(where: { $0.elapsed < start }),
+           firstVisible.elapsed > start {
+            let span = firstVisible.elapsed - previous.elapsed
+            if span > 0 {
+                let ratio = (start - previous.elapsed) / span
+                let interpolatedWPM = previous.wpm + (firstVisible.wpm - previous.wpm) * ratio
+                clipped.insert(SpeedSample(elapsed: start, wpm: interpolatedWPM), at: 0)
+            }
+        }
+
+        return clipped
+    }
+}
+
+private struct WPMTrendChart: View {
+    let samples: [SpeedSample]
+    let domainStart: TimeInterval
+    let domainEnd: TimeInterval
+
+    var body: some View {
+        GeometryReader { proxy in
+            let size = proxy.size
+            let chartWidth = max(size.width, 1)
+            let chartHeight = max(size.height, 1)
+            let upperWPM = max(20, (samples.map(\.wpm).max() ?? 0) * 1.15)
+
+            ZStack {
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(Theme.surface.opacity(0.6))
+
+                Path { path in
+                    for step in 1...3 {
+                        let y = chartHeight * CGFloat(step) / 4
+                        path.move(to: CGPoint(x: 0, y: y))
+                        path.addLine(to: CGPoint(x: chartWidth, y: y))
+                    }
+                }
+                .stroke(Theme.border.opacity(0.5), style: StrokeStyle(lineWidth: 1, dash: [4, 3]))
+
+                Path { path in
+                    guard let firstPoint = samples.first else { return }
+                    path.move(to: point(for: firstPoint, width: chartWidth, height: chartHeight, upperWPM: upperWPM))
+                    for sample in samples.dropFirst() {
+                        path.addLine(to: point(for: sample, width: chartWidth, height: chartHeight, upperWPM: upperWPM))
+                    }
+                }
+                .stroke(Theme.accent, style: StrokeStyle(lineWidth: 2.5, lineCap: .round, lineJoin: .round))
+            }
+        }
+    }
+
+    private func point(for sample: SpeedSample, width: CGFloat, height: CGFloat, upperWPM: Double) -> CGPoint {
+        let domain = max(0.001, domainEnd - domainStart)
+        let xRatio = CGFloat((sample.elapsed - domainStart) / domain)
+        let yRatio = CGFloat(max(0, min(1, sample.wpm / max(upperWPM, 0.001))))
+        return CGPoint(x: width * xRatio, y: height * (1 - yRatio))
+    }
 }
 
 private struct LevelCompletionPopupView: View {

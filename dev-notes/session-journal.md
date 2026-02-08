@@ -54,3 +54,11 @@
 - Validation: `make build` passed, and visual placement check passed via screenshot capture.
 - Lightened top-bar KPI card orange to a brighter tint of the same accent color.
 - Validation: `make build` passed.
+- Added `Speed Trend` panel below Summary to chart sampled Net WPM over time during active typing.
+- Implemented rolling chart behavior with a fixed 30-second window and bounded sample retention so long sessions scroll instead of expanding infinitely.
+- Validation: `make build` passed and `xcodebuild ... -only-testing:TypingGameTests` passed (354 tests).
+- Captured demo video showing the feature at `/Users/alexbethune/Projects/Typing_game/artifacts/wpm-trend-demo.mov`.
+- Added soft-start sampling for Speed Trend (warm-up confidence from elapsed time and keystrokes plus EMA smoothing) to avoid inflated WPM spikes in the first few keystrokes.
+- Validation: `make build` passed after smoothing update.
+- Replaced warm-up confidence ramp with startup prior stabilization (plus EMA) so early spikes are damped without forcing a constant upward ramp.
+- Validation: `make build` passed after startup-smoothing model update.

@@ -19,6 +19,9 @@
 - Top bar KPI cluster hosts the `Restart` button (moved out of Summary and away from target text).
 - Levels category row only shows the `Category` label and category dropdown (no unlocked-difficulty badge text).
 - Summary panel only shows four pills: `Correct`, `Wrong`, `Uncorrected`, and `Corrected` (no `Pending`, no score text, no restart control).
+- Right column includes a `Speed Trend` panel below Summary that charts Net WPM over time.
+- Speed Trend uses a rolling 30-second window so long sessions scroll instead of growing indefinitely.
+- Speed Trend suppresses startup WPM spikes with a short prior-based stabilization plus EMA smoothing, without forcing a monotonic early ramp.
 - Level completion uses a centered popup showing score and accuracy-based stars (3 for >=95%, 2 for >=90%, 1 for >=80%, otherwise 0).
 - Completion popup shows the Enter-next hint only when a next unlocked level exists.
 

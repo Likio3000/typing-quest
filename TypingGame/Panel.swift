@@ -50,7 +50,7 @@ struct MetricView: View {
         }
         .padding(.vertical, 4)
         .padding(.horizontal, 8)
-        .background(Theme.metricBackground)
+        .background(Theme.topBarMetricBackground)
         .clipShape(RoundedRectangle(cornerRadius: 8))
     }
 }

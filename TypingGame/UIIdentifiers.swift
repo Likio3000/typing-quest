@@ -14,6 +14,10 @@ public enum UIID {
     public static let summaryWrongValue = "summary-wrong-value"
     public static let summaryUncorrectedValue = "summary-uncorrected-value"
     public static let summaryCorrectedValue = "summary-corrected-value"
+    public static let summaryCompletionHint = "summary-completion-hint"
+    public static let completionPopup = "completion-popup"
+    public static let completionPopupScore = "completion-popup-score"
+    public static let completionPopupStars = "completion-popup-stars"
 
     public static func levelRow(_ id: String) -> String {
         "level-row-\(id)"

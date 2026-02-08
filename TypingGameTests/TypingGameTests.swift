@@ -249,6 +249,14 @@ final class TypingSessionInputTests: XCTestCase {
         XCTAssertEqual(session.correctedErrors, 0)
     }
 
+    func testEnterCharacterIsAcceptedDuringActiveTyping() {
+        let session = TypingSession(targetText: "a\nb")
+        session.handleInput(.character("a"))
+        session.handleInput(.character("\n"))
+        XCTAssertEqual(session.typedText, "a\n")
+        XCTAssertNil(session.endTime)
+    }
+
     func testWrongKeyAddsErrorCountForExpectedCharacter() {
         let session = TypingSession(targetText: "abc")
         session.handleInput(.character("x"))
@@ -2294,6 +2302,109 @@ final class LevelScoreStoreTests: XCTestCase {
             LevelScoreStore.save(100.0, for: level.id)
             let loaded = LevelScoreStore.loadAll(levels: [level])
             XCTAssertEqual(loaded[level.id], 100.0)
+        }
+    }
+}
+
+final class ContentViewModelProgressionShortcutTests: XCTestCase {
+    private let selectedLevelKey = "typinggame.selected-level-id"
+    private let activeLevelKey = "typinggame.active-level-id"
+
+    private func makeLevel(id: String, sortOrder: Int, difficulty: Int) -> Level {
+        Level(
+            id: id,
+            name: id,
+            description: "Test level \(id)",
+            category: "Letters",
+            difficulty: difficulty,
+            tags: ["test"],
+            sortOrder: sortOrder,
+            source: "tests",
+            pool: Array("abc"),
+            length: 6,
+            wordLengthRange: 1...3,
+            includeSpaces: true,
+            fixedText: "abcabc"
+        )
+    }
+
+    func testAdvanceToNextUnlockedLevelFromCompletionAdvancesAndResetsFilterToAll() {
+        withCleanDefaults([selectedLevelKey, activeLevelKey, LevelScoreStore.storageKey]) {
+            let first = makeLevel(id: "l1", sortOrder: 10, difficulty: 1)
+            let second = makeLevel(id: "l2", sortOrder: 20, difficulty: 1)
+            let third = makeLevel(id: "l3", sortOrder: 30, difficulty: 1)
+            UserDefaults.standard.set(first.id, forKey: selectedLevelKey)
+            UserDefaults.standard.set(first.id, forKey: activeLevelKey)
+
+            let viewModel = ContentViewModel(levels: [first, second, third])
+            viewModel.levelFilterCategory = "Letters"
+            viewModel.session.endTime = Date()
+
+            let advanced = viewModel.advanceToNextUnlockedLevelFromCompletion()
+
+            XCTAssertTrue(advanced)
+            XCTAssertEqual(viewModel.activeLevelID, second.id)
+            XCTAssertEqual(viewModel.selectedLevelID, second.id)
+            XCTAssertEqual(viewModel.levelFilterCategory, "All")
+            XCTAssertNil(viewModel.session.endTime)
+        }
+    }
+
+    func testAdvanceToNextUnlockedLevelFromCompletionReturnsFalseWhenNotCompleted() {
+        withCleanDefaults([selectedLevelKey, activeLevelKey, LevelScoreStore.storageKey]) {
+            let first = makeLevel(id: "l1", sortOrder: 10, difficulty: 1)
+            let second = makeLevel(id: "l2", sortOrder: 20, difficulty: 1)
+            UserDefaults.standard.set(first.id, forKey: selectedLevelKey)
+            UserDefaults.standard.set(first.id, forKey: activeLevelKey)
+
+            let viewModel = ContentViewModel(levels: [first, second])
+            viewModel.levelFilterCategory = "Letters"
+
+            let advanced = viewModel.advanceToNextUnlockedLevelFromCompletion()
+
+            XCTAssertFalse(advanced)
+            XCTAssertEqual(viewModel.activeLevelID, first.id)
+            XCTAssertEqual(viewModel.selectedLevelID, first.id)
+            XCTAssertEqual(viewModel.levelFilterCategory, "Letters")
+        }
+    }
+
+    func testAdvanceToNextUnlockedLevelFromCompletionReturnsFalseAtLastUnlockedLevel() {
+        withCleanDefaults([selectedLevelKey, activeLevelKey, LevelScoreStore.storageKey]) {
+            let first = makeLevel(id: "l1", sortOrder: 10, difficulty: 1)
+            let second = makeLevel(id: "l2", sortOrder: 20, difficulty: 2)
+            let locked = makeLevel(id: "l3", sortOrder: 30, difficulty: 3)
+
+            let viewModel = ContentViewModel(levels: [first, second, locked])
+            viewModel.applyLevel(second)
+            viewModel.levelFilterCategory = "Letters"
+            viewModel.session.endTime = Date()
+
+            let advanced = viewModel.advanceToNextUnlockedLevelFromCompletion()
+
+            XCTAssertFalse(advanced)
+            XCTAssertEqual(viewModel.activeLevelID, second.id)
+            XCTAssertEqual(viewModel.selectedLevelID, second.id)
+            XCTAssertEqual(viewModel.levelFilterCategory, "Letters")
+        }
+    }
+
+    func testHasNextUnlockedLevelFromActiveCompletionRequiresCompletionAndNextUnlockedLevel() {
+        withCleanDefaults([selectedLevelKey, activeLevelKey, LevelScoreStore.storageKey]) {
+            let first = makeLevel(id: "l1", sortOrder: 10, difficulty: 1)
+            let second = makeLevel(id: "l2", sortOrder: 20, difficulty: 1)
+            UserDefaults.standard.set(first.id, forKey: selectedLevelKey)
+            UserDefaults.standard.set(first.id, forKey: activeLevelKey)
+
+            let viewModel = ContentViewModel(levels: [first, second])
+            XCTAssertFalse(viewModel.hasNextUnlockedLevelFromActiveCompletion())
+
+            viewModel.session.endTime = Date()
+            XCTAssertTrue(viewModel.hasNextUnlockedLevelFromActiveCompletion())
+
+            viewModel.applyLevel(second)
+            viewModel.session.endTime = Date()
+            XCTAssertFalse(viewModel.hasNextUnlockedLevelFromActiveCompletion())
         }
     }
 }

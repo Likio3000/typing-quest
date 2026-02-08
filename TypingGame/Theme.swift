@@ -10,6 +10,7 @@ enum Theme {
     static let surface = Color(.sRGB, red: 0.13, green: 0.16, blue: 0.24, opacity: 1)
     static let border = Color(.sRGB, red: 0.24, green: 0.28, blue: 0.38, opacity: 1)
     static let metricBackground = Theme.accent.opacity(0.2)
+    static let topBarMetricBackground = Theme.accent.opacity(0.34)
     static let keyBase = Color(.sRGB, red: 0.15, green: 0.19, blue: 0.28, opacity: 1)
     static let keyBorder = Color(.sRGB, red: 0.27, green: 0.32, blue: 0.44, opacity: 1)
     static let accent = Color(.sRGB, red: 0.98, green: 0.62, blue: 0.18, opacity: 1)

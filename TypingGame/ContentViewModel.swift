@@ -106,6 +106,20 @@ final class ContentViewModel: ObservableObject {
         session.setTargetText(LevelGenerator.generateText(for: level))
     }
 
+    @discardableResult
+    func advanceToNextUnlockedLevelFromCompletion() -> Bool {
+        guard session.endTime != nil else { return false }
+        guard let nextLevel = nextUnlockedLevel(after: activeLevelID) else { return false }
+        levelFilterCategory = "All"
+        applyLevel(nextLevel)
+        return true
+    }
+
+    func hasNextUnlockedLevelFromActiveCompletion() -> Bool {
+        guard session.endTime != nil else { return false }
+        return nextUnlockedLevel(after: activeLevelID) != nil
+    }
+
     func score(metrics: TypingMetrics, stats: TypingStats) -> Double {
         scoreCalculator.score(
             metrics: metrics,
@@ -157,6 +171,16 @@ final class ContentViewModel: ObservableObject {
 
     private func persistActiveLevel() {
         UserDefaults.standard.set(activeLevelID, forKey: StorageKey.activeLevelID)
+    }
+
+    private func nextUnlockedLevel(after levelID: String) -> Level? {
+        guard let currentIndex = levels.firstIndex(where: { $0.id == levelID }) else { return nil }
+        for level in levels.dropFirst(currentIndex + 1) {
+            if isLevelUnlocked(level) {
+                return level
+            }
+        }
+        return nil
     }
 }
 

@@ -27,24 +27,36 @@ struct LevelsPanelView: View {
 
                 categoryPicker
 
-                ScrollView {
-                    LazyVStack(spacing: 10) {
-                        ForEach(levels) { level in
-                            LevelRow(
-                                level: level,
-                                isSelected: level.id == selectedLevelID,
-                                isLocked: level.difficulty > maxUnlockedDifficulty,
-                                bestScore: bestScores[level.id]
-                            ) {
-                                onSelect(level)
+                ScrollViewReader { proxy in
+                    ScrollView {
+                        LazyVStack(spacing: 10) {
+                            ForEach(levels) { level in
+                                LevelRow(
+                                    level: level,
+                                    isSelected: level.id == selectedLevelID,
+                                    isLocked: level.difficulty > maxUnlockedDifficulty,
+                                    bestScore: bestScores[level.id]
+                                ) {
+                                    onSelect(level)
+                                }
+                                .id(level.id)
                             }
                         }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.trailing, 4)
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.trailing, 4)
+                    .frame(maxWidth: .infinity, minHeight: 260, alignment: .leading)
+                    .contentShape(Rectangle())
+                    .onAppear {
+                        scrollToSelection(using: proxy, animated: false)
+                    }
+                    .onChange(of: selectedLevelID) { _ in
+                        scrollToSelection(using: proxy)
+                    }
+                    .onChange(of: levels.map(\.id)) { _ in
+                        scrollToSelection(using: proxy, animated: false)
+                    }
                 }
-                .frame(maxWidth: .infinity, minHeight: 260, alignment: .leading)
-                .contentShape(Rectangle())
 
                 HStack {
                     Spacer()
@@ -101,10 +113,20 @@ struct LevelsPanelView: View {
             .foregroundStyle(.white)
 
             Spacer()
+        }
+    }
 
-            Text("Unlocked D\(maxUnlockedDifficulty)")
-                .font(.system(size: 10, weight: .semibold, design: .monospaced))
-                .foregroundColor(Theme.mutedText)
+    private func scrollToSelection(using proxy: ScrollViewProxy, animated: Bool = true) {
+        guard levels.contains(where: { $0.id == selectedLevelID }) else { return }
+        let scrollAction = {
+            proxy.scrollTo(selectedLevelID, anchor: .center)
+        }
+        if animated {
+            withAnimation(.easeOut(duration: 0.2)) {
+                scrollAction()
+            }
+        } else {
+            scrollAction()
         }
     }
 }

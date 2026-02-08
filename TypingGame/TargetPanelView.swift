@@ -9,60 +9,46 @@ struct TargetPanelView: View {
 
     var body: some View {
         Panel(title: "Target") {
-            VStack(alignment: .leading, spacing: 8) {
-                TargetZoomControlsView(fontSize: $targetFontSize, fontRange: fontRange)
-                let attributed = renderer.render(
-                    targetText: session.targetText,
-                    typedText: session.typedText,
-                    fontSize: targetFontSize,
-                    colors: colors
-                )
-                let scrollIndex = min(session.typedText.count, attributed.length)
-                TargetTextScrollView(attributedText: attributed, scrollIndex: scrollIndex)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+            let attributed = renderer.render(
+                targetText: session.targetText,
+                typedText: session.typedText,
+                fontSize: targetFontSize,
+                colors: colors
+            )
+            let scrollIndex = min(session.typedText.count, attributed.length)
+            TargetTextScrollView(attributedText: attributed, scrollIndex: scrollIndex)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                .overlay(alignment: .topLeading) {
+                    TargetZoomShortcutsView(fontSize: $targetFontSize, fontRange: fontRange)
+                }
         }
     }
 }
 
-private struct TargetZoomControlsView: View {
+private struct TargetZoomShortcutsView: View {
     @Binding var fontSize: Double
     let fontRange: ClosedRange<Double>
 
     var body: some View {
-        HStack(spacing: 10) {
-            Text("Text size")
-                .font(.system(size: 12, weight: .semibold))
-                .foregroundColor(Theme.mutedText)
-
+        HStack(spacing: 0) {
             Button {
                 fontSize = max(fontRange.lowerBound, fontSize - 2)
             } label: {
-                Image(systemName: "minus")
+                EmptyView()
             }
-            .buttonStyle(.bordered)
             .keyboardShortcut("-", modifiers: [.command])
-
-            Text("\(Int(fontSize)) pt")
-                .font(.system(size: 12, weight: .semibold, design: .monospaced))
-                .frame(minWidth: 64, alignment: .leading)
 
             Button {
                 fontSize = min(fontRange.upperBound, fontSize + 2)
             } label: {
-                Image(systemName: "plus")
+                EmptyView()
             }
-            .buttonStyle(.bordered)
             .keyboardShortcut("=", modifiers: [.command])
-
-            Button("Reset") {
-                fontSize = 22
-            }
-            .buttonStyle(.borderless)
-
-            Spacer()
         }
-        .padding(.bottom, 4)
+        .frame(width: 0, height: 0)
+        .clipped()
+        .opacity(0.001)
+        .allowsHitTesting(false)
+        .accessibilityHidden(true)
     }
 }

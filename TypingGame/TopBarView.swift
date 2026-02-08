@@ -6,6 +6,7 @@ struct TopBarView: View {
     let accuracy: String
     let completion: Double
     let isFullscreen: Bool
+    let onRestart: (() -> Void)?
 
     private var progressBarWidth: CGFloat {
         isFullscreen ? 720 : 420
@@ -17,13 +18,18 @@ struct TopBarView: View {
                 MetricView(label: "Time", value: time)
                 MetricView(label: "Net WPM", value: netWPM)
                 MetricView(label: "Accuracy", value: accuracy)
+                if let onRestart {
+                    Button("Restart") {
+                        onRestart()
+                    }
+                    .buttonStyle(.bordered)
+                    .uiTestLabel(UIID.restartLevel)
+                }
+                Spacer(minLength: 0)
             }
 
-            HStack {
-                LevelProgressBar(progress: completion)
-                    .frame(width: progressBarWidth)
-            }
-            .frame(maxWidth: .infinity, alignment: .trailing)
+            LevelProgressBar(progress: completion)
+                .frame(width: progressBarWidth)
         }
         .frame(maxWidth: .infinity)
         .padding(12)

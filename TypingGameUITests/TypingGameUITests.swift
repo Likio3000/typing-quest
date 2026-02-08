@@ -108,14 +108,11 @@ final class TypingGameUITests: XCTestCase {
         XCTAssertNotEqual(initial, moved)
     }
 
-    func testTypingUpdatesPending() {
+    func testSummaryDoesNotShowPendingPill() {
         let app = launchApp()
         defer { app.terminate() }
-        let pending = waitForElement(app, id: UIID.summaryPendingValue)
-        let before = elementText(pending)
-        app.typeText("a")
-        let after = elementText(pending)
-        XCTAssertNotEqual(before, after)
+        let pending = app.descendants(matching: .any).matching(identifier: UIID.summaryPendingValue).firstMatch
+        XCTAssertFalse(pending.exists)
     }
 
     func testTypingUpdatesCorrectOrWrong() {
@@ -134,14 +131,26 @@ final class TypingGameUITests: XCTestCase {
         defer { app.terminate() }
         let correct = waitForElement(app, id: UIID.summaryCorrectValue)
         let wrong = waitForElement(app, id: UIID.summaryWrongValue)
-        let pending = waitForElement(app, id: UIID.summaryPendingValue)
-        let initial = (Int(elementText(correct)) ?? 0, Int(elementText(wrong)) ?? 0, Int(elementText(pending)) ?? 0)
+        let uncorrected = waitForElement(app, id: UIID.summaryUncorrectedValue)
+        let corrected = waitForElement(app, id: UIID.summaryCorrectedValue)
+        let initial = (
+            Int(elementText(correct)) ?? 0,
+            Int(elementText(wrong)) ?? 0,
+            Int(elementText(uncorrected)) ?? 0,
+            Int(elementText(corrected)) ?? 0
+        )
         app.typeText("a")
         waitForElement(app, id: UIID.restartLevel).click()
-        let reset = (Int(elementText(correct)) ?? 0, Int(elementText(wrong)) ?? 0, Int(elementText(pending)) ?? 0)
+        let reset = (
+            Int(elementText(correct)) ?? 0,
+            Int(elementText(wrong)) ?? 0,
+            Int(elementText(uncorrected)) ?? 0,
+            Int(elementText(corrected)) ?? 0
+        )
         XCTAssertEqual(reset.0, initial.0)
         XCTAssertEqual(reset.1, initial.1)
         XCTAssertEqual(reset.2, initial.2)
+        XCTAssertEqual(reset.3, initial.3)
     }
 
     func testLevelSelectionUpdatesSelectedLabel() {
@@ -152,6 +161,18 @@ final class TypingGameUITests: XCTestCase {
         waitForElement(app, id: UIID.levelRow("letters-right-hand")).click()
         let after = elementText(selected)
         XCTAssertNotEqual(before, after)
+    }
+
+    func testCompletionHintAppearsAfterLevelCompletionWhenNextUnlockedExists() {
+        let app = launchApp()
+        defer { app.terminate() }
+
+        let hint = app.descendants(matching: .any).matching(identifier: UIID.summaryCompletionHint).firstMatch
+        XCTAssertFalse(hint.exists)
+
+        app.typeText(String(repeating: "a", count: 260))
+
+        XCTAssertTrue(hint.waitForExistence(timeout: 8))
     }
 
     func testElementExists_01() {
@@ -171,7 +192,7 @@ final class TypingGameUITests: XCTestCase {
     func testElementExists_03() {
         let app = launchApp()
         defer { app.terminate() }
-        let element = waitForElement(app, id: UIID.summaryPendingValue)
+        let element = waitForElement(app, id: UIID.summaryUncorrectedValue)
         XCTAssertTrue(element.exists)
     }
 
@@ -212,6 +233,15 @@ final class TypingGameUITests: XCTestCase {
         defer { app.terminate() }
         let element = waitForElement(app, id: UIID.restartLevel)
         XCTAssertTrue(element.exists)
+    }
+
+    func testCompletionPopupAppearsAfterFinishingLevel() {
+        let app = launchApp()
+        defer { app.terminate() }
+        let popup = app.descendants(matching: .any).matching(identifier: UIID.completionPopup).firstMatch
+        XCTAssertFalse(popup.exists)
+        app.typeText(String(repeating: "a", count: 260))
+        XCTAssertTrue(popup.waitForExistence(timeout: 8))
     }
 
 }

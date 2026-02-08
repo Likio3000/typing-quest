@@ -68,6 +68,11 @@ final class KeyCaptureNSView: NSView {
             return
         }
 
+        if event.keyCode == 36 || event.keyCode == 76 {
+            onInput?(.character("\n"))
+            return
+        }
+
         guard let characters = event.characters, let first = characters.first else {
             return
         }
@@ -77,7 +82,7 @@ final class KeyCaptureNSView: NSView {
             return
         }
 
-        if first == "\r" {
+        if first == "\r" || first == "\u{3}" {
             onInput?(.character("\n"))
             return
         }

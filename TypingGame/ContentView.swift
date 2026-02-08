@@ -19,7 +19,7 @@ struct ContentView: View {
         let stats = session.stats
         let metrics = session.metrics(now: now)
         let completion = session.completionProgress
-        let scoreText = session.endTime == nil ? nil : formatScore(viewModel.score(metrics: metrics, stats: stats))
+        let completionPopup = completionPopupData(metrics: metrics, stats: stats)
 
         let mainContent = VStack(spacing: 16) {
             TopBarView(
@@ -27,7 +27,8 @@ struct ContentView: View {
                 netWPM: formatNumber(metrics.netWPM),
                 accuracy: formatPercent(metrics.accuracy),
                 completion: completion,
-                isFullscreen: isFullscreen
+                isFullscreen: isFullscreen,
+                onRestart: { viewModel.session.resetSession() }
             )
 
             HStack(alignment: .top, spacing: 16) {
@@ -46,15 +47,26 @@ struct ContentView: View {
 
                 centerPanel(session: session)
 
-                rightColumn(stats: stats, scoreText: scoreText)
+                rightColumn(stats: stats)
                     .frame(width: rightPanelWidth)
             }
 
             keyboardPanel
         }
 
-        ZStack(alignment: .topLeading) {
+        ZStack {
             mainContent
+
+            if let completionPopup {
+                LevelCompletionPopupView(
+                    scoreText: completionPopup.scoreText,
+                    accuracyText: completionPopup.accuracyText,
+                    starCount: completionPopup.starCount,
+                    completionHintText: completionPopup.completionHintText
+                )
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                .padding(.horizontal, 24)
+            }
         }
         .padding(20)
         .frame(minWidth: 1150, minHeight: 900)
@@ -106,7 +118,7 @@ struct ContentView: View {
         .frame(maxWidth: .infinity)
     }
 
-    private func rightColumn(stats: TypingStats, scoreText: String?) -> some View {
+    private func rightColumn(stats: TypingStats) -> some View {
         VStack(spacing: 16) {
             NextKeyPanelView(
                 nextCharacter: viewModel.session.nextExpectedCharacter(),
@@ -115,9 +127,7 @@ struct ContentView: View {
             ProblemKeysPanelView(problems: viewModel.session.problemKeys(limit: 5))
             SummaryPanelView(
                 stats: stats,
-                correctedErrors: viewModel.session.correctedErrors,
-                scoreText: scoreText,
-                onRestart: { viewModel.session.resetSession() }
+                correctedErrors: viewModel.session.correctedErrors
             )
         }
     }
@@ -155,6 +165,12 @@ struct ContentView: View {
 
     private var keyCaptureView: some View {
         KeyCaptureView { input in
+            if case .character(let character) = input,
+               character == "\n",
+               viewModel.session.endTime != nil {
+                _ = viewModel.advanceToNextUnlockedLevelFromCompletion()
+                return
+            }
             viewModel.session.handleInput(input)
         }
         .frame(width: 1, height: 1)
@@ -219,6 +235,32 @@ struct ContentView: View {
         String(format: "%.0f", value)
     }
 
+    private func completionPopupData(metrics: TypingMetrics, stats: TypingStats) -> CompletionPopupData? {
+        guard viewModel.session.endTime != nil else { return nil }
+        let score = viewModel.score(metrics: metrics, stats: stats)
+        let hint = viewModel.hasNextUnlockedLevelFromActiveCompletion() ? "Press Enter for next level" : nil
+        return CompletionPopupData(
+            scoreText: formatScore(score),
+            accuracyText: formatPercent(metrics.accuracy),
+            starCount: starCount(forAccuracy: metrics.accuracy),
+            completionHintText: hint
+        )
+    }
+
+    private func starCount(forAccuracy accuracy: Double) -> Int {
+        let percent = accuracy * 100
+        if percent >= 95 {
+            return 3
+        }
+        if percent >= 90 {
+            return 2
+        }
+        if percent >= 80 {
+            return 1
+        }
+        return 0
+    }
+
     private func highlightedShiftKeys(for descriptor: KeyDescriptor?) -> Set<String> {
         guard let descriptor, descriptor.needsShift else { return [] }
         switch descriptor.shiftSide {
@@ -246,6 +288,66 @@ struct ContentView: View {
             return
         }
         isFullscreen = false
+    }
+}
+
+private struct CompletionPopupData {
+    let scoreText: String
+    let accuracyText: String
+    let starCount: Int
+    let completionHintText: String?
+}
+
+private struct LevelCompletionPopupView: View {
+    let scoreText: String
+    let accuracyText: String
+    let starCount: Int
+    let completionHintText: String?
+
+    var body: some View {
+        VStack(spacing: 10) {
+            Text("Level complete")
+                .font(.system(size: 18, weight: .bold))
+
+            HStack(spacing: 8) {
+                ForEach(0..<3, id: \.self) { index in
+                    Image(systemName: index < clampedStarCount ? "star.fill" : "star")
+                        .font(.system(size: 20, weight: .semibold))
+                        .foregroundColor(Theme.accent)
+                }
+            }
+            .uiTestLabel(UIID.completionPopupStars, value: "\(clampedStarCount)")
+
+            Text("Score \(scoreText)")
+                .font(.system(size: 16, weight: .semibold, design: .monospaced))
+                .foregroundColor(Theme.primaryText)
+                .uiTestLabel(UIID.completionPopupScore, value: scoreText)
+
+            Text("Accuracy \(accuracyText)")
+                .font(.system(size: 12, weight: .semibold))
+                .foregroundColor(Theme.mutedText)
+
+            if let completionHintText {
+                Text(completionHintText)
+                    .font(.system(size: 11, weight: .semibold))
+                    .foregroundColor(Theme.mutedText)
+                    .uiTestLabel(UIID.summaryCompletionHint, value: completionHintText)
+            }
+        }
+        .padding(.horizontal, 18)
+        .padding(.vertical, 14)
+        .background(Theme.surface.opacity(0.98))
+        .overlay(
+            RoundedRectangle(cornerRadius: 12)
+                .stroke(Theme.border, lineWidth: 1)
+        )
+        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .shadow(color: Theme.panelShadow, radius: 10, x: 0, y: 5)
+        .uiTestLabel(UIID.completionPopup)
+    }
+
+    private var clampedStarCount: Int {
+        min(3, max(0, starCount))
     }
 }
 

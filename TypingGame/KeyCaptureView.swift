@@ -60,6 +60,9 @@ final class KeyCaptureNSView: NSView {
 
     override func keyDown(with event: NSEvent) {
         if event.modifierFlags.contains(.command) || event.modifierFlags.contains(.control) {
+            // These belong to macOS/menu commands, not the typing session.
+            // Keep the responder chain intact (including native window shortcuts).
+            super.keyDown(with: event)
             return
         }
 

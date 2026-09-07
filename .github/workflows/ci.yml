@@ -13,4 +13,42 @@ jobs:
       - name: Xcode Version
         run: xcodebuild -version
       - name: Run Tests
-        run: xcodebuild -project TypingGame.xcodeproj -scheme TypingGame -destination 'platform=macOS,arch=arm64' -derivedDataPath build/DerivedData test
+        run: xcodebuild -project TypingGame.xcodeproj -scheme TypingGame -destination 'platform=macOS,arch=arm64' -derivedDataPath build/ui-isolated TYPINGGAME_APP_ID=com.typinggame.app.uitesting test -only-testing:TypingGameTests
+      - name: Build isolated UI app
+        run: make ui-build
+      - name: Test isolated UI behaviors
+        run: >-
+          python3 scripts/test_ui_isolated.py
+          testNativeCloseButtonClosesWindow
+          testNativeZoomRestoresWindowAndCloseStillWorks
+          testNativeFullscreenRoundTripRestoresResizableWindow
+          testAppLaunchShowsCalibrate
+          testAppShowsSelectedLevelLabel
+          testLevelRowExists
+          testCalibrateToggleShowsZoomControls
+          testZoomPlusChangesValue
+          testZoomMinusChangesValue
+          testResetPointsSetsDefaultLeftIndex
+          testDragLeftIndexChangesValue
+          testOffCenterClickDoesNotMoveCalibrationPoint
+          testCalibrationToggleKeepsImageAndPointCenters
+          testCalibrationPersistsAcrossRelaunch
+          testCalibrationSurvivesWindowResize
+          testScrollExtremesWithErrorsInShortWindow
+          testScrollExtremesWithErrorsInNormalWindow
+          testScrollExtremesWithoutErrors
+          testShortWindowKeepsTopBarVisibleAndKeyboardReachable
+          testSummaryDoesNotShowPendingPill
+          testTypingUpdatesCorrectOrWrong
+          testRestartResetsSummary
+          testLevelSelectionUpdatesSelectedLabel
+          testCompletionHintAppearsAfterLevelCompletionWhenNextUnlockedExists
+          testElementExists_01
+          testElementExists_02
+          testElementExists_03
+          testElementExists_04
+          testElementExists_05
+          testElementExists_06
+          testElementExists_07
+          testElementExists_08
+          testCompletionPopupAppearsAfterFinishingLevel

@@ -30,12 +30,6 @@ final class ContentViewModel: ObservableObject {
 
         let defaultLevel = levels.first ?? LevelCatalog.fallbackLevel
         let defaults = UserDefaults.standard
-        if UITesting.enabled {
-            defaults.removeObject(forKey: StorageKey.selectedLevelID)
-            defaults.removeObject(forKey: StorageKey.activeLevelID)
-            defaults.removeObject(forKey: HandCalibration.storageKey)
-            defaults.removeObject(forKey: HandImageZoom.storageKey)
-        }
         let savedSelectedID = defaults.string(forKey: StorageKey.selectedLevelID)
         let savedActiveID = defaults.string(forKey: StorageKey.activeLevelID)
         let loadedBestScores = LevelScoreStore.loadAll(levels: levels)
@@ -50,7 +44,13 @@ final class ContentViewModel: ObservableObject {
         let activeLevelCandidate = levels.first(where: { $0.id == activeLevelID }) ?? selectedLevel
         let activeLevel = activeLevelCandidate.difficulty <= initialUnlockedDifficulty ? activeLevelCandidate : selectedLevel
 
-        self.session = TypingSession(targetText: LevelGenerator.generateText(for: activeLevel))
+        let fixture = Bundle.main.bundleIdentifier == "com.typinggame.app.uitesting"
+            ? ProcessInfo.processInfo.environment["UI_TEST_TARGET_TEXT"] : nil
+        self.session = TypingSession(targetText: fixture ?? LevelGenerator.generateText(for: activeLevel))
+        if fixture != nil, ProcessInfo.processInfo.environment["UI_TEST_PROBLEMS"] == "1" {
+            // Seed the growing error panel without injecting desktop keystrokes.
+            for _ in 0..<5 { self.session.handleInput(.character("z")) }
+        }
         self.selectedLevelID = selectedLevel.id
         self.activeLevelID = activeLevel.id
         self.bestScores = loadedBestScores

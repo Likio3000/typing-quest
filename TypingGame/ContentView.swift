@@ -23,7 +23,7 @@ struct ContentView: View {
         let completion = session.completionProgress
         let completionPopup = completionPopupData(metrics: metrics, stats: stats)
 
-        let mainContent = VStack(spacing: 16) {
+        let mainContent = DashboardLayout(spacing: 16) {
             TopBarView(
                 time: formatTime(metrics.elapsed),
                 netWPM: formatNumber(metrics.netWPM),
@@ -32,8 +32,10 @@ struct ContentView: View {
                 isFullscreen: isFullscreen,
                 onRestart: { viewModel.session.resetSession() }
             )
+            .accessibilityElement(children: .contain)
+            .accessibilityIdentifier("top-bar")
 
-            HStack(alignment: .top, spacing: 16) {
+            DashboardColumnsLayout(leftWidth: leftPanelWidth, rightWidth: rightPanelWidth, spacing: 16) {
                 LevelsPanelView(
                     levels: viewModel.filteredLevels,
                     selectedLevel: viewModel.selectedLevel,
@@ -54,10 +56,19 @@ struct ContentView: View {
             }
 
             keyboardPanel
+                .accessibilityElement(children: .contain)
+                .accessibilityIdentifier("keyboard-panel")
         }
 
         ZStack {
-            mainContent
+            GeometryReader { viewport in
+                // A minimum preserves the roomy layout while allowing growing panels
+                // (notably Problem keys) to contribute their full height to scrolling.
+                ScrollView(.vertical) {
+                    mainContent.frame(minHeight: max(980, viewport.size.height), alignment: .top)
+                }
+                .accessibilityIdentifier("main-scroll")
+            }
 
             if let completionPopup {
                 LevelCompletionPopupView(
@@ -71,13 +82,33 @@ struct ContentView: View {
             }
         }
         .padding(20)
-        .frame(minWidth: 1150, minHeight: 900)
+        .frame(minWidth: 1150, minHeight: 700)
         .background(backgroundGradient)
         .foregroundColor(Theme.primaryText)
         .overlay(keyCaptureView)
+        .overlay(alignment: .topLeading) {
+            if Bundle.main.bundleIdentifier == "com.typinggame.app.uitesting",
+               let token = ProcessInfo.processInfo.environment["UI_TEST_TOKEN"] {
+                Text(token + "|" + Bundle.main.bundleURL.path)
+                    .font(.system(size: 1))
+                    .opacity(0.01)
+                    .accessibilityElement(children: .ignore)
+                    .accessibilityIdentifier("ui-test-identity")
+                    .accessibilityLabel(token + "|" + Bundle.main.bundleURL.path)
+            }
+        }
         .onAppear {
             NSApp.activate(ignoringOtherApps: true)
             syncFullscreenState()
+            if Bundle.main.bundleIdentifier == "com.typinggame.app.uitesting",
+               ProcessInfo.processInfo.environment["UI_TEST_WINDOW"] == "1" {
+                DispatchQueue.main.async {
+                    guard let window = NSApp.windows.first(where: { $0.isVisible }),
+                          let screen = window.screen else { return }
+                    window.setContentSize(NSSize(width: min(1300, screen.visibleFrame.width - 40), height: Double(ProcessInfo.processInfo.environment["UI_TEST_HEIGHT"] ?? "900") ?? 900))
+                    window.center()
+                }
+            }
         }
         .onReceive(timer) { tick in
             now = tick
@@ -342,6 +373,54 @@ struct ContentView: View {
     }
 }
 
+// The outer scroll document must report the complete rendered height. Measure the
+// fixed-height header/footer and the growing right column before allocating the
+// middle row; never ask the nested levels ScrollView for an unbounded ideal height.
+private struct DashboardLayout: Layout {
+    let spacing: CGFloat
+
+    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
+        let width = proposal.width ?? 1110
+        let natural = subviews.map { $0.sizeThatFits(ProposedViewSize(width: width, height: nil)).height }
+        return CGSize(width: width, height: max(proposal.height ?? 0, natural.reduce(0, +) + spacing * 2))
+    }
+
+    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
+        let header = subviews[0].sizeThatFits(ProposedViewSize(width: bounds.width, height: nil)).height
+        let keyboard = subviews[2].sizeThatFits(ProposedViewSize(width: bounds.width, height: nil)).height
+        let middle = bounds.height - header - keyboard - spacing * 2
+        let heights = [header, middle, keyboard]
+        var y = bounds.minY
+        for (index, view) in subviews.enumerated() {
+            view.place(at: CGPoint(x: bounds.minX, y: y), anchor: .topLeading,
+                       proposal: ProposedViewSize(width: bounds.width, height: heights[index]))
+            y += heights[index] + spacing
+        }
+    }
+}
+
+private struct DashboardColumnsLayout: Layout {
+    let leftWidth: CGFloat
+    let rightWidth: CGFloat
+    let spacing: CGFloat
+
+    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
+        let rightHeight = subviews[2].sizeThatFits(ProposedViewSize(width: rightWidth, height: nil)).height
+        // Target (140), hands (300), and their spacing are the center's minimum.
+        return CGSize(width: proposal.width ?? 1110, height: max(proposal.height ?? 0, rightHeight, 456))
+    }
+
+    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
+        let widths = [leftWidth, bounds.width - leftWidth - rightWidth - spacing * 2, rightWidth]
+        var x = bounds.minX
+        for (index, view) in subviews.enumerated() {
+            view.place(at: CGPoint(x: x, y: bounds.minY), anchor: .topLeading,
+                       proposal: ProposedViewSize(width: widths[index], height: bounds.height))
+            x += widths[index] + spacing
+        }
+    }
+}
+
 private struct CompletionPopupData {
     let scoreText: String
     let accuracyText: String
@@ -521,7 +600,8 @@ private struct LevelCompletionPopupView: View {
         )
         .clipShape(RoundedRectangle(cornerRadius: 12))
         .shadow(color: Theme.panelShadow, radius: 10, x: 0, y: 5)
-        .uiTestLabel(UIID.completionPopup)
+        .accessibilityElement(children: .contain)
+        .accessibilityIdentifier(UIID.completionPopup)
     }
 
     private var clampedStarCount: Int {

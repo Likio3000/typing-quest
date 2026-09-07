@@ -25,7 +25,7 @@ timeout_seconds = int(os.environ.get("SMOKE_TIMEOUT", "12"))
 test_timeout_seconds = int(os.environ.get("SMOKE_TEST_TIMEOUT", "300"))
 ready_token = "SMOKE_TEST_READY"
 launch_method = os.environ.get("SMOKE_LAUNCH_METHOD", "auto")
-tests_mode = os.environ.get("SMOKE_TESTS", "all").strip().lower()
+tests_mode = os.environ.get("SMOKE_TESTS", "unit").strip().lower()
 
 
 def is_executable(path):
@@ -213,7 +213,7 @@ def xcodebuild_args(root):
     project = os.environ.get("SMOKE_PROJECT", "").strip()
     scheme = os.environ.get("SMOKE_SCHEME", "TypingGame").strip()
     destination = os.environ.get("SMOKE_DESTINATION", "platform=macOS").strip()
-    derived_data = os.environ.get("SMOKE_DERIVED_DATA", os.path.join(root, "build")).strip()
+    derived_data = os.environ.get("SMOKE_DERIVED_DATA", os.path.join(root, "build", "ui-isolated")).strip()
 
     if workspace:
         workspace_path = resolve_path(root, workspace)
@@ -235,11 +235,14 @@ def xcodebuild_args(root):
         destination,
         "-derivedDataPath",
         derived_data,
+        "TYPINGGAME_APP_ID=com.typinggame.app.uitesting",
         "test",
     ]
 
-    if tests_mode == "ui":
-        cmd.append("-only-testing:TypingGameUITests")
+    if tests_mode == "unit":
+        cmd.append("-only-testing:TypingGameTests")
+    elif tests_mode in ("ui", "all"):
+        return None, "interactive UI tests require the isolated workflow: make ui-test UI_TESTS='testAppLaunchShowsCalibrate ...'"
 
     only_testing = os.environ.get("SMOKE_ONLY_TESTING", "").strip()
     if only_testing:

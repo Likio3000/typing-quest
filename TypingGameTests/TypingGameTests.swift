@@ -1,4 +1,5 @@
 import AppKit
+import SwiftUI
 import XCTest
 import TypingGameCore
 @testable import TypingGame
@@ -2887,5 +2888,139 @@ final class FingerIdentifierTests: XCTestCase {
     }
     func testShortLabel_case10() {
         XCTAssertEqual(FingerIdentifier.rightPinky.shortLabel, "RP")
+    }
+}
+
+final class HandLayoutRegressionTests: XCTestCase {
+    func testOldCalibrationCannotOverrideAutomaticAlignmentAndRemainsRecoverable() throws {
+        let suite = "TypingQuest.AutoMigration.\(UUID().uuidString)"
+        let defaults = try XCTUnwrap(UserDefaults(suiteName: suite))
+        defer { defaults.removePersistentDomain(forName: suite) }
+        let legacy = Data("{\"leftThumb\":{\"x\":0.1,\"y\":0.9}}".utf8)
+        defaults.set(legacy, forKey: HandCalibration.legacyStorageKey)
+        XCTAssertEqual(HandCalibration.loadPoints(defaults: defaults), HandCalibration.defaultPoints)
+        XCTAssertEqual(defaults.data(forKey: HandCalibration.legacyStorageKey), legacy)
+        var adjusted = HandCalibration.defaultPoints
+        adjusted[.leftIndex] = CGPoint(x: 0.40, y: 0.34)
+        HandCalibration.savePoints(adjusted, defaults: defaults)
+        XCTAssertEqual(HandCalibration.loadPoints(defaults: defaults), adjusted)
+        XCTAssertEqual(defaults.data(forKey: HandCalibration.legacyStorageKey), legacy)
+    }
+
+    func testDefaultMarkersFallWithinMeasuredFingertipRegionsOfBundledArtwork() throws {
+        let image = try XCTUnwrap(HandGuideView.baseImage)
+        XCTAssertEqual(image.size, CGSize(width: 1536, height: 1024))
+        // Independently measured nail/distal-pad regions on the fixed artwork.
+        let regions: [FingerIdentifier: CGRect] = [
+            .leftPinky: CGRect(x: 382, y: 359, width: 30, height: 34),
+            .leftRing: CGRect(x: 461, y: 314, width: 33, height: 36),
+            .leftMiddle: CGRect(x: 529, y: 301, width: 34, height: 35),
+            .leftIndex: CGRect(x: 595, y: 324, width: 33, height: 36),
+            .leftThumb: CGRect(x: 624, y: 463, width: 39, height: 42),
+            .rightThumb: CGRect(x: 846, y: 463, width: 38, height: 42),
+            .rightIndex: CGRect(x: 885, y: 324, width: 33, height: 36),
+            .rightMiddle: CGRect(x: 949, y: 301, width: 34, height: 35),
+            .rightRing: CGRect(x: 1027, y: 314, width: 34, height: 36),
+            .rightPinky: CGRect(x: 1100, y: 358, width: 36, height: 36)
+        ]
+        XCTAssertEqual(HandCalibration.defaultPoints.count, 10)
+        for finger in FingerIdentifier.allCases {
+            let uv = try XCTUnwrap(HandCalibration.defaultPoints[finger])
+            let region = try XCTUnwrap(regions[finger])
+            XCTAssertTrue(region.contains(CGPoint(x: uv.x * image.size.width, y: uv.y * image.size.height)), finger.rawValue)
+        }
+    }
+
+    @MainActor
+    func testRenderAutomaticAlignmentAtDifferentAspectRatiosAndZooms() throws {
+        let directory = URL(fileURLWithPath: "/tmp/typing-auto-alignment", isDirectory: true)
+        try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+        let cases: [(CGFloat, CGFloat, CGFloat)] = [(600, 300, 0.88), (1200, 240, 1.35), (420, 550, 0.75), (900, 400, 0.88)]
+        for (width, height, zoom) in cases {
+            let view = HandGuideView(activeFingers: Set(FingerIdentifier.allCases),
+                points: .constant(HandCalibration.defaultPoints), zoom: zoom, isCalibrating: false)
+                .frame(width: width, height: height)
+            let renderer = ImageRenderer(content: view)
+            renderer.scale = 1
+            let cgImage = try XCTUnwrap(renderer.cgImage)
+            let bitmap = NSBitmapImageRep(cgImage: cgImage)
+            let data = try XCTUnwrap(bitmap.representation(using: .png, properties: [:]))
+            try data.write(to: directory.appendingPathComponent("\(Int(width))x\(Int(height))-\(zoom).png"))
+        }
+    }
+
+    func testSavedCalibrationReloadsAtDifferentPanelSize() throws {
+        let suite = "TypingQuest.CalibrationTests.\(UUID().uuidString)"
+        let defaults = try XCTUnwrap(UserDefaults(suiteName: suite))
+        defer { defaults.removePersistentDomain(forName: suite) }
+        let image = CGSize(width: 1536, height: 1024)
+        let small = HandGuideView.HandImageLayout(viewSize: CGSize(width: 420, height: 240),
+                                                  imageSize: image, zoom: 0.88, zoomX: 1.25)
+        let large = HandGuideView.HandImageLayout(viewSize: CGSize(width: 1000, height: 550),
+                                                  imageSize: image, zoom: 1.35, zoomX: 1.25)
+        let dragged = small.normalizedPoint(from: CGPoint(x: 190, y: 90))
+        HandCalibration.savePoints([.leftIndex: dragged], defaults: defaults)
+        let reloaded = HandCalibration.loadPoints(defaults: try XCTUnwrap(UserDefaults(suiteName: suite)))
+        let point = try XCTUnwrap(reloaded[.leftIndex])
+        XCTAssertEqual(point.x, dragged.x, accuracy: 1e-9)
+        XCTAssertEqual(point.y, dragged.y, accuracy: 1e-9)
+        XCTAssertEqual(reloaded[.rightIndex], HandCalibration.defaultPoints[.rightIndex])
+        let location = large.position(for: point)
+        XCTAssertEqual((location.y - large.imageRect.minY) / large.imageRect.height,
+                       dragged.y, accuracy: 1e-9)
+        defaults.set(Data("invalid json".utf8), forKey: HandCalibration.storageKey)
+        XCTAssertEqual(HandCalibration.loadPoints(defaults: defaults), HandCalibration.defaultPoints)
+    }
+
+    func testCalibrationStaysOnSameImageLocationAcrossPanelSizesAndZooms() {
+        let image = CGSize(width: 1536, height: 1024)
+        let sizes = [CGSize(width: 420, height: 200), CGSize(width: 680, height: 300),
+                     CGSize(width: 1000, height: 550), CGSize(width: 420, height: 550),
+                     CGSize(width: 1400, height: 240), CGSize(width: 320, height: 180)]
+        for size in sizes {
+            for zoom in [0.75, 0.88, 1.35] {
+                let layout = HandGuideView.HandImageLayout(viewSize: size, imageSize: image,
+                                                          zoom: zoom, zoomX: 1.25)
+                let rect = layout.imageRect
+                XCTAssertEqual(rect.width / rect.height, image.width / image.height, accuracy: 1e-9)
+                for point in HandCalibration.defaultPoints.values {
+                    let screen = layout.position(for: point)
+                    let restored = layout.normalizedPoint(from: screen)
+                    XCTAssertEqual(restored.x, point.x, accuracy: 1e-9)
+                    XCTAssertEqual(restored.y, point.y, accuracy: 1e-9)
+                    // Image and markers use the same actual image-relative coordinates.
+                    XCTAssertEqual((screen.x - rect.minX) / rect.width, point.x, accuracy: 1e-9)
+                    XCTAssertEqual((screen.y - rect.minY) / rect.height,
+                                   point.y, accuracy: 1e-9)
+                    XCTAssertGreaterThanOrEqual(screen.x, 20)
+                    XCTAssertLessThanOrEqual(screen.x, size.width - 20)
+                    XCTAssertGreaterThanOrEqual(screen.y, 20)
+                    XCTAssertLessThanOrEqual(screen.y, size.height - 20)
+                }
+            }
+        }
+    }
+}
+
+
+final class KeyCaptureResponderTests: XCTestCase {
+    func testCommandAndControlEventsContinueThroughResponderChainWithoutTyping() throws {
+        final class Recorder: NSResponder {
+            var events = 0
+            override func keyDown(with event: NSEvent) { events += 1 }
+        }
+        let capture = KeyCaptureNSView()
+        let recorder = Recorder()
+        capture.nextResponder = recorder
+        var inputCount = 0
+        capture.onInput = { _ in inputCount += 1 }
+        for modifiers: NSEvent.ModifierFlags in [[.command], [.control], [.command, .control]] {
+            let event = try XCTUnwrap(NSEvent.keyEvent(with: .keyDown, location: .zero,
+                modifierFlags: modifiers, timestamp: 0, windowNumber: 0, context: nil,
+                characters: "f", charactersIgnoringModifiers: "f", isARepeat: false, keyCode: 3))
+            capture.keyDown(with: event)
+        }
+        XCTAssertEqual(recorder.events, 3)
+        XCTAssertEqual(inputCount, 0)
     }
 }

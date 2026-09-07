@@ -71,3 +71,12 @@ levels:
 
 clean:
 	rm -rf $(DERIVED_DATA)
+
+# UI automation is opt-in and uses a separate bundle ID/preferences domain.
+UI_TESTS ?= testAppLaunchShowsCalibrate
+.PHONY: ui-build ui-test
+ui-build:
+	xcodebuild -project $(PROJECT) -scheme $(SCHEME) -configuration Debug -derivedDataPath build/ui-isolated TYPINGGAME_APP_ID=com.typinggame.app.uitesting build-for-testing
+
+ui-test: ui-build
+	python3 scripts/test_ui_isolated.py $(UI_TESTS)

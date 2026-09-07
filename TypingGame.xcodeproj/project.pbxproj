@@ -565,7 +565,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_MODULE_NAME = TypingGame;
-				PRODUCT_BUNDLE_IDENTIFIER = com.typinggame.app;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(TYPINGGAME_APP_ID)";
+				TYPINGGAME_APP_ID = com.typinggame.app;
 				PRODUCT_NAME = "Typing Quest";
 				SWIFT_VERSION = 5.0;
 			};
@@ -631,7 +632,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_MODULE_NAME = TypingGame;
-				PRODUCT_BUNDLE_IDENTIFIER = com.typinggame.app;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(TYPINGGAME_APP_ID)";
+				TYPINGGAME_APP_ID = com.typinggame.app;
 				PRODUCT_NAME = "Typing Quest";
 				SWIFT_VERSION = 5.0;
 			};

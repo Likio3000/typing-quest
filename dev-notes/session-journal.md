@@ -69,3 +69,46 @@
 - Made problem-key ranking deterministic for equal counts and safe for non-positive result limits.
 - Refreshed the README to match the 240-level catalog, current UI, progression flow, and development commands.
 - Validation: level generation, shell/Python syntax checks, full unit suite (358 tests), build, and a 20-second runtime launch all passed.
+
+## 2026-09-07 — Calibration review and targeted fix
+- Verified Typing Quest origin; incorporated all five pre-existing source-checkout diffs into this worktree without editing the source checkout. Base is 82306d5 plus local changes.
+- Fixed off-center drag snapping and restricted gesture hit areas to calibration circles; made aspect-preserving image rendering explicit while retaining v1 coordinates and appearance.
+- Added geometry/legacy compatibility matrix, isolated persistence/resize/corrupt-data regression, and UI off-center-click regression. Documented test quality audit and prioritized follow-ups in calibration-review.md.
+- Final unit-only run passed 360 tests. Earlier integrated UI run: 15/23 passed, 8 failed finding controls; off-center-click and drag/reset passed. Duplicate bundle IDs observed; no confirmed monitor-specific drift or sound cause. Full interactive testing stopped; no OS permissions accepted by agent.
+- Build available in this worktree's build/Build/Products/Debug/Typing Quest.app. No push, publication, installation, or overwrite of original checkout. Runtime make-run repetition omitted to avoid interfering with user's active app.
+
+## 2026-09-07 — Close UI failures and stabilize calibration viewport
+- Isolated UI builds/preferences under com.typinggame.app.uitesting; added nonce/product-path/focus guards, nine-character fixtures, serial bounded runner and opt-in interactive workflow. Smoke defaults to isolated unit checks; CI retains every UI case through the same runner.
+- Removed unconditional preference deletion from XCTest view-model initialization, fixed popup accessibility identifier propagation, overlaid calibration controls to keep viewport stable, and added vertical scroll fallback for short windows.
+- Strengthened exact zoom/reset/initial metrics/completion/Enter checks and added UI regressions for toggle geometry, native resize, persistence relaunch, and reaching the keyboard in a short window.
+- Validation: all 27 UI cases passed individually in bounded serial runs, including all eight prior failures; final 360 unit tests passed; production/test builds and Python/shell/diff checks passed. Logs and xcresults remain under build/ui-isolated; calibration-review.md contains audit, paths and limitations.
+- No publication, push, install replacement, automatic OS permission changes or level expansion. Original local diffs retained. Physical multi-monitor switching remains untested; normal compiled app is in build/Build/Products/Debug/Typing Quest.app.
+
+## 2026-09-07 — Native window controls follow-up
+- Confirmed personal PID 71207 used the old original-project build, not the corrected worktree binary. Kept personal session and floating voice panel untouched.
+- Reproduced focus interference near maximized traffic lights: second Option+green showed Codex in front; used unobscured native menu to validate zoom/restore/close without attributing all symptoms to NSWindow.
+- Forwarded Cmd/Ctrl events to the responder chain and added explicit Window → Toggle Full Screen with Ctrl+Cmd+F. No native titlebar/style-mask overrides.
+- Focused validation passed: native red close, menu Zoom/restore/close, green fullscreen entry → shortcut exit → shrink both axes → red close, one-character typing, and modifier-forwarding unit regression. Test and normal production builds passed; no general suite rerun. Detailed evidence/limits in native-window-review.md.
+- Updated app remains in worktree build/Build/Products/Debug/Typing Quest.app. No installed app replacement, push, publication, permissions changes or level expansion.
+
+## 2026-09-07 — Install habitual corrected app
+- On explicit user authorization, installed the validated normal app in ~/Applications/Typing Quest.app and replaced the original project's built app with the same version. Preserved sources/Git changes; old app retained as verified ZIP outside repo.
+- Found Dock pointing to nonexistent Xcode DerivedData app; retargeted only that tile and preserved other Dock entries. Registered stable installation and retired stale/development launch registrations.
+- Finder/Dock CUA calls failed (cgWindowNotFound/timeout), with no approval rejection; completed configuration via macOS defaults/Launch Services and restarted Dock.
+- Opened stable app. Verified preferred macOS route, Dock URL, active PID 72943 executable path, SHA-256 matching validated build and strict/deep signature. Calibration/zoom unchanged and source diff preserved byte-for-byte.
+- No UI tests, push, publication or repository deletion. Backup/settings snapshots in ~/Library/Application Support/Typing Quest/Backups/.
+
+## 2026-09-07 — Automatic fingertip alignment and installed update
+- Replaced the old coordinate convention with exact-artwork anatomical defaults and shared image-UV transform; automatic framing keeps ten fingertips visible. Manual adjustment is secondary and old v1 preferences are retained but ignored in favor of v2 defaults/overrides.
+- Five focused regression tests passed (18 size/zoom combinations); visually verified four actual SwiftUI renders. One bounded isolated first-launch UI test passed after correcting AX text lookup. Normal build and diff whitespace check passed.
+- Backed up and updated both personal app copies, preserved legacy calibration/zoom and original-project source changes, and reopened the verified stable installation. Details: automatic-hand-guide-review.md.
+
+## 2026-09-07 — Reachable dashboard scroll bounds
+- Reproduced fixed-height overflow with five error rows: top bar clipped 50 pt above the scroll document. Added measured dashboard/column layouts with finite nested-scroll heights and removed inherited scroll disabling.
+- Three bounded isolated UI cases passed (short/normal with errors, normal without); visually verified full upper/lower edges in test captures and the updated installed app. Normal build and diff check passed.
+- Updated both authorized app copies with validated ZIP/preference backups; preserved original sources and existing preferences. Stable reopened, SHA 4ae7c2d6…; see scroll-layout-review.md.
+
+## 2026-09-07 — Authorized project closeout
+- Preserved the five original local diffs in their own commit, on top of the three preexisting local commits. Prepared the validated hand-guide, native-window, scroll and test-isolation fixes for main; no additional product scope or repeat broad suites.
+- Expanded the public README with actual features, macOS/tool requirements, reproducible build/launch steps, practice/controls, automatic guidance and focused validation commands.
+- Moved six redundant development/test app bundles and five session-created old-version ZIPs to recoverable Trash. Kept the verified stable app (SHA 4ae7c2d6…), preference snapshots, source/history and test results. Recovery mapping: `~/Library/Application Support/Typing Quest/Backups/cleanup-manifest-20260907.json`.

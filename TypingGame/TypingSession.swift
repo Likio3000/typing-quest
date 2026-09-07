@@ -100,7 +100,13 @@ final class TypingSession: ObservableObject {
     }
 
     func problemKeys(limit: Int) -> [(Character, Int)] {
-        let sorted = errorCounts.sorted { $0.value > $1.value }
+        guard limit > 0 else { return [] }
+        let sorted = errorCounts.sorted { lhs, rhs in
+            if lhs.value != rhs.value {
+                return lhs.value > rhs.value
+            }
+            return String(lhs.key) < String(rhs.key)
+        }
         return Array(sorted.prefix(limit))
     }
 

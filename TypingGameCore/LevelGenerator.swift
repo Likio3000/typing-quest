@@ -10,7 +10,11 @@ public struct LevelGenerator {
         if let fixedText = level.fixedText, !fixedText.isEmpty {
             return fixedText.trimmingCharacters(in: .whitespacesAndNewlines)
         }
-        guard !level.pool.isEmpty else { return "" }
+        guard level.length > 0,
+              level.wordLengthRange.lowerBound > 0,
+              !level.pool.isEmpty else {
+            return ""
+        }
         var result = ""
         var remaining = level.length
 

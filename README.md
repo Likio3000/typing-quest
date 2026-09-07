@@ -4,10 +4,10 @@ A focused macOS typing trainer with per-level practice, live coaching, and perfo
 
 ## Features
 
-- Multiple curated levels (letters, numbers, symbols, stories, and data-entry style passages).
-- Real-time stats (WPM, accuracy, KPM) and error tracking.
-- Best score per level, weighted by accuracy, errors, and speed.
-- On-screen next-key coaching and finger guide with calibratable hand overlay.
+- 240 generated and curated levels spanning letters, numbers, symbols, stories, and data-entry passages.
+- Difficulty-based progression, category filtering, saved best scores, and Enter-to-advance navigation.
+- Live time, Net WPM, strict accuracy, completion progress, error summaries, and a rolling speed trend.
+- On-screen next-key coaching, problem-key tracking, keyboard highlighting, and a calibratable finger guide.
 
 ## Scoring (Best Score)
 
@@ -17,8 +17,11 @@ Scores never go below zero; faster can push the score above 100.
 ## Development
 
 - Build: `make build`
-- Run: `make run`
-- Smoke test after changes: `make smoke`
-  - Runs the app smoke launch and `xcodebuild test` (UI + unit tests).
-  - Direct script usage (after `make build`):
-    `scripts/smoke_run.sh "build/Build/Products/Debug/Typing Quest.app/Contents/MacOS/Typing Quest"`
+- Timed local run (20 seconds by default): `make run`
+- Live local run: `make run-live`
+- Regenerate and validate `TypingGame/levels.json`: `make levels`
+- Unit tests:
+  `xcodebuild -project TypingGame.xcodeproj -scheme TypingGame -configuration Debug -derivedDataPath build test -destination 'platform=macOS,arch=arm64' -only-testing:TypingGameTests`
+- Full smoke launch and test suite: `make smoke`
+
+The smoke script accepts either the app bundle or executable path. Its launch and test timeouts can be adjusted with `SMOKE_TIMEOUT` and `SMOKE_TEST_TIMEOUT`.

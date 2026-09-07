@@ -892,6 +892,21 @@ final class TypingSessionProblemKeyTests: XCTestCase {
         let result = session.problemKeys(limit: 1)
         XCTAssertLessThanOrEqual(result.count, 1)
     }
+    func testProblemKeysUsesCharacterAsStableTieBreaker() {
+        let session = TypingSession(targetText: "abc")
+        session.errorCounts["z"] = 2
+        session.errorCounts["a"] = 2
+        session.errorCounts["m"] = 2
+
+        XCTAssertEqual(session.problemKeys(limit: 3).map(\.0), ["a", "m", "z"])
+    }
+    func testProblemKeysReturnsEmptyForNonPositiveLimit() {
+        let session = TypingSession(targetText: "abc")
+        session.errorCounts["a"] = 1
+
+        XCTAssertTrue(session.problemKeys(limit: 0).isEmpty)
+        XCTAssertTrue(session.problemKeys(limit: -1).isEmpty)
+    }
     func testWrongKeyOpacities_case001() {
         let session = TypingSession(targetText: "abc")
         let now = Date(timeIntervalSince1970: 100)
@@ -1631,6 +1646,20 @@ final class LevelGeneratorTests: XCTestCase {
         var rng = SeededGenerator(seed: 1)
         let text = LevelGenerator.generateText(for: level, using: &rng)
         XCTAssertEqual(text, "")
+    }
+
+    func testNonPositiveLengthReturnsEmptyString() {
+        let level = Level(id: "t4", name: "t", description: "d", pool: Array("abc"), length: 0, wordLengthRange: 1...2, includeSpaces: true)
+        var rng = SeededGenerator(seed: 1)
+
+        XCTAssertEqual(LevelGenerator.generateText(for: level, using: &rng), "")
+    }
+
+    func testNonPositiveWordLengthReturnsEmptyString() {
+        let level = Level(id: "t5", name: "t", description: "d", pool: Array("abc"), length: 10, wordLengthRange: 0...0, includeSpaces: true)
+        var rng = SeededGenerator(seed: 1)
+
+        XCTAssertEqual(LevelGenerator.generateText(for: level, using: &rng), "")
     }
 
     func testGeneratedTextInvariant_01() {

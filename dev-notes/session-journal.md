@@ -62,3 +62,10 @@
 - Validation: `make build` passed after smoothing update.
 - Replaced warm-up confidence ramp with startup prior stabilization (plus EMA) so early spikes are damped without forcing a constant upward ramp.
 - Validation: `make build` passed after startup-smoothing model update.
+
+## 2026-07-13
+
+- Hardened random level generation against non-positive lengths and word ranges so malformed programmatic levels return safely instead of hanging or trapping.
+- Made problem-key ranking deterministic for equal counts and safe for non-positive result limits.
+- Refreshed the README to match the 240-level catalog, current UI, progression flow, and development commands.
+- Validation: level generation, shell/Python syntax checks, full unit suite (358 tests), build, and a 20-second runtime launch all passed.
